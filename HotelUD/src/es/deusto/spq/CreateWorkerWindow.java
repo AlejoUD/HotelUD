@@ -1,17 +1,14 @@
-package es.deusto.spq.windows;
-
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+package es.deusto.spq;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
 import javax.swing.JTextField;
-import java.awt.Choice;
-import javax.swing.JRadioButton;
 import javax.swing.JButton;
 
 public class CreateWorkerWindow extends JFrame {
@@ -22,22 +19,9 @@ public class CreateWorkerWindow extends JFrame {
 	private JTextField ageField;
 	private JTextField genderField;
 
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CreateWorkerWindow frame = new CreateWorkerWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	
 	public CreateWorkerWindow() {
+		setTitle("Create new worker");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		panelPrincipal = new JPanel();
@@ -93,4 +77,19 @@ public class CreateWorkerWindow extends JFrame {
 		JButton createWorkerButton = new JButton("Create Worker");
 		ButtonPanel.add(createWorkerButton);
 	}
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CreateWorkerWindow frame = new CreateWorkerWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	
 }
