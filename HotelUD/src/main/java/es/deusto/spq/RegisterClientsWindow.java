@@ -28,6 +28,7 @@ public class RegisterClientsWindow extends JFrame {
 		setTitle("Register new client");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		setVisible(true);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -95,19 +96,6 @@ public class RegisterClientsWindow extends JFrame {
 		
 		JButton registerClientButton = new JButton("Register Client");
 		ButtonPanel.add(registerClientButton);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RegisterClientsWindow frame = new RegisterClientsWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 
 }
