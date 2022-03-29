@@ -1,4 +1,4 @@
-package es.deusto.spq;
+package main.java.es.deusto.spq;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

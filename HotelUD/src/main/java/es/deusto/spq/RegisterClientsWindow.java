@@ -1,4 +1,4 @@
-package es.deusto.spq;
+package main.java.es.deusto.spq;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
