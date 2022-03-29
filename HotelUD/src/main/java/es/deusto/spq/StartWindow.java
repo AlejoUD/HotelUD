@@ -44,7 +44,7 @@ public class StartWindow extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel LPerfil = new JLabel();
-		ImageIcon imagen = new ImageIcon("images\\Perfil.png");
+		ImageIcon imagen = new ImageIcon("HotelUD\\images\\Perfil.png");
 		LPerfil.setIcon(imagen);
 		LPerfil.setBounds(164, 47, 92, 87);
 		contentPane.add(LPerfil);
