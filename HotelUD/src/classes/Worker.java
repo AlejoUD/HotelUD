@@ -1,31 +1,25 @@
-package main.java.es.deusto.spq;
-public class User {
+package classes;
+public class Worker {
 	private int counter = 0;
 	private String name; 
     private String dni; 
     private String gender;
     private int age;
-	private String surname;
-	private String bankCount;
-	public User(int counter,String name, String dni, String gender, int age, String surname, String bankCount) {
+	public Worker(int counter,String name, String dni, String gender, int age) {
 		super();
 		this.counter = counter++;
 		this.name = name;
 		this.dni = dni;
 		this.gender = gender;
 		this.age = age;
-		this.surname = surname;
-		this.bankCount = bankCount;
 	}
-	public User() {
+	public Worker() {
 		super();
 		this.counter = counter++;
 		this.name = "";
 		this.dni = "";
 		this.gender = "";
 		this.age = 0;
-		this.surname = "";
-		this.bankCount = "";
 	}
 	public String getName() {
 		return name;
@@ -51,22 +45,11 @@ public class User {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public String getSurname() {
-		return surname;
-	}
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-	public String getBankCount() {
-		return bankCount;
-	}
-	public void setBankCount(String bankCount) {
-		this.bankCount = bankCount;
-	}
 	@Override
 	public String toString() {
-		return "User code "+counter+" name: " + name + ", dni: " + dni + ", gender: " + gender + ", age: " + age + ", surname: " + surname
-				+ ", bankCount: " + bankCount;
+		return "Worker code" + counter + ", name: " + name + ", dni: " + dni + ", gender: " + gender + ", age: " + age;
 	}
-
+	
+	
+    
 }

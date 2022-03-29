@@ -1,4 +1,4 @@
-package main.java.es.deusto.spq;
+package classes;
 public class Room {
     private Integer numberDoor; 
     private String type;
