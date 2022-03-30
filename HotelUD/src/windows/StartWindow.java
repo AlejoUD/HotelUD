@@ -58,7 +58,8 @@ public class StartWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				
+				new LoginWindow();
+				dispose();
 			}
 			
 		});
@@ -72,7 +73,8 @@ public class StartWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				
+				new LoginWindow();
+				dispose();
 			}
 			
 		});
