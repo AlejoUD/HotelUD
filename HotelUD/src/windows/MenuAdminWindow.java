@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
 
 public class MenuAdminWindow extends JFrame {
 
@@ -44,5 +45,41 @@ public class MenuAdminWindow extends JFrame {
 		});
 		btnBack.setBounds(455, 288, 89, 23);
 		contentPane.add(btnBack);
+		
+		JButton btnCreateClient = new JButton("Create Client");
+		btnCreateClient.setBounds(32, 141, 119, 33);
+		contentPane.add(btnCreateClient);
+		btnCreateClient.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new RegisterClientsWindow();
+			}
+		});
+		
+		JButton btnCreateDependient = new JButton("Create Dependient");
+		btnCreateDependient.setBounds(186, 141, 177, 33);
+		contentPane.add(btnCreateDependient);
+		btnCreateDependient.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		JButton btnCreateWorker = new JButton("Create Worker");
+		btnCreateWorker.setBounds(406, 141, 119, 33);
+		contentPane.add(btnCreateWorker);
+		btnCreateWorker.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 }
