@@ -14,6 +14,9 @@ import javax.swing.border.BevelBorder;
 import javax.swing.UIManager;
 import javax.swing.JSplitPane;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
@@ -30,25 +33,6 @@ public class RoomWindow extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RoomWindow frame = new RoomWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public RoomWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 539, 300);
@@ -56,6 +40,7 @@ public class RoomWindow extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		setVisible(true);
 		
 		JLabel lblNewLabel = new JLabel("HABITACIONES");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -63,6 +48,15 @@ public class RoomWindow extends JFrame {
 		
 		JButton btnNewButton = new JButton("BACK");
 		contentPane.add(btnNewButton, BorderLayout.SOUTH);
+		btnNewButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new MenuAdminWindow();
+				dispose();
+			}
+		});
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);

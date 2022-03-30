@@ -73,6 +73,16 @@ public class MenuAdminWindow extends JFrame {
 		JButton btnCreateWorker = new JButton("Create Worker");
 		btnCreateWorker.setBounds(406, 141, 119, 33);
 		contentPane.add(btnCreateWorker);
+		
+		JButton btnCreateRoom = new JButton("Create Room");
+		btnCreateRoom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new RoomWindow();
+				dispose();
+			}
+		});
+		btnCreateRoom.setBounds(32, 203, 119, 33);
+		contentPane.add(btnCreateRoom);
 		btnCreateWorker.addActionListener(new ActionListener() {
 			
 			@Override
