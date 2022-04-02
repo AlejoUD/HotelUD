@@ -7,18 +7,15 @@ public class App
 {
     public static void main( String[] args )
     {
-       // System.out.println( "Hello World!!!!" );
     	try {
- 
-    		DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel","root","");
+    		DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
     		
-    		System.out.println("Conexión OK");
-    		
+    		System.out.println("Conexion OK");
     		}catch (SQLException e) {
 				// TODO: handle exception
-    			System.out.println("Error en la conexión");
+    			System.out.println("Error en la conexion");
     			e.printStackTrace();
-			}
+    		}
     	
     }
     
