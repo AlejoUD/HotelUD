@@ -1,4 +1,5 @@
-package main.java.es.deusto.spq;
+
+package classes;
 
 public class User {
 	
@@ -71,6 +72,5 @@ public class User {
 	        return "User code "+counter+" name: " + name + ", dni: " + dni + ", gender: " + gender + ", age: " + age + ", surname: " + surname
 	                + ", bankCount: " + bankCount;
 	    }
-
 	}
 
