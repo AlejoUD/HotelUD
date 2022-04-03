@@ -18,6 +18,9 @@ import javax.swing.JSplitPane;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
@@ -39,6 +42,7 @@ public class RoomWindow extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	ArrayList<Room> al = new ArrayList<>();
+	private java.sql.Connection conexion;
 
 	public RoomWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -139,32 +143,61 @@ public class RoomWindow extends JFrame {
 		btnNewButton_1.setBounds(74, 154, 89, 23);
 		panel_2.add(btnNewButton_1);
 		
+		try {
+			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
+			System.out.println( "Successfully connected to the database");
+		} catch (SQLException e) {
+			System.out.println("Error connecting to database ");
+			e.printStackTrace();
+		}
+		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				
 				if (textField.getText().equals("")) {
 					JOptionPane.showMessageDialog(btnNewButton_1, "Error. It is necessary to add a room number",
 							"data creation", JOptionPane.ERROR_MESSAGE);
 				} else {
 
-					Integer number;
-					String type;
-					int surface;
-					int floor;
-
-					number = (int) Integer.parseInt(textField.getText());
-					type = (String) textField_1.getText();
-					surface = (int) Integer.parseInt(textField_2.getText());
-					floor = (int) Integer.parseInt(textField_3.getText());
-
-					Room v = new Room(number, type, surface, floor);
-				
-					modelo.addElement(v);
-					al.add(v);
-					textField.setText("");
+					try {
+						
+						Integer number;
+						String type;
+						int surface;
+						int floor;
+		
+						number = (int) Integer.parseInt(textField.getText());
+						type = (String) textField_1.getText();
+						surface = (int) Integer.parseInt(textField_2.getText());
+						floor = (int) Integer.parseInt(textField_3.getText());
+		
+						Room v = new Room(number, type, surface, floor);
+					
+						modelo.addElement(v);
+						al.add(v);
+						
+						String query = "INSERT INTO room (numberDoor, type, surface, floor) values( '"+number+"','"+type+"','"+surface+"','"+floor+"')";
+						
+						Statement stmt = conexion.createStatement();
+						stmt.execute(query);
+						
+						JOptionPane.showMessageDialog(null, "Product added successfully");
+						
+						textField.setText("");
+						textField_1.setText("");
+						textField_2.setText("");
+						textField_3.setText("");
+						textField_4.setText("");
+							
+				}catch (SQLException e) {
+					System.out.println("Error entering data into the database");
+					e.printStackTrace();
 				}
+				}
+						
 			}
 		});
 		
