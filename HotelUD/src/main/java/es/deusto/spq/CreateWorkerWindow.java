@@ -4,10 +4,17 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -18,6 +25,7 @@ public class CreateWorkerWindow extends JFrame {
 	private JTextField dniField;
 	private JTextField ageField;
 	private JTextField genderField;
+	private java.sql.Connection conexion;
 
 	
 	public CreateWorkerWindow() {
@@ -76,6 +84,47 @@ public class CreateWorkerWindow extends JFrame {
 		
 		JButton createWorkerButton = new JButton("Create Worker");
 		ButtonPanel.add(createWorkerButton);
+		
+		try {
+			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
+			System.out.println( "Successfully connected to the database");
+		} catch (SQLException e) {
+			System.out.println("Error connecting to database ");
+			e.printStackTrace();
+		}
+		
+		createWorkerButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					
+					String name= nameField.getText();
+					String dni = dniField.getText();
+					String gender = genderField.getText();
+					int age = Integer.parseInt(ageField.getText());
+					
+					String query = "INSERT INTO workers (name, dni, gender, age) values( '"+name+"','"+dni+"','"+gender+"','"+age+"')";
+					
+					Statement stmt = conexion.createStatement();
+					stmt.execute(query);
+					
+					JOptionPane.showMessageDialog(null, "Product added successfully");
+					
+					nameField.setText("");
+					dniField.setText("");
+					genderField.setText("");
+					ageField.setText("");
+
+							
+				}catch (SQLException e) {
+					System.out.println("Error entering data into the database");
+					e.printStackTrace();
+				}
+				
+			}
+		});
+			
 	}
 	
 	public static void main(String[] args) {
