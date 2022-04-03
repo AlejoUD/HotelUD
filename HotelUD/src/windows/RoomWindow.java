@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
@@ -16,11 +18,15 @@ import javax.swing.JSplitPane;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import classes.Room;
 import javax.swing.JTextField;
 
 public class RoomWindow extends JFrame {
@@ -32,6 +38,7 @@ public class RoomWindow extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
+	ArrayList<Room> al = new ArrayList<>();
 
 	public RoomWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,22 +79,10 @@ public class RoomWindow extends JFrame {
 		scrollPane.setBounds(0, 0, 252, 125);
 		panel_1.add(scrollPane);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Room Number", "Type", "Floor", "Surface", "Price"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				Integer.class, String.class, Integer.class, Integer.class, Double.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
-		scrollPane.setViewportView(table);
+		DefaultListModel<Room> modelo = new DefaultListModel();
+		JList lista = new JList<Room>(modelo);
+		
+		scrollPane.setViewportView(lista);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, UIManager.getColor("List.selectionBackground"), null, null, null));
@@ -143,6 +138,35 @@ public class RoomWindow extends JFrame {
 		JButton btnNewButton_1 = new JButton("ADD");
 		btnNewButton_1.setBounds(74, 154, 89, 23);
 		panel_2.add(btnNewButton_1);
+		
+		btnNewButton_1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if (textField.getText().equals("")) {
+					JOptionPane.showMessageDialog(btnNewButton_1, "Error. It is necessary to add a room number",
+							"data creation", JOptionPane.ERROR_MESSAGE);
+				} else {
+
+					Integer number;
+					String type;
+					int surface;
+					int floor;
+
+					number = (int) Integer.parseInt(textField.getText());
+					type = (String) textField_1.getText();
+					surface = (int) Integer.parseInt(textField_2.getText());
+					floor = (int) Integer.parseInt(textField_3.getText());
+
+					Room v = new Room(number, type, surface, floor);
+				
+					modelo.addElement(v);
+					al.add(v);
+					textField.setText("");
+				}
+			}
+		});
 		
 		JButton btnNewButton_2 = new JButton("ASSIGN");
 		btnNewButton_2.setBounds(261, 155, 89, 23);
