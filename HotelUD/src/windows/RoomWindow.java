@@ -32,7 +32,7 @@ public class RoomWindow extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
-
+	DefaultTableModel model;
 	public RoomWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 539, 300);
@@ -71,22 +71,20 @@ public class RoomWindow extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 252, 125);
 		panel_1.add(scrollPane);
+		model = new DefaultTableModel();
+		table = new JTable(model);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Room Number", "Type", "Floor", "Surface", "Price"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				Integer.class, String.class, Integer.class, Integer.class, Double.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
+//		table.setModel{
+//				//"Room Number", "Type", "Floor", "Surface", "Price"
+//			} {
+//			Class[] columnTypes = new Class[] {
+//				Integer.class, String.class, Integer.class, Integer.class, Double.class
+//			};
+//			public Class getColumnClass(int columnIndex) {
+//				return columnTypes[columnIndex];
+//			}
+//		});
+		
 		scrollPane.setViewportView(table);
 		
 		JPanel panel_2 = new JPanel();

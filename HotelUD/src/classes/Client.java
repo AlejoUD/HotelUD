@@ -1,5 +1,5 @@
 package classes;
-public class User {
+public class Client {
 	private int counter = 0;
 	private String name; 
     private String dni; 
@@ -7,7 +7,7 @@ public class User {
     private int age;
 	private String surname;
 	private String bankCount;
-	public User(int counter,String name, String dni, String gender, int age, String surname, String bankCount) {
+	public Client(int counter,String name, String dni, String gender, int age, String surname, String bankCount) {
 		super();
 		this.counter = counter++;
 		this.name = name;
@@ -17,7 +17,7 @@ public class User {
 		this.surname = surname;
 		this.bankCount = bankCount;
 	}
-	public User() {
+	public Client() {
 		super();
 		this.counter = counter++;
 		this.name = "";
