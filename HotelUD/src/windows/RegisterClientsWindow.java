@@ -42,7 +42,7 @@ public class RegisterClientsWindow extends JFrame {
 	public RegisterClientsWindow() {
 		
 		setTitle("Register new client");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		setBounds(150, 150, 500, 340);
 		setVisible(true);

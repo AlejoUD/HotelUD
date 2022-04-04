@@ -23,14 +23,14 @@ public class MenuAdminWindow extends JFrame {
 	 */
 	public MenuAdminWindow() {
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 600, 378);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lMenuPrinc = new JLabel("MENÚ PRINCIPAL ADMINISTRADOR");
+		JLabel lMenuPrinc = new JLabel("MENï¿½ PRINCIPAL ADMINISTRADOR");
 		lMenuPrinc.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lMenuPrinc.setForeground(new Color(0, 0, 0));
 		lMenuPrinc.setBounds(149, 64, 315, 25);
@@ -87,7 +87,7 @@ public class MenuAdminWindow extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				new CreateWorkerWindow();
 				
 			}
 		});
