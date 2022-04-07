@@ -81,7 +81,7 @@
 						<artifactId>exec-maven-plugin</artifactId>
 						<version>1.2.1</version>
 						<configuration>
-							<mainClass>com.mycompany.HotelUD.server.StartWindow</mainClass>
+							<mainClass>com.mycompany.HotelUD.server.NOMBREVENTANA</mainClass>
 							<arguments>
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>
@@ -93,7 +93,7 @@
 		</profile>
 
 		<profile>
-			<!-- run as 'mvn exec:java -Pclient' 
+			<!-- run as 'mvn exec:java -Pclient'-->
 			<id>client</id>
 			<build>
 				<plugins>
@@ -102,7 +102,7 @@
 						<artifactId>exec-maven-plugin</artifactId>
 						<version>1.2.1</version>
 						<configuration>
-							<mainClass>donations.client.Donor</mainClass>
+							<mainClass>com.mycompany.HotelUD.client.StartWindow</mainClass>
 							<arguments>
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>
@@ -111,7 +111,7 @@
 					</plugin>
 				</plugins>
 			</build>
-      -->
+
 		</profile>
 	</profiles>
 </project>

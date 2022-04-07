@@ -1,4 +1,4 @@
-package com.mycompany.HotelUD.server;
+package com.mycompany.HotelUD.client;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
