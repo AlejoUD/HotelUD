@@ -14,6 +14,8 @@ buildNumber.properties
 # Eclipse Core
 .project
 # JDT-specific (Eclipse Java Development Tools)
-.vscode
-.settings
 
+
+bin/
+.settings/
+.vscode/
