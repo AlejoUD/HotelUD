@@ -22,28 +22,10 @@ public class AsigClientRoomWindow extends JFrame {
 	private JTable TablaClientes;
 	private JTable TablaHabitaciones;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AsigClientRoomWindow frame = new AsigClientRoomWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
 	public AsigClientRoomWindow() {
 		setTitle("Asignar Habitaciones a Clientes");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 724, 411);
 		PanelPrincipal = new JPanel();
 		PanelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -76,6 +58,8 @@ public class AsigClientRoomWindow extends JFrame {
 		
 		JToggleButton botonAsignar = new JToggleButton("ASIGNAR HABITACIÓN");
 		PanelBotones.add(botonAsignar);
+		
+		setVisible(true);
 	}
 
 }
