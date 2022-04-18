@@ -202,8 +202,16 @@ public class RoomWindow extends JFrame {
 		});
 		
 		JButton btnNewButton_2 = new JButton("ASSIGN");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new AsigClientRoomWindow();
+			}
+		});
+		
 		btnNewButton_2.setBounds(261, 155, 89, 23);
 		panel.add(btnNewButton_2);
+		
+		
 		
 		JButton btnNewButton_3 = new JButton("DELETE");
 		btnNewButton_3.setBounds(414, 155, 89, 23);
