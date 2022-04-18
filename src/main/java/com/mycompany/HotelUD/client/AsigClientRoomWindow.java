@@ -11,6 +11,9 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import java.awt.GridLayout;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import javax.swing.JToggleButton;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.LineBorder;
@@ -21,6 +24,7 @@ public class AsigClientRoomWindow extends JFrame {
 	private JPanel PanelPrincipal;
 	private JTable TablaClientes;
 	private JTable TablaHabitaciones;
+	private java.sql.Connection conexion;
 
 
 	public AsigClientRoomWindow() {
@@ -58,6 +62,14 @@ public class AsigClientRoomWindow extends JFrame {
 		
 		JToggleButton botonAsignar = new JToggleButton("ASIGNAR HABITACIÓN");
 		PanelBotones.add(botonAsignar);
+		
+		try {
+			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
+			System.out.println( "Successfully connected to the database");
+		} catch (SQLException e) {
+			System.out.println("Error connecting to database ");
+			e.printStackTrace();
+		}
 		
 		setVisible(true);
 	}
