@@ -9,6 +9,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.mycompany.HotelUD.BBDD.BBDD;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 

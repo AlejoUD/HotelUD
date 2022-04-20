@@ -3,6 +3,10 @@ package com.mycompany.HotelUD.client;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.mycompany.HotelUD.BBDD.BBDD;
+import com.mycompany.HotelUD.classes.Worker;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -25,8 +29,8 @@ public class CreateWorkerWindow extends JFrame {
 	private JTextField dniField;
 	private JTextField ageField;
 	private JTextField genderField;
-	private java.sql.Connection conexion;
-
+//	private java.sql.Connection conexion;
+	BBDD baseDatos = new BBDD();
 	
 	public CreateWorkerWindow() {
 		setTitle("Create new worker");
@@ -83,45 +87,43 @@ public class CreateWorkerWindow extends JFrame {
 		ButtonPanel.setBounds(10, 213, 414, 37);
 		panelPrincipal.add(ButtonPanel);
 		
+		
+		
 		JButton createWorkerButton = new JButton("Create Worker");
 		ButtonPanel.add(createWorkerButton);
 		
-		try {
-			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
-			System.out.println( "Successfully connected to the database");
-		} catch (SQLException e) {
-			System.out.println("Error connecting to database ");
-			e.printStackTrace();
-		}
+//		try {
+//			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
+//			System.out.println( "Successfully connected to the database");
+//		} catch (SQLException e) {
+//			System.out.println("Error connecting to database ");
+//			e.printStackTrace();
+//		}
 		
 		createWorkerButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				try {
-					
-					String name= nameField.getText();
-					String dni = dniField.getText();
-					String gender = genderField.getText();
-					int age = Integer.parseInt(ageField.getText());
-					
-					String query = "INSERT INTO workers (name, dni, gender, age) values( '"+name+"','"+dni+"','"+gender+"','"+age+"')";
-					
-					Statement stmt = conexion.createStatement();
-					stmt.execute(query);
-					
-					JOptionPane.showMessageDialog(null, "Product added successfully");
-					
-					nameField.setText("");
-					dniField.setText("");
-					genderField.setText("");
-					ageField.setText("");
+				Worker worker = new Worker();
+				String name= nameField.getText();
+				String dni = dniField.getText();
+				String gender = genderField.getText();
+				int age = Integer.parseInt(ageField.getText());
+				
+				worker.setName(name);
+				worker.setDni(dni);
+				worker.setGender(gender);
+				worker.setAge(age);
+				baseDatos.addWorker(worker);
+				
+				JOptionPane.showMessageDialog(null, "Worker added successfully");
+				
+				nameField.setText("");
+				dniField.setText("");
+				genderField.setText("");
+				ageField.setText("");
 
 							
-				}catch (SQLException e) {
-					System.out.println("Error entering data into the database");
-					e.printStackTrace();
-				}
 				
 			}
 		});

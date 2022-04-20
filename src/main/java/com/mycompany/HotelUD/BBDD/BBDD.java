@@ -1,5 +1,105 @@
 package com.mycompany.HotelUD.BBDD;
 
+import java.awt.print.Printable;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+
+import com.mycompany.HotelUD.classes.Worker;
+
 public class BBDD {
+	public static Connection connection;
+	public static PreparedStatement statement;
+	
+//	public static Connection initBD(String nombreBD) {
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//			connection = DriverManager.getConnection(url,usuario,password);
+//			System.out.println("Conexion realizada");
+//			return connection;
+//		} catch (ClassNotFoundException | SQLException e) {
+//			return null;
+//		}
+//	}
+	public BBDD() {
+			try {
+				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","1234");
+				System.out.println("Conexion realizada");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	}
+	
+	public static void conectionWorkers(String nombreBD) {
+		try {
+			statement = (PreparedStatement) connection.createStatement();
+			try {
+				statement.executeUpdate("create table " + nombreBD
+						+ " (counter integer primary key autoincrement, name varchar, dni varchar, gender varchar, age integer )");
+			} catch (SQLException e) {
+				System.out.println("Ya esta creada");
+			}
+		} catch (SQLException e) {
+			System.out.println("Error");
+		}
+	}
+	
+	public Connection getConection() {
+		return connection;
+	}
+	public static void addWorker(Worker worker) {
+		try {
+			statement = connection.prepareStatement("INSERT INTO workers (counter,name,dni,gender,age) VALUES ( ?, ?, ?, ?,?)");
+			Statement st= connection.createStatement();
+			statement.setLong(1, 0);
+			statement.setString(2, worker.getName());
+			statement.setString(3, worker.getDni());
+			statement.setString(4, worker.getGender());
+			statement.setLong(5, worker.getAge());
+			
+			statement.executeUpdate();
+			statement.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if (connection!= null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public static ArrayList<Worker> getWorkers(Worker worker) {
+		ArrayList<Worker> result = new ArrayList<Worker>();
+		String consult = "SELECT * FROM workers";
+		try {
+			ResultSet rs = connection.createStatement().executeQuery(consult);
+			while(rs.next()) {
+				Worker worker2 = new Worker();
+				worker2.setName(rs.getString(1));
+				worker2.setDni(rs.getString(2));
+				worker2.setGender(rs.getString(3));
+				worker2.setAge(rs.getInt(4));
+				result.add(worker2);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+
+	}
 
 }

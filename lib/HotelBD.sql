@@ -1,5 +1,5 @@
-CREATE DATABASE Hotel;
-use Hotel;
+CREATE DATABASE IF NOT exists hotel;
+use hotel;
 CREATE TABLE`users`(  
 `counter` int (11) AUTO_INCREMENT,  
 `name` varchar (150) DEFAULT NULL,  
@@ -34,3 +34,4 @@ select * from workers;
 select * from room;
 delete from users where surname= surname;
 truncate users;
+drop database Hotel;
