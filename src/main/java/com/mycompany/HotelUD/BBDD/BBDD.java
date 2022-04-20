@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
+import com.mycompany.HotelUD.classes.User;
 import com.mycompany.HotelUD.classes.Worker;
 
 public class BBDD {
@@ -51,18 +52,62 @@ public class BBDD {
 		}
 	}
 	
+	public static void conectionUsers(String nombreBD) {
+		try {
+			statement = (PreparedStatement) connection.createStatement();
+			try {
+				statement.executeUpdate("create table " + nombreBD
+						+ " (counter integer primary key autoincrement, name varchar, surname varchar, dni varchar, gender varchar, age integer, bankCount varchar)");
+			} catch (SQLException e) {
+				System.out.println("Ya esta creada");
+			}
+		} catch (SQLException e) {
+			System.out.println("Error");
+		}
+	}
+	
 	public Connection getConection() {
 		return connection;
 	}
+	
 	public static void addWorker(Worker worker) {
 		try {
-			statement = connection.prepareStatement("INSERT INTO workers (counter,name,dni,gender,age) VALUES ( ?, ?, ?, ?,?)");
+			statement = connection.prepareStatement("INSERT INTO workers (counter,name,dni,gender,age) VALUES ( ?, ?, ?, ?, ?)");
 			Statement st= connection.createStatement();
 			statement.setLong(1, 0);
 			statement.setString(2, worker.getName());
 			statement.setString(3, worker.getDni());
 			statement.setString(4, worker.getGender());
 			statement.setLong(5, worker.getAge());
+			
+			statement.executeUpdate();
+			statement.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if (connection!= null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public static void addUsers(User user) {
+		try {
+			statement = connection.prepareStatement("INSERT INTO users (counter,name,surname,dni,gender,age,bankCount) VALUES ( ?, ?, ?, ?, ?, ?, ?)");
+			Statement st= connection.createStatement();
+			statement.setLong(1, 0);
+			statement.setString(2, user.getName());
+			statement.setString(3, user.getSurname());
+			statement.setString(4, user.getDni());
+			statement.setString(5, user.getGender());
+			statement.setLong(6, user.getAge());
+			statement.setString(7, user.getBankCount());
 			
 			statement.executeUpdate();
 			statement.close();
@@ -93,6 +138,28 @@ public class BBDD {
 				worker2.setGender(rs.getString(3));
 				worker2.setAge(rs.getInt(4));
 				result.add(worker2);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+
+	}
+	public static ArrayList<User> getUsers(User user) {
+		ArrayList<User> result = new ArrayList<User>();
+		String consult = "SELECT * FROM users";
+		try {
+			ResultSet rs = connection.createStatement().executeQuery(consult);
+			while(rs.next()) {
+				User user2 = new User();
+				user2.setName(rs.getString(1));
+				user2.setSurname(rs.getString(2));
+				user2.setDni(rs.getString(3));
+				user2.setGender(rs.getString(4));
+				user2.setAge(rs.getInt(5));
+				user2.setBankCount(rs.getString(6));
+				result.add(user2);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

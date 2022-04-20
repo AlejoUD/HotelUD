@@ -11,6 +11,10 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import com.mycompany.HotelUD.BBDD.BBDD;
+import com.mycompany.HotelUD.classes.User;
+import com.mycompany.HotelUD.classes.Worker;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,7 +39,7 @@ public class RegisterClientsWindow extends JFrame {
 	private JTextField genderField;
 	private JTextField ageField;
 	private JTextField bankAccountField;
-	private java.sql.Connection conexion;
+	BBDD baseDatos = new BBDD();
 	
 	
 	
@@ -118,51 +122,37 @@ public class RegisterClientsWindow extends JFrame {
 		JButton registerClientButton = new JButton("Register Client");
 		ButtonPanel.add(registerClientButton);
 		
-		try {
-			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
-			System.out.println( "Successfully connected to the database");
-		} catch (SQLException e) {
-			System.out.println("Error connecting to database ");
-			e.printStackTrace();
-		}
 		
 		registerClientButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				
-				try {
+				User user = new User();
+				String name= nameField.getText();
+				String surname= surnameField.getText();
+				String dni = dniField.getText();
+				String gender = genderField.getText();
+				int age = Integer.parseInt(ageField.getText());
+				String bankCount= bankAccountField.getText();
 				
-					String name= nameField.getText();
-					String surname = surnameField.getText();
-					String dni = dniField.getText();
-					String gender = genderField.getText();
-					int age = Integer.parseInt(ageField.getText());
-					String bankAccount = bankAccountField.getText();
-					
-					String query = "INSERT INTO users (name, surname, dni, gender, age, bankCount) values( '"+name+"','"+surname+"','"+dni+"','"+gender+"','"+age+"','"+bankAccount+"')";
-					
-					Statement stmt = conexion.createStatement();
-					stmt.execute(query);
-					
-					JOptionPane.showMessageDialog(null, "Product added successfully");
-					
-					nameField.setText("");
-					surnameField.setText("");
-					dniField.setText("");
-					genderField.setText("");
-					ageField.setText("");
-					bankAccountField.setText("");
-							
-				}catch (SQLException e) {
-					System.out.println("Error entering data into the database");
-					e.printStackTrace();
-				}
+				user.setName(name);
+				user.setSurname(surname);
+				user.setDni(dni);
+				user.setGender(gender);
+				user.setAge(age);
+				user.setBankCount(bankCount);
+				baseDatos.addUsers(user);
 				
+				JOptionPane.showMessageDialog(null, "User added successfully");
 				
-				
-				
-				
+				nameField.setText("");
+				surnameField.setText("");
+				dniField.setText("");
+				genderField.setText("");
+				ageField.setText("");
+				bankAccountField.setText("");
+
 			}
 			
 		});
