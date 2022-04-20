@@ -39,7 +39,13 @@ public class User {
     public String getDni() {
         return dni;
     }
-    public void setDni(String dni) {
+    public int getCounter() {
+		return counter;
+	}
+	public void setCounter(int counter) {
+		this.counter = counter;
+	}
+	public void setDni(String dni) {
         this.dni = dni;
     }
     public String getGender() {

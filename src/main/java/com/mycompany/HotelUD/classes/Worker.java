@@ -1,7 +1,15 @@
 package com.mycompany.HotelUD.classes;
 
 public class Worker {
-	private int counter = 0;
+	private int counter;
+	public int getCounter() {
+		return counter;
+	}
+
+	public void setCounter(int counter) {
+		this.counter = counter;
+	}
+
 	private String name;
 	private String dni;
 	private String gender;

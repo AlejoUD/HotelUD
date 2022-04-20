@@ -126,17 +126,18 @@ public class BBDD {
 		}
 	}
 	
-	public static ArrayList<Worker> getWorkers(Worker worker) {
+	public static ArrayList<Worker> getWorkers() {
 		ArrayList<Worker> result = new ArrayList<Worker>();
 		String consult = "SELECT * FROM workers";
 		try {
 			ResultSet rs = connection.createStatement().executeQuery(consult);
 			while(rs.next()) {
 				Worker worker2 = new Worker();
-				worker2.setName(rs.getString(1));
-				worker2.setDni(rs.getString(2));
-				worker2.setGender(rs.getString(3));
-				worker2.setAge(rs.getInt(4));
+				worker2.setCounter(rs.getInt(1));
+				worker2.setName(rs.getString(2));
+				worker2.setDni(rs.getString(3));
+				worker2.setGender(rs.getString(4));
+				worker2.setAge(rs.getInt(5));
 				result.add(worker2);
 			}
 		} catch (SQLException e) {
@@ -146,19 +147,20 @@ public class BBDD {
 		return result;
 
 	}
-	public static ArrayList<User> getUsers(User user) {
+	public static ArrayList<User> getUsers() {
 		ArrayList<User> result = new ArrayList<User>();
 		String consult = "SELECT * FROM users";
 		try {
 			ResultSet rs = connection.createStatement().executeQuery(consult);
 			while(rs.next()) {
 				User user2 = new User();
-				user2.setName(rs.getString(1));
-				user2.setSurname(rs.getString(2));
-				user2.setDni(rs.getString(3));
-				user2.setGender(rs.getString(4));
-				user2.setAge(rs.getInt(5));
-				user2.setBankCount(rs.getString(6));
+				user2.setCounter(rs.getInt(1));
+				user2.setName(rs.getString(2));
+				user2.setSurname(rs.getString(3));
+				user2.setDni(rs.getString(4));
+				user2.setGender(rs.getString(5));
+				user2.setAge(rs.getInt(6));
+				user2.setBankCount(rs.getString(7));
 				result.add(user2);
 			}
 		} catch (SQLException e) {

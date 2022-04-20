@@ -6,13 +6,23 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.mycompany.HotelUD.BBDD.BBDD;
+import com.mycompany.HotelUD.classes.Room;
+import com.mycompany.HotelUD.classes.User;
+import com.mycompany.HotelUD.classes.Worker;
+
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.UIManager;
 import java.awt.Color;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.util.ArrayList;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
@@ -20,7 +30,7 @@ import javax.swing.JMenu;
 public class WindowServer extends JFrame {
 
 	private JPanel contentPane;
-
+	BBDD baseDatos = new BBDD();
 	/**
 	 * Launch the application.
 	 */
@@ -71,10 +81,18 @@ public class WindowServer extends JFrame {
 		room_panel.setLayout(null);
 		
 		JScrollPane room_scrollPane = new JScrollPane();
-		room_scrollPane.setBounds(10, 11, 295, 159);
+//		room_scrollPane.setBounds(10, 11, 295, 159);
 		room_panel.add(room_scrollPane);
 		
-		JList room_list = new JList();
+		DefaultListModel modelRoom = new DefaultListModel<>();
+//		Room room = new Room();
+//		System.out.println( baseDatos.getRooms());
+//		ArrayList<Room> arrayR = new ArrayList<>();
+//		for (Room r : baseDatos.getRooms()) {
+//			modelRoom.addElement(r);
+//		}
+		
+		JList room_list = new JList(modelRoom);
 		room_list.setBounds(0, 0, 1, 1);
 		room_panel.add(room_list);
 		
@@ -86,10 +104,19 @@ public class WindowServer extends JFrame {
 		contentPane.add(client_panel);
 		
 		JScrollPane client_scrollPane = new JScrollPane();
-		client_scrollPane.setBounds(10, 11, 295, 159);
+//		client_scrollPane.setBounds(10, 11, 295, 159);
 		client_panel.add(client_scrollPane);
 		
-		JList client_list = new JList();
+		DefaultListModel modelUsers = new DefaultListModel<>();
+		User user = new User();
+		System.out.println( baseDatos.getUsers());
+		ArrayList<User> arrayU = new ArrayList<>();
+		for (User u : baseDatos.getUsers()) {
+			modelUsers.addElement(u);
+		}
+	
+		
+		JList client_list = new JList(modelUsers);
 		client_list.setBounds(0, 0, 1, 1);
 		client_panel.add(client_list);
 		
@@ -115,12 +142,21 @@ public class WindowServer extends JFrame {
 		contentPane.add(worker_panel);
 		
 		JScrollPane worker_scrollPane = new JScrollPane();
-		worker_scrollPane.setBounds(10, 11, 295, 159);
+		//worker_scrollPane.setBounds(10, 11, 295, 11);
 		worker_panel.add(worker_scrollPane);
 		
-		JList worker_list = new JList();
-		worker_list.setBounds(0, 0, 1, 1);
+		DefaultListModel modelWorker = new DefaultListModel<>();
+		Worker worker = new Worker();
+		System.out.println( baseDatos.getWorkers());
+		ArrayList<Worker> arrayW = new ArrayList<>();
+		for (Worker w : baseDatos.getWorkers()) {
+			modelWorker.addElement(w);
+		}
+		
+		JList worker_list = new JList(modelWorker);
+		worker_list.setBounds(10, 11, 295, 159);
 		worker_panel.add(worker_list);
+		
 		
 		JLabel labelWorkers = new JLabel("Workers");
 		labelWorkers.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 11));
