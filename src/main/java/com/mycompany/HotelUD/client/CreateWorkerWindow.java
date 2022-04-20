@@ -29,7 +29,6 @@ public class CreateWorkerWindow extends JFrame {
 	private JTextField dniField;
 	private JTextField ageField;
 	private JTextField genderField;
-//	private java.sql.Connection conexion;
 	BBDD baseDatos = new BBDD();
 	
 	public CreateWorkerWindow() {
@@ -92,13 +91,6 @@ public class CreateWorkerWindow extends JFrame {
 		JButton createWorkerButton = new JButton("Create Worker");
 		ButtonPanel.add(createWorkerButton);
 		
-//		try {
-//			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
-//			System.out.println( "Successfully connected to the database");
-//		} catch (SQLException e) {
-//			System.out.println("Error connecting to database ");
-//			e.printStackTrace();
-//		}
 		
 		createWorkerButton.addActionListener(new ActionListener() {
 
