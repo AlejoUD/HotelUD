@@ -27,11 +27,22 @@ CREATE TABLE`room`(
 `floor` int(5) DEFAULT NULL,
 PRIMARY KEY (`numberDoor`)
 );
-
+CREATE TABLE`dependients`(  
+`counter` int (11) AUTO_INCREMENT,  
+`name` varchar (150) DEFAULT NULL, 
+`dni` varchar (150) DEFAULT NULL,  
+`password` varchar (500) DEFAULT NULL,   
+`gender` varchar (150) DEFAULT NULL, 
+`position` varchar (150) DEFAULT NULL, 
+`description` varchar (150) DEFAULT NULL,    
+`bankAccount` varchar (150) DEFAULT NULL,  
+PRIMARY KEY (`counter`)
+);
 drop table room;
 select * from users;
 select * from workers;
 select * from room;
+select * from dependients;
 delete from users where surname= surname;
 truncate users;
 drop database Hotel;

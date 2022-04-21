@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
+import com.mycompany.HotelUD.classes.Dependient;
 import com.mycompany.HotelUD.classes.Room;
 import com.mycompany.HotelUD.classes.User;
 import com.mycompany.HotelUD.classes.Worker;
@@ -224,6 +225,60 @@ public class BBDD {
 				room2.setSurface(rs.getInt(3));
 				room2.setFloor(rs.getInt(4));
 				result.add(room2);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+
+	}
+	
+	public static void addDependient(Dependient dependient) {
+		try {
+			statement = connection.prepareStatement("INSERT INTO dependients (counter,name,dni,password,gender,position,description,bankAccount) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
+			Statement st= connection.createStatement();
+			statement.setLong(1, 0);
+			statement.setString(2, dependient.getName());
+			statement.setString(3, dependient.getDni());
+			statement.setString(4, dependient.getPassword());
+			statement.setString(5, dependient.getGender());
+			statement.setString(6, dependient.getPosition());
+			statement.setString(7, dependient.getDescription());
+			statement.setString(8, dependient.getBankAccount());
+			
+			statement.executeUpdate();
+			statement.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if (connection!= null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	public static ArrayList<Dependient> getDependients() {
+		ArrayList<Dependient> result = new ArrayList<Dependient>();
+		String consult = "SELECT * FROM dependients";
+		try {
+			ResultSet rs = connection.createStatement().executeQuery(consult);
+			while(rs.next()) {
+				Dependient dependient2 = new Dependient();
+				dependient2.setCounter(rs.getInt(1));
+				dependient2.setName(rs.getString(2));
+				dependient2.setDni(rs.getString(3));
+				dependient2.setPassword(rs.getString(4));
+				dependient2.setGender(rs.getString(5));
+				dependient2.setPosition(rs.getString(6));
+				dependient2.setDescription(rs.getString(7));
+				dependient2.setBankAccount(rs.getString(8));
+				result.add(dependient2);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

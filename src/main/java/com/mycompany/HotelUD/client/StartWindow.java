@@ -67,7 +67,7 @@ public class StartWindow extends JFrame {
 			
 		});
 		
-		JButton btnLoginUser = new JButton("Login User");
+		JButton btnLoginUser = new JButton("Login User/Depend");
 		btnLoginUser.setBounds(129, 179, 139, 23);
 		contentPane.add(btnLoginUser);
 		

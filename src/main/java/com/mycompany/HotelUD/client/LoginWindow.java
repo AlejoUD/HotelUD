@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.mycompany.HotelUD.BBDD.BBDD;
+import com.mycompany.HotelUD.classes.Dependient;
 import com.mycompany.HotelUD.classes.User;
 import com.mycompany.HotelUD.classes.Worker;
 
@@ -86,6 +87,9 @@ public class LoginWindow extends JFrame {
 				else if (usuarioCoincide()== true) {
 					new UserWindow();
 					dispose();
+				}else if (dependienteCoincide()==true) {
+					//new DependientWindow();
+					dispose();
 				}
 			}
 		});
@@ -103,5 +107,15 @@ public class LoginWindow extends JFrame {
 		}
 		return result;
 	}
-	
+	public boolean dependienteCoincide() {
+		ArrayList<Dependient> dependientBD = new ArrayList<>();
+		boolean result = false;
+		for (Dependient u : baseDatos.getDependients()) {
+			if(tEmail.getText().equals(u.getDni()) && tContrasenya.getText().equals(u.getPassword())){
+				result = true;
+			
+		}
+		}
+		return result;
+	}
 }
