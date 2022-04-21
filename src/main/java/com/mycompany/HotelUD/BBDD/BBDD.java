@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
+import com.mycompany.HotelUD.classes.Room;
 import com.mycompany.HotelUD.classes.User;
 import com.mycompany.HotelUD.classes.Worker;
 
@@ -126,6 +127,32 @@ public class BBDD {
 		}
 	}
 	
+	public static void addRoom(Room room) {
+		try {
+			statement = connection.prepareStatement("INSERT INTO room (numberDoor,type,surface,floor) VALUES ( ?, ?, ?, ?)");
+			Statement st= connection.createStatement();
+			statement.setLong(1, 0);
+			statement.setString(2, room.getType());
+			statement.setLong(3, room.getSurface());
+			statement.setLong(4, room.getFloor());
+			
+			statement.executeUpdate();
+			statement.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if (connection!= null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
 	public static ArrayList<Worker> getWorkers() {
 		ArrayList<Worker> result = new ArrayList<Worker>();
 		String consult = "SELECT * FROM workers";
@@ -162,6 +189,27 @@ public class BBDD {
 				user2.setAge(rs.getInt(6));
 				user2.setBankCount(rs.getString(7));
 				result.add(user2);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+
+	}
+	
+	public static ArrayList<Room> getRooms() {
+		ArrayList<Room> result = new ArrayList<Room>();
+		String consult = "SELECT * FROM room";
+		try {
+			ResultSet rs = connection.createStatement().executeQuery(consult);
+			while(rs.next()) {
+				Room room2 = new Room();
+				room2.setNumberDoor(rs.getInt(1));
+				room2.setType(rs.getString(2));
+				room2.setSurface(rs.getInt(3));
+				room2.setFloor(rs.getInt(4));
+				result.add(room2);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
