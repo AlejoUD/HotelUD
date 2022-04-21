@@ -13,11 +13,16 @@ import javax.swing.JTable;
 import java.awt.GridLayout;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JToggleButton;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.DefaultListModel;
+
+import com.mycompany.HotelUD.BBDD.BBDD;
+import com.mycompany.HotelUD.classes.Room;
 
 import java.awt.Color;
 
@@ -27,6 +32,7 @@ public class AsigClientRoomWindow extends JFrame {
 	private JTable TablaClientes;
 	private JTable TablaHabitaciones;
 	private java.sql.Connection conexion;
+	BBDD baseDatos = new BBDD();
 
 
 	public AsigClientRoomWindow() {
@@ -54,11 +60,21 @@ public class AsigClientRoomWindow extends JFrame {
 		
 		TablaHabitaciones = new JTable(modelRoom);
 		
+		ArrayList<Room> listaRooms = baseDatos.getRooms();
+		
+		for (int i = 0; i < listaRooms.size(); i++) {
+			
+			modelRoom.addElement(listaRooms.get(i));
+			
+		}
+		
 		TablaHabitaciones.setBorder(new LineBorder(new Color(0, 0, 0)));
 		TablaHabitaciones.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		PanelInfo.add(TablaHabitaciones);
 		
-		TablaClientes = new JTable();
+		DefaultTableModel modelClient = new DefaultTableModel();
+		TablaClientes = new JTable(modelClient);
+		
 		TablaClientes.setBorder(new LineBorder(new Color(0, 0, 0)));
 		PanelInfo.add(TablaClientes);
 		
@@ -75,6 +91,8 @@ public class AsigClientRoomWindow extends JFrame {
 			System.out.println("Error connecting to database ");
 			e.printStackTrace();
 		}
+		
+		
 		
 		setVisible(true);
 	}
