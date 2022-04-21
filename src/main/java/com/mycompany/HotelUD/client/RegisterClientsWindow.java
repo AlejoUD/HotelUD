@@ -34,7 +34,7 @@ public class RegisterClientsWindow extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField nameField;
-	private JTextField surnameField;
+	private JTextField password;
 	private JTextField dniField;
 	private JTextField genderField;
 	private JTextField ageField;
@@ -79,12 +79,12 @@ public class RegisterClientsWindow extends JFrame {
 		InformationPanel.add(nameField);
 		nameField.setColumns(10);
 		
-		JLabel surnameLabel = new JLabel("Surname");
-		InformationPanel.add(surnameLabel);
+		JLabel passwordLabel = new JLabel("Password");
+		InformationPanel.add(passwordLabel);
 		
-		surnameField = new JTextField();
-		InformationPanel.add(surnameField);
-		surnameField.setColumns(10);
+		password = new JTextField();
+		InformationPanel.add(password);
+		password.setColumns(10);
 		
 		JLabel dniLabel = new JLabel("DNI");
 		InformationPanel.add(dniLabel);
@@ -130,14 +130,14 @@ public class RegisterClientsWindow extends JFrame {
 				
 				User user = new User();
 				String name= nameField.getText();
-				String surname= surnameField.getText();
+				String pass= password.getText();
 				String dni = dniField.getText();
 				String gender = genderField.getText();
 				int age = Integer.parseInt(ageField.getText());
 				String bankCount= bankAccountField.getText();
 				
 				user.setName(name);
-				user.setSurname(surname);
+				user.setPassword(pass);
 				user.setDni(dni);
 				user.setGender(gender);
 				user.setAge(age);
@@ -147,7 +147,7 @@ public class RegisterClientsWindow extends JFrame {
 				JOptionPane.showMessageDialog(null, "User added successfully");
 				
 				nameField.setText("");
-				surnameField.setText("");
+				password.setText("");
 				dniField.setText("");
 				genderField.setText("");
 				ageField.setText("");

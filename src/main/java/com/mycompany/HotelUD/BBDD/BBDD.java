@@ -114,11 +114,11 @@ public class BBDD {
 	
 	public static void addUsers(User user) {
 		try {
-			statement = connection.prepareStatement("INSERT INTO users (counter,name,surname,dni,gender,age,bankCount) VALUES ( ?, ?, ?, ?, ?, ?, ?)");
+			statement = connection.prepareStatement("INSERT INTO users (counter,name,password,dni,gender,age,bankCount) VALUES ( ?, ?, ?, ?, ?, ?, ?)");
 			Statement st= connection.createStatement();
 			statement.setLong(1, 0);
 			statement.setString(2, user.getName());
-			statement.setString(3, user.getSurname());
+			statement.setString(3, user.getPassword());
 			statement.setString(4, user.getDni());
 			statement.setString(5, user.getGender());
 			statement.setLong(6, user.getAge());
@@ -197,7 +197,7 @@ public class BBDD {
 				User user2 = new User();
 				user2.setCounter(rs.getInt(1));
 				user2.setName(rs.getString(2));
-				user2.setSurname(rs.getString(3));
+				user2.setPassword(rs.getString(3));
 				user2.setDni(rs.getString(4));
 				user2.setGender(rs.getString(5));
 				user2.setAge(rs.getInt(6));

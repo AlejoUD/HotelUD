@@ -7,17 +7,17 @@ public class User {
     private String dni; 
     private String gender;
     private int age;
-    private String surname;
+    private String password;
     private String bankCount;
     
-    public User (int counter,String name, String dni, String gender, int age, String surname, String bankCount) {
+    public User (int counter,String name, String dni, String gender, int age, String password, String bankCount) {
         super();
         this.counter = counter;
         this.name = name;
         this.dni = dni;
         this.gender = gender;
         this.age = age;
-        this.surname = surname;
+        this.password = password;
         this.bankCount = bankCount;
     }
     public User() {
@@ -27,7 +27,7 @@ public class User {
         this.dni = "";
         this.gender = "";
         this.age = 0;
-        this.surname = "";
+        this.password = "";
         this.bankCount = "";
     }
     public String getName() {
@@ -60,11 +60,11 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
-    public String getSurname() {
-        return surname;
+    public String getPassword() {
+        return password;
     }
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setPassword(String password) {
+        this.password = password;
     }
     public String getBankCount() {
         return bankCount;
@@ -74,7 +74,7 @@ public class User {
     }
     @Override
     public String toString() {
-        return "User code "+counter+" name: " + name + ", dni: " + dni + ", gender: " + gender + ", age: " + age + ", surname: " + surname
+        return "User code "+counter+" name: " + name + ", dni: " + dni + ", gender: " + gender + ", age: " + age + ", password: " + password
                 + ", bankCount: " + bankCount;
     }
 }

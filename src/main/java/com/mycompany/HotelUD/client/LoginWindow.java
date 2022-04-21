@@ -8,10 +8,16 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.mycompany.HotelUD.BBDD.BBDD;
+import com.mycompany.HotelUD.classes.User;
+import com.mycompany.HotelUD.classes.Worker;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class LoginWindow extends JFrame {
@@ -23,6 +29,7 @@ public class LoginWindow extends JFrame {
 	private JButton btnLogin;
 	String emailAdmin = "admin@admin.com";
 	String passAdmin = "12345678";
+	BBDD baseDatos = new BBDD();
 	
 	public LoginWindow() {
 		setVisible(true);
@@ -39,7 +46,7 @@ public class LoginWindow extends JFrame {
 		lTitle.setBounds(155, 54, 291, 25);
 		contentPane.add(lTitle);
 		
-		JLabel lEmail = new JLabel("Email: ");
+		JLabel lEmail = new JLabel("User: ");
 		lEmail.setBounds(89, 134, 87, 19);
 		contentPane.add(lEmail);
 		
@@ -67,12 +74,17 @@ public class LoginWindow extends JFrame {
 		btnBack.setBounds(291, 241, 89, 23);
 		contentPane.add(btnBack);
 		
+		
 		btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
 				if(tEmail.getText().equals(emailAdmin) && tContrasenya.getText().equals(passAdmin)) {
 					new MenuAdminWindow();
+					dispose();
+				}
+				else if (usuarioCoincide()== true) {
+					new UserWindow();
 					dispose();
 				}
 			}
@@ -80,4 +92,16 @@ public class LoginWindow extends JFrame {
 		btnLogin.setBounds(186, 241, 89, 23);
 		contentPane.add(btnLogin);
 	}
+	public boolean usuarioCoincide() {
+		ArrayList<User> userBD = new ArrayList<>();
+		boolean result = false;
+		for (User u : baseDatos.getUsers()) {
+			if(tEmail.getText().equals(u.getDni()) && tContrasenya.getText().equals(u.getPassword())){
+				result = true;
+			
+		}
+		}
+		return result;
+	}
+	
 }
