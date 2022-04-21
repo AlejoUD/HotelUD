@@ -22,6 +22,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -29,6 +30,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import com.mycompany.HotelUD.BBDD.BBDD;
 import com.mycompany.HotelUD.classes.Room;
 import javax.swing.JTextField;
 
@@ -43,6 +45,8 @@ public class RoomWindow extends JFrame {
 	private JTextField textField_4;
 	ArrayList<Room> al = new ArrayList<>();
 	private java.sql.Connection conexion;
+	BBDD baseDatos = new BBDD();
+	
 
 	public RoomWindow() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -83,8 +87,8 @@ public class RoomWindow extends JFrame {
 		scrollPane.setBounds(0, 0, 252, 125);
 		panel_1.add(scrollPane);
 		
-		DefaultListModel<Room> modelo = new DefaultListModel();
-		JList lista = new JList<Room>(modelo);
+		DefaultListModel<Room> modelRoom = new DefaultListModel<Room>();
+		JList lista = new JList<Room>(modelRoom);
 		
 		scrollPane.setViewportView(lista);
 		
@@ -176,7 +180,7 @@ public class RoomWindow extends JFrame {
 		
 						Room v = new Room(number, type, surface, floor);
 					
-						modelo.addElement(v);
+						modelRoom.addElement(v);
 						al.add(v);
 						
 						String query = "INSERT INTO room (numberDoor, type, surface, floor) values( '"+number+"','"+type+"','"+surface+"','"+floor+"')";
@@ -216,5 +220,19 @@ public class RoomWindow extends JFrame {
 		JButton btnNewButton_3 = new JButton("DELETE");
 		btnNewButton_3.setBounds(414, 155, 89, 23);
 		panel.add(btnNewButton_3);
+		
+		
+		ArrayList<Room> listaRooms = baseDatos.getRooms();
+		
+		for (int i = 0; i < listaRooms.size(); i++) {
+			
+			modelRoom.addElement(listaRooms.get(i));
+			
+		}
+		
 	}
+	
+	
+	
+	
 }

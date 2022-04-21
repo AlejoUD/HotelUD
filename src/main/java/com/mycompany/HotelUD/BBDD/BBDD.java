@@ -67,6 +67,20 @@ public class BBDD {
 		}
 	}
 	
+	public static void conectionRoom(String nombreBD) {
+		try {
+			statement = (PreparedStatement) connection.createStatement();
+			try {
+				statement.executeUpdate("create table " + nombreBD
+						+ " (numberDoor integer primary key autoincrement, type varchar, surface integer, floor integer)");
+			} catch (SQLException e) {
+				System.out.println("Ya esta creada");
+			}
+		} catch (SQLException e) {
+			System.out.println("Error");
+		}
+	}
+	
 	public Connection getConection() {
 		return connection;
 	}

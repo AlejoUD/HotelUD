@@ -17,6 +17,8 @@ import java.sql.SQLException;
 import javax.swing.JToggleButton;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.Color;
 
 public class AsigClientRoomWindow extends JFrame {
@@ -48,7 +50,10 @@ public class AsigClientRoomWindow extends JFrame {
 		PanelPrincipal.add(PanelInfo, BorderLayout.CENTER);
 		PanelInfo.setLayout(new GridLayout(1, 2, 0, 0));
 		
-		TablaHabitaciones = new JTable();
+		DefaultTableModel modelRoom = new DefaultTableModel();
+		
+		TablaHabitaciones = new JTable(modelRoom);
+		
 		TablaHabitaciones.setBorder(new LineBorder(new Color(0, 0, 0)));
 		TablaHabitaciones.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		PanelInfo.add(TablaHabitaciones);
@@ -73,5 +78,7 @@ public class AsigClientRoomWindow extends JFrame {
 		
 		setVisible(true);
 	}
+	
+	
 
 }
