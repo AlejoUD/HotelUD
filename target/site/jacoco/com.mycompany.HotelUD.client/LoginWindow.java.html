@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginWindow.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HotelUD</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.HotelUD.client</a> &gt; <span class="el_source">LoginWindow.java</span></div><h1>LoginWindow.java</h1><pre class="source lang-java linenums">package com.mycompany.HotelUD.client;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import com.mycompany.HotelUD.BBDD.BBDD;
+import com.mycompany.HotelUD.classes.Dependient;
+import com.mycompany.HotelUD.classes.User;
+import com.mycompany.HotelUD.classes.Worker;
+
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+
+public class LoginWindow extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField tEmail;
+	private JTextField tContrasenya;
+	private JButton btnBack;
+	private JButton btnLogin;
+<span class="nc" id="L31">	String emailAdmin = &quot;admin@admin.com&quot;;</span>
+<span class="nc" id="L32">	String passAdmin = &quot;12345678&quot;;</span>
+<span class="nc" id="L33">	BBDD baseDatos = new BBDD();</span>
+	
+<span class="nc" id="L35">	public LoginWindow() {</span>
+<span class="nc" id="L36">		setVisible(true);</span>
+<span class="nc" id="L37">		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L38">		setBounds(100, 100, 485, 328);</span>
+<span class="nc" id="L39">		contentPane = new JPanel();</span>
+<span class="nc" id="L40">		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="nc" id="L41">		setContentPane(contentPane);</span>
+<span class="nc" id="L42">		contentPane.setLayout(null);</span>
+		
+<span class="nc" id="L44">		JLabel lTitle = new JLabel(&quot;LOGIN&quot;);</span>
+<span class="nc" id="L45">		lTitle.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 16));</span>
+<span class="nc" id="L46">		lTitle.setForeground(new Color(0, 0, 0));</span>
+<span class="nc" id="L47">		lTitle.setBounds(155, 54, 291, 25);</span>
+<span class="nc" id="L48">		contentPane.add(lTitle);</span>
+		
+<span class="nc" id="L50">		JLabel lEmail = new JLabel(&quot;User: &quot;);</span>
+<span class="nc" id="L51">		lEmail.setBounds(89, 134, 87, 19);</span>
+<span class="nc" id="L52">		contentPane.add(lEmail);</span>
+		
+<span class="nc" id="L54">		JLabel lContrasenya = new JLabel(&quot;Password: &quot;);</span>
+<span class="nc" id="L55">		lContrasenya.setBounds(89, 177, 87, 19);</span>
+<span class="nc" id="L56">		contentPane.add(lContrasenya);</span>
+		
+<span class="nc" id="L58">		tEmail = new JTextField();</span>
+<span class="nc" id="L59">		tEmail.setBounds(186, 133, 194, 20);</span>
+<span class="nc" id="L60">		contentPane.add(tEmail);</span>
+<span class="nc" id="L61">		tEmail.setColumns(10);</span>
+		
+<span class="nc" id="L63">		tContrasenya = new JTextField();</span>
+<span class="nc" id="L64">		tContrasenya.setColumns(10);</span>
+<span class="nc" id="L65">		tContrasenya.setBounds(186, 176, 194, 20);</span>
+<span class="nc" id="L66">		contentPane.add(tContrasenya);</span>
+		
+<span class="nc" id="L68">		btnBack = new JButton(&quot;Back&quot;);</span>
+<span class="nc" id="L69">		btnBack.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L71">				new StartWindow();</span>
+<span class="nc" id="L72">				dispose();</span>
+<span class="nc" id="L73">			}</span>
+		});
+<span class="nc" id="L75">		btnBack.setBounds(291, 241, 89, 23);</span>
+<span class="nc" id="L76">		contentPane.add(btnBack);</span>
+		
+		
+<span class="nc" id="L79">		btnLogin = new JButton(&quot;Login&quot;);</span>
+<span class="nc" id="L80">		btnLogin.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+				
+<span class="nc bnc" id="L83" title="All 4 branches missed.">				if(tEmail.getText().equals(emailAdmin) &amp;&amp; tContrasenya.getText().equals(passAdmin)) {</span>
+<span class="nc" id="L84">					new MenuAdminWindow();</span>
+<span class="nc" id="L85">					dispose();</span>
+				}
+<span class="nc bnc" id="L87" title="All 2 branches missed.">				else if (usuarioCoincide()== true) {</span>
+<span class="nc" id="L88">					new UserWindow();</span>
+<span class="nc" id="L89">					dispose();</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">				}else if (dependienteCoincide()==true) {</span>
+					//new DependientWindow();
+<span class="nc" id="L92">					dispose();</span>
+				}
+<span class="nc" id="L94">			}</span>
+		});
+<span class="nc" id="L96">		btnLogin.setBounds(186, 241, 89, 23);</span>
+<span class="nc" id="L97">		contentPane.add(btnLogin);</span>
+<span class="nc" id="L98">	}</span>
+	public boolean usuarioCoincide() {
+<span class="nc" id="L100">		ArrayList&lt;User&gt; userBD = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L101">		boolean result = false;</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		for (User u : baseDatos.getUsers()) {</span>
+<span class="nc bnc" id="L103" title="All 4 branches missed.">			if(tEmail.getText().equals(u.getDni()) &amp;&amp; tContrasenya.getText().equals(u.getPassword())){</span>
+<span class="nc" id="L104">				result = true;</span>
+			
+		}
+<span class="nc" id="L107">		}</span>
+<span class="nc" id="L108">		return result;</span>
+	}
+	public boolean dependienteCoincide() {
+<span class="nc" id="L111">		ArrayList&lt;Dependient&gt; dependientBD = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L112">		boolean result = false;</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">		for (Dependient u : baseDatos.getDependients()) {</span>
+<span class="nc bnc" id="L114" title="All 4 branches missed.">			if(tEmail.getText().equals(u.getDni()) &amp;&amp; tContrasenya.getText().equals(u.getPassword())){</span>
+<span class="nc" id="L115">				result = true;</span>
+			
+		}
+<span class="nc" id="L118">		}</span>
+<span class="nc" id="L119">		return result;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

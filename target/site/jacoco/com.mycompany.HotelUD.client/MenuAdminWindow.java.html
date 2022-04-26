@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MenuAdminWindow.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HotelUD</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.HotelUD.client</a> &gt; <span class="el_source">MenuAdminWindow.java</span></div><h1>MenuAdminWindow.java</h1><pre class="source lang-java linenums">package com.mycompany.HotelUD.client;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
+
+public class MenuAdminWindow extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Create the frame.
+	 */
+<span class="nc" id="L24">	public MenuAdminWindow() {</span>
+<span class="nc" id="L25">		setVisible(true);</span>
+<span class="nc" id="L26">		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L27">		setBounds(100, 100, 600, 378);</span>
+<span class="nc" id="L28">		contentPane = new JPanel();</span>
+<span class="nc" id="L29">		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="nc" id="L30">		setContentPane(contentPane);</span>
+<span class="nc" id="L31">		contentPane.setLayout(null);</span>
+		
+<span class="nc" id="L33">		JLabel lMenuPrinc = new JLabel(&quot;MEN� PRINCIPAL ADMINISTRADOR&quot;);</span>
+<span class="nc" id="L34">		lMenuPrinc.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 18));</span>
+<span class="nc" id="L35">		lMenuPrinc.setForeground(new Color(0, 0, 0));</span>
+<span class="nc" id="L36">		lMenuPrinc.setBounds(149, 64, 315, 25);</span>
+<span class="nc" id="L37">		contentPane.add(lMenuPrinc);</span>
+		
+<span class="nc" id="L39">		JButton btnBack = new JButton(&quot;Back&quot;);</span>
+<span class="nc" id="L40">		btnBack.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L42">				new LoginWindow();</span>
+<span class="nc" id="L43">				dispose();</span>
+<span class="nc" id="L44">			}</span>
+		});
+<span class="nc" id="L46">		btnBack.setBounds(455, 288, 89, 23);</span>
+<span class="nc" id="L47">		contentPane.add(btnBack);</span>
+		
+<span class="nc" id="L49">		JButton btnCreateClient = new JButton(&quot;Create Client&quot;);</span>
+<span class="nc" id="L50">		btnCreateClient.setBounds(32, 141, 119, 33);</span>
+<span class="nc" id="L51">		contentPane.add(btnCreateClient);</span>
+<span class="nc" id="L52">		btnCreateClient.addActionListener(new ActionListener() {</span>
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+<span class="nc" id="L57">				new RegisterClientsWindow();</span>
+<span class="nc" id="L58">			}</span>
+		});
+		
+<span class="nc" id="L61">		JButton btnCreateDependient = new JButton(&quot;Create Dependient&quot;);</span>
+<span class="nc" id="L62">		btnCreateDependient.setBounds(186, 141, 177, 33);</span>
+<span class="nc" id="L63">		contentPane.add(btnCreateDependient);</span>
+<span class="nc" id="L64">		btnCreateDependient.addActionListener(new ActionListener() {</span>
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+<span class="nc" id="L69">				new CreateDependientsWindow();</span>
+<span class="nc" id="L70">				dispose();</span>
+<span class="nc" id="L71">			}</span>
+		});
+		
+<span class="nc" id="L74">		JButton btnCreateWorker = new JButton(&quot;Create Worker&quot;);</span>
+<span class="nc" id="L75">		btnCreateWorker.setBounds(406, 141, 119, 33);</span>
+<span class="nc" id="L76">		contentPane.add(btnCreateWorker);</span>
+		
+<span class="nc" id="L78">		JButton btnCreateRoom = new JButton(&quot;Create Room&quot;);</span>
+<span class="nc" id="L79">		btnCreateRoom.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L81">				new RoomWindow();</span>
+<span class="nc" id="L82">				dispose();</span>
+<span class="nc" id="L83">			}</span>
+		});
+<span class="nc" id="L85">		btnCreateRoom.setBounds(32, 203, 119, 33);</span>
+<span class="nc" id="L86">		contentPane.add(btnCreateRoom);</span>
+<span class="nc" id="L87">		btnCreateWorker.addActionListener(new ActionListener() {</span>
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L91">				new CreateWorkerWindow();</span>
+				
+<span class="nc" id="L93">			}</span>
+		});
+<span class="nc" id="L95">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
