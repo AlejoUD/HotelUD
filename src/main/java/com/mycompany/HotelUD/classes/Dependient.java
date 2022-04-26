@@ -1,7 +1,7 @@
 package com.mycompany.HotelUD.classes;
 
 public class Dependient {
-	protected int counter;
+	private int counter;
 	protected String name;
 	protected String dni;
 	protected String password;

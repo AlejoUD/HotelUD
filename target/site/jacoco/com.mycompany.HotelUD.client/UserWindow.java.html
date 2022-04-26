@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserWindow.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HotelUD</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.HotelUD.client</a> &gt; <span class="el_source">UserWindow.java</span></div><h1>UserWindow.java</h1><pre class="source lang-java linenums">package com.mycompany.HotelUD.client;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+
+public class UserWindow extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+<span class="nc" id="L22">		EventQueue.invokeLater(new Runnable() {</span>
+			public void run() {
+				try {
+<span class="nc" id="L25">					UserWindow frame = new UserWindow();</span>
+					
+<span class="nc" id="L27">				} catch (Exception e) {</span>
+<span class="nc" id="L28">					e.printStackTrace();</span>
+<span class="nc" id="L29">				}</span>
+<span class="nc" id="L30">			}</span>
+		});
+<span class="nc" id="L32">	}</span>
+
+	/**
+	 * Create the frame.
+	 */
+<span class="nc" id="L37">	public UserWindow() {</span>
+<span class="nc" id="L38">		setVisible(true);</span>
+<span class="nc" id="L39">		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L40">		setBounds(100, 100, 695, 436);</span>
+<span class="nc" id="L41">		contentPane = new JPanel();</span>
+<span class="nc" id="L42">		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="nc" id="L43">		setContentPane(contentPane);</span>
+<span class="nc" id="L44">		contentPane.setLayout(null);</span>
+		
+<span class="nc" id="L46">		JLabel lblTitulo = new JLabel(&quot;Bienvenido!!&quot;);</span>
+<span class="nc" id="L47">		lblTitulo.setBounds(288, 28, 292, 32);</span>
+<span class="nc" id="L48">		lblTitulo.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 18));</span>
+<span class="nc" id="L49">		lblTitulo.setForeground(new Color(0, 0, 0));</span>
+<span class="nc" id="L50">		contentPane.add(lblTitulo);</span>
+		
+<span class="nc" id="L52">		JButton btnVerRooms = new JButton(&quot;Habitaciones&quot;);</span>
+<span class="nc" id="L53">		btnVerRooms.setBounds(52, 118, 141, 37);</span>
+<span class="nc" id="L54">		contentPane.add(btnVerRooms);</span>
+		
+<span class="nc" id="L56">		JButton btnImprimirTicket = new JButton(&quot;Imprimir ticket&quot;);</span>
+<span class="nc" id="L57">		btnImprimirTicket.setBounds(459, 118, 141, 37);</span>
+<span class="nc" id="L58">		contentPane.add(btnImprimirTicket);</span>
+		
+<span class="nc" id="L60">		JButton btnContacto = new JButton(&quot;Contactanos&quot;);</span>
+<span class="nc" id="L61">		btnContacto.setBounds(269, 250, 116, 37);</span>
+<span class="nc" id="L62">		contentPane.add(btnContacto);</span>
+		
+<span class="nc" id="L64">		JButton btnExit = new JButton(&quot;Back&quot;);</span>
+<span class="nc" id="L65">		btnExit.setBounds(542, 356, 110, 32);</span>
+<span class="nc" id="L66">		contentPane.add(btnExit);</span>
+<span class="nc" id="L67">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
