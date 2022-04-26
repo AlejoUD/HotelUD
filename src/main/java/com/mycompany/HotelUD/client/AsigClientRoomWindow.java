@@ -62,11 +62,11 @@ public class AsigClientRoomWindow extends JFrame {
 		
 		ArrayList<Room> listaRooms = baseDatos.getRooms();
 		
-		for (int i = 0; i < listaRooms.size(); i++) {
-			
-			modelRoom.addElement(listaRooms.get(i));
-			
-		}
+//		for (int i = 0; i < listaRooms.size(); i++) {
+//			
+//			modelRoom.addElement(listaRooms.get(i));
+//			
+//		}
 		
 		TablaHabitaciones.setBorder(new LineBorder(new Color(0, 0, 0)));
 		TablaHabitaciones.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
