@@ -42,7 +42,7 @@ public class WindowServer extends JFrame {
 <span class="nc" id="L42">					frame.setVisible(true);</span>
 <span class="nc" id="L43">				} catch (Exception e) {</span>
 <span class="nc" id="L44">					e.printStackTrace();</span>
-<span class="nc" id="L45">				}</span>
+				}
 <span class="nc" id="L46">			}</span>
 		});
 <span class="nc" id="L48">	}</span>
@@ -113,7 +113,7 @@ public class WindowServer extends JFrame {
 <span class="nc" id="L113">		ArrayList&lt;User&gt; arrayU = new ArrayList&lt;&gt;();</span>
 <span class="nc bnc" id="L114" title="All 2 branches missed.">		for (User u : baseDatos.getUsers()) {</span>
 <span class="nc" id="L115">			modelUsers.addElement(u);</span>
-<span class="nc" id="L116">		}</span>
+		}
 	
 		
 <span class="nc" id="L119">		JList client_list = new JList(modelUsers);</span>
@@ -151,7 +151,7 @@ public class WindowServer extends JFrame {
 <span class="nc" id="L151">		ArrayList&lt;Worker&gt; arrayW = new ArrayList&lt;&gt;();</span>
 <span class="nc bnc" id="L152" title="All 2 branches missed.">		for (Worker w : baseDatos.getWorkers()) {</span>
 <span class="nc" id="L153">			modelWorker.addElement(w);</span>
-<span class="nc" id="L154">		}</span>
+		}
 		
 <span class="nc" id="L156">		JList worker_list = new JList(modelWorker);</span>
 <span class="nc" id="L157">		worker_list.setBounds(10, 11, 295, 159);</span>

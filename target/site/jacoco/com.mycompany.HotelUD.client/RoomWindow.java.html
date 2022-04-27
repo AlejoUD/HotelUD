@@ -153,7 +153,7 @@ public class RoomWindow extends JFrame {
 <span class="nc" id="L153">		} catch (SQLException e) {</span>
 <span class="nc" id="L154">			System.out.println(&quot;Error connecting to database &quot;);</span>
 <span class="nc" id="L155">			e.printStackTrace();</span>
-<span class="nc" id="L156">		}</span>
+		}
 		
 <span class="nc" id="L158">		btnNewButton_1.addActionListener(new ActionListener() {</span>
 			
@@ -163,8 +163,8 @@ public class RoomWindow extends JFrame {
 				
 <span class="nc bnc" id="L164" title="All 2 branches missed.">				if (textField.getText().equals(&quot;&quot;)) {</span>
 <span class="nc" id="L165">					JOptionPane.showMessageDialog(btnNewButton_1, &quot;Error. It is necessary to add a room number&quot;,</span>
-							&quot;data creation&quot;, JOptionPane.ERROR_MESSAGE);
-				} else {
+<span class="nc" id="L166">							&quot;data creation&quot;, JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L167">				} else {</span>
 
 					try {
 						
@@ -199,7 +199,7 @@ public class RoomWindow extends JFrame {
 <span class="nc" id="L199">				}catch (SQLException e) {</span>
 <span class="nc" id="L200">					System.out.println(&quot;Error entering data into the database&quot;);</span>
 <span class="nc" id="L201">					e.printStackTrace();</span>
-<span class="nc" id="L202">				}</span>
+				}
 				}
 						
 <span class="nc" id="L205">			}</span>

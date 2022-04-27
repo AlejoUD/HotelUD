@@ -1,38 +1,38 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-HotelUD,com.mycompany.HotelUD.BBDD,BBDD,554,0,16,0,175,0,21,0,13,0
-HotelUD,com.mycompany.HotelUD.server,WindowServer,394,0,4,0,84,0,4,0,2,0
+HotelUD,com.mycompany.HotelUD.BBDD,BBDD,555,0,16,0,159,0,21,0,13,0
+HotelUD,com.mycompany.HotelUD.server,WindowServer,382,0,4,0,82,0,4,0,2,0
 HotelUD,com.mycompany.HotelUD.server,Server,36,0,0,0,9,0,5,0,5,0
-HotelUD,com.mycompany.HotelUD.server,WindowServer.new Runnable() {...},15,0,0,0,7,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,MenuAdminWindow.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,MenuAdminWindow.new ActionListener() {...},14,0,0,0,4,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,MenuAdminWindow.new ActionListener() {...},14,0,0,0,4,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,LoginWindow.new ActionListener() {...},14,0,0,0,4,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,MenuAdminWindow.new ActionListener() {...},14,0,0,0,4,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,LoginWindow.new ActionListener() {...},54,0,8,0,10,0,6,0,2,0
-HotelUD,com.mycompany.HotelUD.client,MenuAdminWindow.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.server,WindowServer.new Runnable() {...},15,0,0,0,6,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,MenuAdminWindow.new ActionListener() {...},9,0,0,0,3,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,MenuAdminWindow.new ActionListener() {...},12,0,0,0,4,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,MenuAdminWindow.new ActionListener() {...},12,0,0,0,4,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,LoginWindow.new ActionListener() {...},12,0,0,0,4,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,MenuAdminWindow.new ActionListener() {...},12,0,0,0,4,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,LoginWindow.new ActionListener() {...},48,0,8,0,11,0,6,0,2,0
+HotelUD,com.mycompany.HotelUD.client,MenuAdminWindow.new ActionListener() {...},9,0,0,0,3,0,2,0,2,0
 HotelUD,com.mycompany.HotelUD.client,MenuAdminWindow,180,0,0,0,34,0,1,0,1,0
 HotelUD,com.mycompany.HotelUD.client,RegisterClientsWindow,281,0,0,0,59,0,1,0,1,0
 HotelUD,com.mycompany.HotelUD.client,CreateWorkerWindow,224,0,0,0,47,0,1,0,1,0
 HotelUD,com.mycompany.HotelUD.client,CreateDependientsWindow,369,0,0,0,70,0,1,0,1,0
 HotelUD,com.mycompany.HotelUD.client,UserWindow,139,0,0,0,28,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,LoginWindow,285,0,12,0,53,0,9,0,3,0
-HotelUD,com.mycompany.HotelUD.client,AsigClientRoomWindow,231,0,4,0,48,0,3,0,1,0
-HotelUD,com.mycompany.HotelUD.client,StartWindow.new ActionListener() {...},14,0,0,0,4,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,StartWindow.new ActionListener() {...},14,0,0,0,4,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,StartWindow.new ActionListener() {...},14,0,0,0,4,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,RegisterClientsWindow.new ActionListener() {...},99,0,0,0,23,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,RoomWindow.new ActionListener() {...},136,0,2,0,24,0,3,0,2,0
-HotelUD,com.mycompany.HotelUD.client,RoomWindow.new ActionListener() {...},14,0,0,0,4,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,RoomWindow,449,0,2,0,91,0,2,0,1,0
-HotelUD,com.mycompany.HotelUD.client,StartWindow.new Runnable() {...},15,0,0,0,7,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,RoomWindow.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,LoginWindow,279,0,12,0,51,0,9,0,3,0
+HotelUD,com.mycompany.HotelUD.client,AsigClientRoomWindow,225,0,4,0,47,0,3,0,1,0
+HotelUD,com.mycompany.HotelUD.client,StartWindow.new ActionListener() {...},12,0,0,0,4,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,StartWindow.new ActionListener() {...},12,0,0,0,4,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,StartWindow.new ActionListener() {...},12,0,0,0,4,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,RegisterClientsWindow.new ActionListener() {...},95,0,0,0,23,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,RoomWindow.new ActionListener() {...},135,0,2,0,25,0,3,0,2,0
+HotelUD,com.mycompany.HotelUD.client,RoomWindow.new ActionListener() {...},12,0,0,0,4,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,RoomWindow,446,0,2,0,90,0,2,0,1,0
+HotelUD,com.mycompany.HotelUD.client,StartWindow.new Runnable() {...},15,0,0,0,6,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,RoomWindow.new ActionListener() {...},9,0,0,0,3,0,2,0,2,0
 HotelUD,com.mycompany.HotelUD.client,StartWindow,129,0,0,0,27,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,CreateDependientsWindow.new ActionListener() {...},14,0,0,0,4,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,CreateDependientsWindow.new ActionListener() {...},111,0,0,0,26,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,CreateWorkerWindow.new ActionListener() {...},73,0,0,0,17,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.client,UserWindow.new Runnable() {...},12,0,0,0,6,0,2,0,2,0
-HotelUD,com.mycompany.HotelUD.classes,Ticket,49,0,0,0,15,0,7,0,7,0
-HotelUD,com.mycompany.HotelUD.classes,Worker,108,0,0,0,30,0,13,0,13,0
-HotelUD,com.mycompany.HotelUD.classes,Room,57,27,0,0,15,10,6,5,6,5
-HotelUD,com.mycompany.HotelUD.classes,Dependient,157,0,0,0,45,0,19,0,19,0
-HotelUD,com.mycompany.HotelUD.classes,User,137,0,0,0,40,0,17,0,17,0
+HotelUD,com.mycompany.HotelUD.client,CreateDependientsWindow.new ActionListener() {...},12,0,0,0,4,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,CreateDependientsWindow.new ActionListener() {...},107,0,0,0,26,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,CreateWorkerWindow.new ActionListener() {...},69,0,0,0,17,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.client,UserWindow.new Runnable() {...},12,0,0,0,5,0,2,0,2,0
+HotelUD,com.mycompany.HotelUD.classes,Ticket,48,0,0,0,15,0,7,0,7,0
+HotelUD,com.mycompany.HotelUD.classes,Worker,107,0,0,0,30,0,13,0,13,0
+HotelUD,com.mycompany.HotelUD.classes,Room,56,27,0,0,15,10,6,5,6,5
+HotelUD,com.mycompany.HotelUD.classes,Dependient,156,0,0,0,47,0,19,0,19,0
+HotelUD,com.mycompany.HotelUD.classes,User,91,45,0,0,25,16,9,8,9,8

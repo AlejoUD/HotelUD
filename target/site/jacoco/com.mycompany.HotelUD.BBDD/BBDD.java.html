@@ -36,7 +36,7 @@ public class BBDD {
 <span class="nc" id="L36">			} catch (SQLException e) {</span>
 				// TODO Auto-generated catch block
 <span class="nc" id="L38">				e.printStackTrace();</span>
-<span class="nc" id="L39">			}</span>
+			}
 
 <span class="nc" id="L41">	}</span>
 	
@@ -45,13 +45,13 @@ public class BBDD {
 <span class="nc" id="L45">			statement = (PreparedStatement) connection.createStatement();</span>
 			try {
 <span class="nc" id="L47">				statement.executeUpdate(&quot;create table &quot; + nombreBD</span>
-						+ &quot; (counter integer primary key autoincrement, name varchar, dni varchar, gender varchar, age integer )&quot;);
+<span class="nc" id="L48">						+ &quot; (counter integer primary key autoincrement, name varchar, dni varchar, gender varchar, age integer )&quot;);</span>
 <span class="nc" id="L49">			} catch (SQLException e) {</span>
 <span class="nc" id="L50">				System.out.println(&quot;Ya esta creada&quot;);</span>
-<span class="nc" id="L51">			}</span>
+			}
 <span class="nc" id="L52">		} catch (SQLException e) {</span>
 <span class="nc" id="L53">			System.out.println(&quot;Error&quot;);</span>
-<span class="nc" id="L54">		}</span>
+		}
 <span class="nc" id="L55">	}</span>
 	
 	public static void conectionUsers(String nombreBD) {
@@ -59,13 +59,13 @@ public class BBDD {
 <span class="nc" id="L59">			statement = (PreparedStatement) connection.createStatement();</span>
 			try {
 <span class="nc" id="L61">				statement.executeUpdate(&quot;create table &quot; + nombreBD</span>
-						+ &quot; (counter integer primary key autoincrement, name varchar, surname varchar, dni varchar, gender varchar, age integer, bankCount varchar)&quot;);
+<span class="nc" id="L62">						+ &quot; (counter integer primary key autoincrement, name varchar, surname varchar, dni varchar, gender varchar, age integer, bankCount varchar)&quot;);</span>
 <span class="nc" id="L63">			} catch (SQLException e) {</span>
 <span class="nc" id="L64">				System.out.println(&quot;Ya esta creada&quot;);</span>
-<span class="nc" id="L65">			}</span>
+			}
 <span class="nc" id="L66">		} catch (SQLException e) {</span>
 <span class="nc" id="L67">			System.out.println(&quot;Error&quot;);</span>
-<span class="nc" id="L68">		}</span>
+		}
 <span class="nc" id="L69">	}</span>
 	
 	public static void conectionRoom(String nombreBD) {
@@ -73,13 +73,13 @@ public class BBDD {
 <span class="nc" id="L73">			statement = (PreparedStatement) connection.createStatement();</span>
 			try {
 <span class="nc" id="L75">				statement.executeUpdate(&quot;create table &quot; + nombreBD</span>
-						+ &quot; (numberDoor integer primary key autoincrement, type varchar, surface integer, floor integer)&quot;);
+<span class="nc" id="L76">						+ &quot; (numberDoor integer primary key autoincrement, type varchar, surface integer, floor integer)&quot;);</span>
 <span class="nc" id="L77">			} catch (SQLException e) {</span>
 <span class="nc" id="L78">				System.out.println(&quot;Ya esta creada&quot;);</span>
-<span class="nc" id="L79">			}</span>
+			}
 <span class="nc" id="L80">		} catch (SQLException e) {</span>
 <span class="nc" id="L81">			System.out.println(&quot;Error&quot;);</span>
-<span class="nc" id="L82">		}</span>
+		}
 <span class="nc" id="L83">	}</span>
 	
 	public Connection getConection() {
@@ -108,7 +108,7 @@ public class BBDD {
 <span class="nc" id="L108">				} catch (SQLException e) {</span>
 					// TODO Auto-generated catch block
 <span class="nc" id="L110">					e.printStackTrace();</span>
-<span class="nc" id="L111">				}</span>
+				}
 			}
 		}
 <span class="nc" id="L114">	}</span>
@@ -137,7 +137,7 @@ public class BBDD {
 <span class="nc" id="L137">				} catch (SQLException e) {</span>
 					// TODO Auto-generated catch block
 <span class="nc" id="L139">					e.printStackTrace();</span>
-<span class="nc" id="L140">				}</span>
+				}
 			}
 		}
 <span class="nc" id="L143">	}</span>
@@ -163,7 +163,7 @@ public class BBDD {
 <span class="nc" id="L163">				} catch (SQLException e) {</span>
 					// TODO Auto-generated catch block
 <span class="nc" id="L165">					e.printStackTrace();</span>
-<span class="nc" id="L166">				}</span>
+				}
 			}
 		}
 <span class="nc" id="L169">	}</span>
@@ -181,11 +181,11 @@ public class BBDD {
 <span class="nc" id="L181">				worker2.setGender(rs.getString(4));</span>
 <span class="nc" id="L182">				worker2.setAge(rs.getInt(5));</span>
 <span class="nc" id="L183">				result.add(worker2);</span>
-<span class="nc" id="L184">			}</span>
+			}
 <span class="nc" id="L185">		} catch (SQLException e) {</span>
 			// TODO Auto-generated catch block
 <span class="nc" id="L187">			e.printStackTrace();</span>
-<span class="nc" id="L188">		}</span>
+		}
 <span class="nc" id="L189">		return result;</span>
 
 	}
@@ -204,11 +204,11 @@ public class BBDD {
 <span class="nc" id="L204">				user2.setAge(rs.getInt(6));</span>
 <span class="nc" id="L205">				user2.setBankCount(rs.getString(7));</span>
 <span class="nc" id="L206">				result.add(user2);</span>
-<span class="nc" id="L207">			}</span>
+			}
 <span class="nc" id="L208">		} catch (SQLException e) {</span>
 			// TODO Auto-generated catch block
 <span class="nc" id="L210">			e.printStackTrace();</span>
-<span class="nc" id="L211">		}</span>
+		}
 <span class="nc" id="L212">		return result;</span>
 
 	}
@@ -225,11 +225,11 @@ public class BBDD {
 <span class="nc" id="L225">				room2.setSurface(rs.getInt(3));</span>
 <span class="nc" id="L226">				room2.setFloor(rs.getInt(4));</span>
 <span class="nc" id="L227">				result.add(room2);</span>
-<span class="nc" id="L228">			}</span>
+			}
 <span class="nc" id="L229">		} catch (SQLException e) {</span>
 			// TODO Auto-generated catch block
 <span class="nc" id="L231">			e.printStackTrace();</span>
-<span class="nc" id="L232">		}</span>
+		}
 <span class="nc" id="L233">		return result;</span>
 
 	}
@@ -259,7 +259,7 @@ public class BBDD {
 <span class="nc" id="L259">				} catch (SQLException e) {</span>
 					// TODO Auto-generated catch block
 <span class="nc" id="L261">					e.printStackTrace();</span>
-<span class="nc" id="L262">				}</span>
+				}
 			}
 		}
 <span class="nc" id="L265">	}</span>
@@ -279,11 +279,11 @@ public class BBDD {
 <span class="nc" id="L279">				dependient2.setDescription(rs.getString(7));</span>
 <span class="nc" id="L280">				dependient2.setBankAccount(rs.getString(8));</span>
 <span class="nc" id="L281">				result.add(dependient2);</span>
-<span class="nc" id="L282">			}</span>
+			}
 <span class="nc" id="L283">		} catch (SQLException e) {</span>
 			// TODO Auto-generated catch block
 <span class="nc" id="L285">			e.printStackTrace();</span>
-<span class="nc" id="L286">		}</span>
+		}
 <span class="nc" id="L287">		return result;</span>
 
 	}

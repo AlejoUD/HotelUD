@@ -11,15 +11,15 @@ public class User {
     private String bankCount;
     
     public User (int counter,String name, String dni, String gender, int age, String password, String bankCount) {
-<span class="nc" id="L14">        super();</span>
-<span class="nc" id="L15">        this.counter = counter;</span>
-<span class="nc" id="L16">        this.name = name;</span>
-<span class="nc" id="L17">        this.dni = dni;</span>
-<span class="nc" id="L18">        this.gender = gender;</span>
-<span class="nc" id="L19">        this.age = age;</span>
-<span class="nc" id="L20">        this.password = password;</span>
-<span class="nc" id="L21">        this.bankCount = bankCount;</span>
-<span class="nc" id="L22">    }</span>
+<span class="fc" id="L14">        super();</span>
+<span class="fc" id="L15">        this.counter = counter;</span>
+<span class="fc" id="L16">        this.name = name;</span>
+<span class="fc" id="L17">        this.dni = dni;</span>
+<span class="fc" id="L18">        this.gender = gender;</span>
+<span class="fc" id="L19">        this.age = age;</span>
+<span class="fc" id="L20">        this.password = password;</span>
+<span class="fc" id="L21">        this.bankCount = bankCount;</span>
+<span class="fc" id="L22">    }</span>
     public User() {
 <span class="nc" id="L24">        super();</span>
 <span class="nc" id="L25">        this.counter = 0;</span>
@@ -31,16 +31,16 @@ public class User {
 <span class="nc" id="L31">        this.bankCount = &quot;&quot;;</span>
 <span class="nc" id="L32">    }</span>
     public String getName() {
-<span class="nc" id="L34">        return name;</span>
+<span class="fc" id="L34">        return name;</span>
     }
     public void setName(String name) {
 <span class="nc" id="L37">        this.name = name;</span>
 <span class="nc" id="L38">    }</span>
     public String getDni() {
-<span class="nc" id="L40">        return dni;</span>
+<span class="fc" id="L40">        return dni;</span>
     }
     public int getCounter() {
-<span class="nc" id="L43">		return counter;</span>
+<span class="fc" id="L43">		return counter;</span>
 	}
 	public void setCounter(int counter) {
 <span class="nc" id="L46">		this.counter = counter;</span>
@@ -49,25 +49,25 @@ public class User {
 <span class="nc" id="L49">        this.dni = dni;</span>
 <span class="nc" id="L50">    }</span>
     public String getGender() {
-<span class="nc" id="L52">        return gender;</span>
+<span class="fc" id="L52">        return gender;</span>
     }
     public void setGender(String gender) {
 <span class="nc" id="L55">        this.gender = gender;</span>
 <span class="nc" id="L56">    }</span>
     public int getAge() {
-<span class="nc" id="L58">        return age;</span>
+<span class="fc" id="L58">        return age;</span>
     }
     public void setAge(int age) {
 <span class="nc" id="L61">        this.age = age;</span>
 <span class="nc" id="L62">    }</span>
     public String getPassword() {
-<span class="nc" id="L64">        return password;</span>
+<span class="fc" id="L64">        return password;</span>
     }
     public void setPassword(String password) {
 <span class="nc" id="L67">        this.password = password;</span>
 <span class="nc" id="L68">    }</span>
     public String getBankCount() {
-<span class="nc" id="L70">        return bankCount;</span>
+<span class="fc" id="L70">        return bankCount;</span>
     }
     public void setBankCount(String bankCount) {
 <span class="nc" id="L73">        this.bankCount = bankCount;</span>
@@ -75,7 +75,7 @@ public class User {
     @Override
     public String toString() {
 <span class="nc" id="L77">        return &quot;User code &quot;+counter+&quot; name: &quot; + name + &quot;, dni: &quot; + dni + &quot;, gender: &quot; + gender + &quot;, age: &quot; + age + &quot;, password: &quot; + password</span>
-                + &quot;, bankCount: &quot; + bankCount;
+<span class="nc" id="L78">                + &quot;, bankCount: &quot; + bankCount;</span>
     }
 }
 
