@@ -16,7 +16,7 @@ HotelUD,com.mycompany.HotelUD.client,CreateWorkerWindow,224,0,0,0,47,0,1,0,1,0
 HotelUD,com.mycompany.HotelUD.client,CreateDependientsWindow,369,0,0,0,70,0,1,0,1,0
 HotelUD,com.mycompany.HotelUD.client,UserWindow,139,0,0,0,28,0,2,0,2,0
 HotelUD,com.mycompany.HotelUD.client,LoginWindow,285,0,12,0,53,0,9,0,3,0
-HotelUD,com.mycompany.HotelUD.client,AsigClientRoomWindow,194,0,0,0,40,0,1,0,1,0
+HotelUD,com.mycompany.HotelUD.client,AsigClientRoomWindow,231,0,4,0,48,0,3,0,1,0
 HotelUD,com.mycompany.HotelUD.client,StartWindow.new ActionListener() {...},14,0,0,0,4,0,2,0,2,0
 HotelUD,com.mycompany.HotelUD.client,StartWindow.new ActionListener() {...},14,0,0,0,4,0,2,0,2,0
 HotelUD,com.mycompany.HotelUD.client,StartWindow.new ActionListener() {...},14,0,0,0,4,0,2,0,2,0

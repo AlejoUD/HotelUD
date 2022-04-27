@@ -5,8 +5,11 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JList;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
@@ -23,6 +26,7 @@ import javax.swing.DefaultListModel;
 
 import com.mycompany.HotelUD.BBDD.BBDD;
 import com.mycompany.HotelUD.classes.Room;
+import com.mycompany.HotelUD.classes.User;
 
 import java.awt.Color;
 
@@ -32,51 +36,47 @@ public class AsigClientRoomWindow extends JFrame {
 	private JTable TablaClientes;
 	private JTable TablaHabitaciones;
 	private java.sql.Connection conexion;
-<span class="nc" id="L35">	BBDD baseDatos = new BBDD();</span>
+<span class="nc" id="L39">	BBDD baseDatos = new BBDD();</span>
 
 
-<span class="nc" id="L38">	public AsigClientRoomWindow() {</span>
-<span class="nc" id="L39">		setTitle(&quot;Asignar Habitaciones a Clientes&quot;);</span>
-<span class="nc" id="L40">		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
-<span class="nc" id="L41">		setBounds(100, 100, 724, 411);</span>
-<span class="nc" id="L42">		PanelPrincipal = new JPanel();</span>
-<span class="nc" id="L43">		PanelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
-<span class="nc" id="L44">		setContentPane(PanelPrincipal);</span>
-<span class="nc" id="L45">		PanelPrincipal.setLayout(new BorderLayout(0, 0));</span>
+<span class="nc" id="L42">	public AsigClientRoomWindow() {</span>
+<span class="nc" id="L43">		setTitle(&quot;Asignar Habitaciones a Clientes&quot;);</span>
+<span class="nc" id="L44">		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L45">		setBounds(100, 100, 724, 411);</span>
+<span class="nc" id="L46">		PanelPrincipal = new JPanel();</span>
+<span class="nc" id="L47">		PanelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="nc" id="L48">		setContentPane(PanelPrincipal);</span>
+<span class="nc" id="L49">		PanelPrincipal.setLayout(new BorderLayout(0, 0));</span>
 		
-<span class="nc" id="L47">		JPanel PanelTitulo = new JPanel();</span>
-<span class="nc" id="L48">		PanelPrincipal.add(PanelTitulo, BorderLayout.NORTH);</span>
+<span class="nc" id="L51">		JPanel PanelTitulo = new JPanel();</span>
+<span class="nc" id="L52">		PanelPrincipal.add(PanelTitulo, BorderLayout.NORTH);</span>
 		
-<span class="nc" id="L50">		JLabel lTitulo = new JLabel(&quot;Asignar Habitación a Cliente&quot;);</span>
-<span class="nc" id="L51">		lTitulo.setHorizontalAlignment(SwingConstants.CENTER);</span>
-<span class="nc" id="L52">		lTitulo.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 16));</span>
-<span class="nc" id="L53">		PanelTitulo.add(lTitulo);</span>
+<span class="nc" id="L54">		JLabel lTitulo = new JLabel(&quot;Asignar Habitación a Cliente&quot;);</span>
+<span class="nc" id="L55">		lTitulo.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L56">		lTitulo.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 16));</span>
+<span class="nc" id="L57">		PanelTitulo.add(lTitulo);</span>
 		
-<span class="nc" id="L55">		JPanel PanelInfo = new JPanel();</span>
-<span class="nc" id="L56">		PanelPrincipal.add(PanelInfo, BorderLayout.CENTER);</span>
-<span class="nc" id="L57">		PanelInfo.setLayout(new GridLayout(1, 2, 0, 0));</span>
+<span class="nc" id="L59">		JPanel PanelInfo = new JPanel();</span>
+<span class="nc" id="L60">		PanelPrincipal.add(PanelInfo, BorderLayout.CENTER);</span>
+<span class="nc" id="L61">		PanelInfo.setLayout(new GridLayout(1, 2, 0, 0));</span>
 		
-<span class="nc" id="L59">		DefaultTableModel modelRoom = new DefaultTableModel();</span>
+<span class="nc" id="L63">		JScrollPane scrollPaneRooms = new JScrollPane();</span>
+<span class="nc" id="L64">		DefaultListModel&lt;Room&gt; modelRoom = new DefaultListModel&lt;Room&gt;();</span>
+<span class="nc" id="L65">		JList listaRooms = new JList&lt;Room&gt;(modelRoom);</span>
 		
-<span class="nc" id="L61">		TablaHabitaciones = new JTable(modelRoom);</span>
+<span class="nc" id="L67">		scrollPaneRooms.setViewportView(listaRooms);</span>
 		
-<span class="nc" id="L63">		ArrayList&lt;Room&gt; listaRooms = baseDatos.getRooms();</span>
+<span class="nc" id="L69">		scrollPaneRooms.setBorder(new LineBorder(new Color(0, 0, 0)));</span>
+<span class="nc" id="L70">		PanelInfo.add(scrollPaneRooms);</span>
 		
-//		for (int i = 0; i &lt; listaRooms.size(); i++) {
-//			
-//			modelRoom.addElement(listaRooms.get(i));
-//			
-//		}
+<span class="nc" id="L72">		JScrollPane scrollPaneUsers = new JScrollPane();</span>
+<span class="nc" id="L73">		DefaultListModel&lt;User&gt; modelUsers = new DefaultListModel&lt;User&gt;();</span>
+<span class="nc" id="L74">		JList listaUsers = new JList&lt;User&gt;(modelUsers);</span>
 		
-<span class="nc" id="L71">		TablaHabitaciones.setBorder(new LineBorder(new Color(0, 0, 0)));</span>
-<span class="nc" id="L72">		TablaHabitaciones.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
-<span class="nc" id="L73">		PanelInfo.add(TablaHabitaciones);</span>
+<span class="nc" id="L76">		scrollPaneUsers.setViewportView(listaUsers);</span>
 		
-<span class="nc" id="L75">		DefaultTableModel modelClient = new DefaultTableModel();</span>
-<span class="nc" id="L76">		TablaClientes = new JTable(modelClient);</span>
-		
-<span class="nc" id="L78">		TablaClientes.setBorder(new LineBorder(new Color(0, 0, 0)));</span>
-<span class="nc" id="L79">		PanelInfo.add(TablaClientes);</span>
+<span class="nc" id="L78">		scrollPaneUsers.setBorder(new LineBorder(new Color(0, 0, 0)));</span>
+<span class="nc" id="L79">		PanelInfo.add(scrollPaneUsers);</span>
 		
 <span class="nc" id="L81">		JPanel PanelBotones = new JPanel();</span>
 <span class="nc" id="L82">		PanelPrincipal.add(PanelBotones, BorderLayout.SOUTH);</span>
@@ -92,12 +92,28 @@ public class AsigClientRoomWindow extends JFrame {
 <span class="nc" id="L92">			e.printStackTrace();</span>
 <span class="nc" id="L93">		}</span>
 		
+<span class="nc" id="L95">		ArrayList&lt;Room&gt; listaTempRooms = baseDatos.getRooms();</span>
+		
+<span class="nc bnc" id="L97" title="All 2 branches missed.">		for (int i = 0; i &lt; listaTempRooms.size(); i++) {</span>
+			
+<span class="nc" id="L99">			modelRoom.addElement(listaTempRooms.get(i));</span>
+			
+		}
+		
+<span class="nc" id="L103">		ArrayList&lt;User&gt; listaTempUsers = baseDatos.getUsers();</span>
+		
+<span class="nc bnc" id="L105" title="All 2 branches missed.">		for (int i = 0; i &lt; listaTempUsers.size(); i++) {</span>
+			
+<span class="nc" id="L107">			modelUsers.addElement(listaTempUsers.get(i));</span>
+			
+		}
 		
 		
-<span class="nc" id="L97">		setVisible(true);</span>
-<span class="nc" id="L98">	}</span>
+		
+<span class="nc" id="L113">		setVisible(true);</span>
+<span class="nc" id="L114">	}</span>
 	
 	
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
