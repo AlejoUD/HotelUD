@@ -5,8 +5,11 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JList;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
@@ -23,6 +26,7 @@ import javax.swing.DefaultListModel;
 
 import com.mycompany.HotelUD.BBDD.BBDD;
 import com.mycompany.HotelUD.classes.Room;
+import com.mycompany.HotelUD.classes.User;
 
 import java.awt.Color;
 
@@ -56,27 +60,23 @@ public class AsigClientRoomWindow extends JFrame {
 		PanelPrincipal.add(PanelInfo, BorderLayout.CENTER);
 		PanelInfo.setLayout(new GridLayout(1, 2, 0, 0));
 		
-		DefaultTableModel modelRoom = new DefaultTableModel();
+		JScrollPane scrollPaneRooms = new JScrollPane();
+		DefaultListModel<Room> modelRoom = new DefaultListModel<Room>();
+		JList listaRooms = new JList<Room>(modelRoom);
 		
-		TablaHabitaciones = new JTable(modelRoom);
+		scrollPaneRooms.setViewportView(listaRooms);
 		
-		ArrayList<Room> listaRooms = baseDatos.getRooms();
+		scrollPaneRooms.setBorder(new LineBorder(new Color(0, 0, 0)));
+		PanelInfo.add(scrollPaneRooms);
 		
-//		for (int i = 0; i < listaRooms.size(); i++) {
-//			
-//			modelRoom.addElement(listaRooms.get(i));
-//			
-//		}
+		JScrollPane scrollPaneUsers = new JScrollPane();
+		DefaultListModel<User> modelUsers = new DefaultListModel<User>();
+		JList listaUsers = new JList<User>(modelUsers);
 		
-		TablaHabitaciones.setBorder(new LineBorder(new Color(0, 0, 0)));
-		TablaHabitaciones.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		PanelInfo.add(TablaHabitaciones);
+		scrollPaneUsers.setViewportView(listaUsers);
 		
-		DefaultTableModel modelClient = new DefaultTableModel();
-		TablaClientes = new JTable(modelClient);
-		
-		TablaClientes.setBorder(new LineBorder(new Color(0, 0, 0)));
-		PanelInfo.add(TablaClientes);
+		scrollPaneUsers.setBorder(new LineBorder(new Color(0, 0, 0)));
+		PanelInfo.add(scrollPaneUsers);
 		
 		JPanel PanelBotones = new JPanel();
 		PanelPrincipal.add(PanelBotones, BorderLayout.SOUTH);
@@ -90,6 +90,22 @@ public class AsigClientRoomWindow extends JFrame {
 		} catch (SQLException e) {
 			System.out.println("Error connecting to database ");
 			e.printStackTrace();
+		}
+		
+		ArrayList<Room> listaTempRooms = baseDatos.getRooms();
+		
+		for (int i = 0; i < listaTempRooms.size(); i++) {
+			
+			modelRoom.addElement(listaTempRooms.get(i));
+			
+		}
+		
+		ArrayList<User> listaTempUsers = baseDatos.getUsers();
+		
+		for (int i = 0; i < listaTempUsers.size(); i++) {
+			
+			modelUsers.addElement(listaTempUsers.get(i));
+			
 		}
 		
 		
