@@ -7,11 +7,11 @@ import org.junit.Test;
 
 public class RoomTest {
  
-    private Room u;
+    private Room r;
 
     @Before
     public void setUp() {
-        u = new Room(1, "Premium", 10, 2);
+        r = new Room(1, "Premium", 10, 2);
     }
 
     @Test
