@@ -2,6 +2,7 @@ import static org.junit.Assert.assertEquals;
 
 import com.mycompany.HotelUD.classes.Room;
 import com.mycompany.HotelUD.classes.User;
+import com.mycompany.HotelUD.classes.Worker;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,5 +26,24 @@ public class UserTest {
         assertEquals(21,u.getAge(),0.2);
         assertEquals("COntraseña",u.getPassword());
         assertEquals("11223344",u.getBankCount());
+    }
+    @Test
+    public void testSetters() {
+    	User u = new User();
+    	u.setAge(0);
+    	u.setCounter(0);
+    	u.setDni("test");
+    	u.setGender("test");
+    	u.setName("test");
+    	u.setBankCount("test");
+    	u.setPassword("test");
+    	
+    	assertEquals(u.getAge(),0);
+    	assertEquals(u.getCounter(),0);
+    	assertEquals(u.getDni(),"test");
+    	assertEquals(u.getGender(),"test");
+    	assertEquals(u.getName(),"test");
+    	assertEquals(u.getBankCount(),"test");
+    	assertEquals(u.getPassword(),"test");
     }
 }

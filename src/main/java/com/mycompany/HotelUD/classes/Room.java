@@ -2,12 +2,12 @@ package com.mycompany.HotelUD.classes;
 
 
 public class Room {
-	private Integer numberDoor;
+	private int numberDoor;
 	private String type;
 	private int surface;
 	private int floor;
 
-	public Room(Integer numberDoor, String type, int surface, int floor) {
+	public Room(int numberDoor, String type, int surface, int floor) {
 		super();
 		this.numberDoor = numberDoor;
 		this.type = type;
@@ -23,11 +23,11 @@ public class Room {
 		this.floor = 0;
 	}
 
-	public Integer getNumberDoor() {
+	public int getNumberDoor() {
 		return numberDoor;
 	}
 
-	public void setNumberDoor(Integer numberDoor) {
+	public void setNumberDoor(int numberDoor) {
 		this.numberDoor = numberDoor;
 	}
 
