@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class UserWindow extends JFrame {
 
@@ -49,15 +51,24 @@ public class UserWindow extends JFrame {
 		lblTitulo.setForeground(new Color(0, 0, 0));
 		contentPane.add(lblTitulo);
 		
-		JButton btnVerRooms = new JButton("Habitaciones");
+		JButton btnVerRooms = new JButton("HABITACIONES");
+		btnVerRooms.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnVerRooms.setBounds(52, 118, 141, 37);
 		contentPane.add(btnVerRooms);
 		
-		JButton btnImprimirTicket = new JButton("Imprimir ticket");
+		JButton btnImprimirTicket = new JButton("RESERVAR");
+		btnImprimirTicket.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new VentanaReserva();
+			}
+		});
 		btnImprimirTicket.setBounds(459, 118, 141, 37);
 		contentPane.add(btnImprimirTicket);
 		
-		JButton btnContacto = new JButton("Contactanos");
+		JButton btnContacto = new JButton("CONTACTANOS");
 		btnContacto.setBounds(269, 250, 116, 37);
 		contentPane.add(btnContacto);
 		
@@ -65,4 +76,5 @@ public class UserWindow extends JFrame {
 		btnExit.setBounds(542, 356, 110, 32);
 		contentPane.add(btnExit);
 	}
+	
 }
