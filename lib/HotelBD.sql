@@ -38,6 +38,14 @@ CREATE TABLE`dependients`(
 `bankAccount` varchar (150) DEFAULT NULL,  
 PRIMARY KEY (`counter`)
 );
+
+CREATE TABLE`asig`(  
+`counter` int (11) AUTO_INCREMENT,  
+`nRoom` varchar (150) DEFAULT NULL, 
+`dni` varchar (150) DEFAULT NULL,    
+PRIMARY KEY (`counter`)
+);
+
 drop table room;
 select * from users;
 select * from workers;

@@ -168,6 +168,31 @@ public class BBDD {
 		}
 	}
 	
+	public static void asigRoom(Room room, User user) {
+		try {
+			statement = connection.prepareStatement("INSERT INTO asig (counter,nRoom,dni) VALUES ( ?, ?, ?)");
+			Statement st= connection.createStatement();
+			statement.setLong(1, 0);
+			statement.setLong(2, room.getNumberDoor());
+			statement.setString(3, user.getDni());
+			
+			statement.executeUpdate();
+			statement.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if (connection!= null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
 	public static ArrayList<Worker> getWorkers() {
 		ArrayList<Worker> result = new ArrayList<Worker>();
 		String consult = "SELECT * FROM workers";
