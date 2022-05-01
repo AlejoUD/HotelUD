@@ -18,13 +18,13 @@ public class AsigRoom extends Room{
 	}
 
 	@Override
-	public Integer getNumberDoor() {
+	public int getNumberDoor() {
 		// TODO Auto-generated method stub
 		return super.getNumberDoor();
 	}
 
 	@Override
-	public void setNumberDoor(Integer numberDoor) {
+	public void setNumberDoor(int numberDoor) {
 		// TODO Auto-generated method stub
 		super.setNumberDoor(numberDoor);
 	}
