@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
+import com.mycompany.HotelUD.classes.AsigRoom;
 import com.mycompany.HotelUD.classes.Dependient;
 import com.mycompany.HotelUD.classes.Room;
 import com.mycompany.HotelUD.classes.User;
@@ -170,11 +171,13 @@ public class BBDD {
 	
 	public static void asigRoom(Room room, User user) {
 		try {
-			statement = connection.prepareStatement("INSERT INTO asig (counter,nRoom,dni) VALUES ( ?, ?, ?)");
+			statement = connection.prepareStatement("INSERT INTO room (numberDoor,type,surface,floor, dni) VALUES ( ?, ?, ?, ?, ?)");
 			Statement st= connection.createStatement();
 			statement.setLong(1, 0);
-			statement.setLong(2, room.getNumberDoor());
-			statement.setString(3, user.getDni());
+			statement.setString(2, room.getType());
+			statement.setLong(3, room.getSurface());
+			statement.setLong(4, room.getFloor());
+			statement.setString(5, user.getDni());
 			
 			statement.executeUpdate();
 			statement.close();
@@ -258,6 +261,31 @@ public class BBDD {
 		return result;
 
 	}
+	
+	public static ArrayList<AsigRoom> getAsigRooms() {
+		ArrayList<AsigRoom> result = new ArrayList<AsigRoom>();
+		String consult = "SELECT * FROM roomAsig";
+		try {
+			ResultSet rs = connection.createStatement().executeQuery(consult);
+			while(rs.next()) {
+				AsigRoom asigRoom2 = new AsigRoom(null, consult, 0, 0, consult);
+				asigRoom2.setNumberDoor(rs.getInt(1));
+				asigRoom2.setType(rs.getString(2));
+				asigRoom2.setSurface(rs.getInt(3));
+				asigRoom2.setFloor(rs.getInt(4));
+				asigRoom2.setDni(rs.getString(5));
+				
+				result.add(asigRoom2);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+
+	}
+	
+	
 	
 	public static void addDependient(Dependient dependient) {
 		try {
