@@ -39,13 +39,16 @@ CREATE TABLE`dependients`(
 PRIMARY KEY (`counter`)
 );
 
-CREATE TABLE`asig`(  
-`counter` int (11) AUTO_INCREMENT,  
-`nRoom` varchar (150) DEFAULT NULL, 
-`dni` varchar (150) DEFAULT NULL,    
-PRIMARY KEY (`counter`)
+CREATE TABLE`roomAsig`(  
+`numberDoor` int (11) DEFAULT NULL,
+`type` varchar (150) DEFAULT NULL,  
+`surface` int(5) DEFAULT NULL,    
+`floor` int(5) DEFAULT NULL,
+`dni` varchar (150) DEFAULT NULL,
+UNIQUE (`numberDoor`)
 );
 
+drop table asig;
 drop table room;
 select * from users;
 select * from workers;
