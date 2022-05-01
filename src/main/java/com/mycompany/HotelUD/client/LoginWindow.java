@@ -31,6 +31,7 @@ public class LoginWindow extends JFrame {
 	String emailAdmin = "admin@admin.com";
 	String passAdmin = "12345678";
 	BBDD baseDatos = new BBDD();
+	String texto;
 	
 	public LoginWindow() {
 		setVisible(true);
@@ -85,7 +86,8 @@ public class LoginWindow extends JFrame {
 					dispose();
 				}
 				else if (usuarioCoincide()== true) {
-					new UserWindow();
+					texto = tEmail.getText();
+					new UserWindow(texto);
 					dispose();
 				}else if (dependienteCoincide()==true) {
 					//new DependientWindow();

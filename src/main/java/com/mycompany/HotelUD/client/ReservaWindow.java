@@ -39,14 +39,7 @@ public class ReservaWindow {
 	private JTextField peopleField;
 	BBDD baseDatos = new BBDD();
 
-	public ReservaWindow() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	public ReservaWindow(String texto) {
 		frame = new JFrame();
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -86,6 +79,7 @@ public class ReservaWindow {
 		dniField = new JTextField();
 		InformationPanel.add(dniField);
 		dniField.setColumns(10);
+		dniField.setText(texto);
 		
 		JLabel personas = new JLabel("How many people?");
 		InformationPanel.add(personas);
@@ -150,9 +144,8 @@ public class ReservaWindow {
 				documento.add(titulo);
 				documento.add(new Paragraph("Nombre: "+ nameField.getText()));
 				documento.add(new Paragraph("DNI: "+ dniField.getText()));
-				documento.add(new Paragraph("People: "+ peopleField.getText()));
-				documento.add(new Paragraph("Room: "));
-				
+				documento.add(new Paragraph("People: "+ peopleField.getText()));				
+				documento.add(new Paragraph("Room: "+ room_list.getSelectedValue()));
 				documento.close();
 				} catch (FileNotFoundException | DocumentException e1) {
 					// TODO Auto-generated catch block

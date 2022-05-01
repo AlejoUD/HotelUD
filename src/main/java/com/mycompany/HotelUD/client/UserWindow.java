@@ -20,7 +20,7 @@ public class UserWindow extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public UserWindow() {
+	public UserWindow(String texto) {
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 695, 436);
@@ -46,7 +46,7 @@ public class UserWindow extends JFrame {
 		JButton btnImprimirTicket = new JButton("RESERVAR");
 		btnImprimirTicket.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ReservaWindow();
+				new ReservaWindow(texto);
 			}
 		});
 		btnImprimirTicket.setBounds(459, 118, 141, 37);
