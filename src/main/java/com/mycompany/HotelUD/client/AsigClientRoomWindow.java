@@ -9,13 +9,17 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.swing.JToggleButton;
@@ -25,6 +29,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.DefaultListModel;
 
 import com.mycompany.HotelUD.BBDD.BBDD;
+import com.mycompany.HotelUD.classes.AsigRoom;
 import com.mycompany.HotelUD.classes.Room;
 import com.mycompany.HotelUD.classes.User;
 
@@ -107,6 +112,42 @@ public class AsigClientRoomWindow extends JFrame {
 			modelUsers.addElement(listaTempUsers.get(i));
 			
 		}
+		
+		botonAsignar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				Room room3 = (Room) listaRooms.getSelectedValue();
+				User user3 = (User) listaUsers.getSelectedValue();
+				
+				Integer number = room3.getNumberDoor();
+				String type = room3.getType();
+				int surface = room3.getSurface();
+				int floor = room3.getFloor();
+				String dni = user3.getDni();
+				
+
+				AsigRoom asigRoom = new AsigRoom(number, type, surface, floor, dni);
+			
+				//modelRoom.addElement(v);
+				//al.add(v);
+				
+				String query = "INSERT INTO roomAsig (numberDoor, type, surface, floor, dni) values( '"+number+"','"+type+"','"+surface+"','"+floor+"','"+dni+"')";
+				
+				Statement stmt;
+				try {
+					stmt = conexion.createStatement();
+					stmt.execute(query);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				JOptionPane.showMessageDialog(null, "Habitación asignada correctamente.");
+				
+			}
+		});
 		
 		
 		

@@ -38,6 +38,16 @@ CREATE TABLE`dependients`(
 `bankAccount` varchar (150) DEFAULT NULL,  
 PRIMARY KEY (`counter`)
 );
+
+CREATE TABLE`roomAsig`(  
+`numberDoor` int (11) DEFAULT NULL,
+`type` varchar (150) DEFAULT NULL,  
+`surface` int(5) DEFAULT NULL,    
+`floor` int(5) DEFAULT NULL,
+`dni` varchar (150) DEFAULT NULL,
+UNIQUE (`numberDoor`)
+);
+
 drop table room;
 select * from users;
 select * from workers;
