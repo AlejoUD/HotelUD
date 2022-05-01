@@ -48,7 +48,6 @@ CREATE TABLE`roomAsig`(
 UNIQUE (`numberDoor`)
 );
 
-drop table asig;
 drop table room;
 select * from users;
 select * from workers;
