@@ -188,7 +188,7 @@ public class RoomWindow extends JFrame {
 						Statement stmt = conexion.createStatement();
 						stmt.execute(query);
 						
-						JOptionPane.showMessageDialog(null, "Product added successfully");
+						JOptionPane.showMessageDialog(null, "Room added successfully");
 						
 						textField.setText("");
 						textField_1.setText("");

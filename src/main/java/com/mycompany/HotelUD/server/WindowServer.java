@@ -143,7 +143,7 @@ public class WindowServer extends JFrame {
 		room_panel.setBorder(UIManager.getBorder("TitledBorder.border"));
 		room_panel.setBackground(Color.DARK_GRAY);
 		room_panel.setBounds(423, 42, 315, 181);
-		
+		contentPane.add(room_panel);
 		
 		
 		DefaultListModel<Room> modelRoom = new DefaultListModel<>();
@@ -158,12 +158,11 @@ public class WindowServer extends JFrame {
 		room_list.setBounds(10, 11, 295, 159);
 		room_panel.add(room_list);
 		
-		JScrollPane room_scrollPane = new JScrollPane(room_list);
-//		room_scrollPane.setBounds(10, 11, 295, 159);
-		room_scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		room_panel.add(room_list);
-		contentPane.add(room_panel);
-		
+		JScrollPane scrollRoom = new JScrollPane(room_list);
+		scrollRoom.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollRoom.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollRoom.setBounds(10, 11, 295, 159);
+		room_panel.add(scrollRoom);
 		
 		JLabel labelRooms = new JLabel("Rooms");
 		labelRooms.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 11));
@@ -179,10 +178,6 @@ public class WindowServer extends JFrame {
 		client_panel.setBounds(10, 42, 315, 181);
 		contentPane.add(client_panel);
 		
-		JScrollPane client_scrollPane = new JScrollPane();
-		//client_scrollPane.setBounds(10, 11, 295, 159);
-		client_panel.add(client_scrollPane);
-		
 		DefaultListModel modelUsers = new DefaultListModel<>();
 		User user = new User();
 		System.out.println( baseDatos.getUsers());
@@ -191,9 +186,12 @@ public class WindowServer extends JFrame {
 			modelUsers.addElement(u);
 		}
 		
-		JList client_list = new JList(modelUsers);
-		client_list.setBounds(10, 11, 295, 159);
-		client_panel.add(client_list);
+		JList client_list = new JList(modelUsers);		
+		JScrollPane scrollClients = new JScrollPane(client_list);
+		scrollClients.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollClients.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollClients.setBounds(10, 11, 295, 159);
+		client_panel.add(scrollClients);
 		
 		JLabel labelClient = new JLabel("Clients");
 		labelClient.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 11));
@@ -208,10 +206,7 @@ public class WindowServer extends JFrame {
 		worker_panel.setBackground(Color.DARK_GRAY);
 		worker_panel.setBounds(10, 276, 315, 181);
 		contentPane.add(worker_panel);
-		
-		JScrollPane worker_scrollPane = new JScrollPane();
-		//worker_scrollPane.setBounds(10, 11, 295, 11);
-		worker_panel.add(worker_scrollPane);
+
 		
 		DefaultListModel modelWorker = new DefaultListModel<>();
 		Worker worker = new Worker();
@@ -222,13 +217,15 @@ public class WindowServer extends JFrame {
 		}
 		
 		JList worker_list = new JList(modelWorker);
-		worker_list.setBounds(10, 11, 295, 159);
-		worker_panel.add(worker_list);
-		
+		JScrollPane scrollWorkers = new JScrollPane(worker_list);
+		scrollWorkers.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollWorkers.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollWorkers.setBounds(10, 11, 295, 159);
+		worker_panel.add(scrollWorkers);
 		
 		JLabel labelWorkers = new JLabel("Workers");
 		labelWorkers.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 11));
-		labelWorkers.setBounds(10, 251, 46, 14);
+		labelWorkers.setBounds(10, 251, 70, 30);
 		contentPane.add(labelWorkers);
 	}
 }
