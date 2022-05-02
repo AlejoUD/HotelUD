@@ -12,24 +12,25 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class BBDDTest {
-	Worker w = new Worker(0,"Ander","45919608W","Male",21);
-	User u = new User(0,"Diego","1234567A","Male",21,"COntraseña","11223344");
+	Worker w = new Worker(0, "Ander", "45919608W", "Male", 21);
+	User u = new User(0, "Diego", "1234567A", "Male", 21, "COntraseña", "11223344");
 	Room r = new Room(1, "Premium", 10, 2);
-	Dependient d = new Dependient(1, "Paco", "1234567Z", "contra123", "Male", "Manager", "Controlar todo.", "123123456");
+	Dependient d = new Dependient(1, "Paco", "1234567Z", "contra123", "Male", "Manager", "Controlar todo.",
+			"123123456");
 	BBDD bd = new BBDD();
-	
+
 	@Test
 	public void iniBBDDTest() {
 		BBDD bd = new BBDD();
 	}
-	
+
 //	@Test
 //	public void testConectionWorkers() {
 //		bd.conectionWorkers("HotelUD.sql");
 //		bd.conectionRoom("room");
 //		bd.conectionUsers("user");
 //	}
-	
+
 //	@Test
 //	public void addWorkersTest() {
 //		bd.addWorker(w);
@@ -78,7 +79,7 @@ public class BBDDTest {
 	@Test
 	public void getConectionTest() {
 		bd.getConection();
-		
+
 	}
 //	@Test
 //	public void asigRommTest() {
@@ -90,5 +91,5 @@ public class BBDDTest {
 //		bd.conectionUsers("hotel");
 //		
 //	}
-	
+
 }

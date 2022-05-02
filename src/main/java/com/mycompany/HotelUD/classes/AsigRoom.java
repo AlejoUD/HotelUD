@@ -16,6 +16,11 @@ public class AsigRoom extends Room{
 		super(numberDoor, type, surface, floor);
 		this.dni = dni;
 	}
+	
+	public AsigRoom() {
+		super();
+		this.dni = "";
+	}
 
 	@Override
 	public int getNumberDoor() {
@@ -68,7 +73,7 @@ public class AsigRoom extends Room{
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString();
+		return super.toString() + ", DNI: " + dni;
 	}
 	
 	

@@ -9,44 +9,48 @@ import com.mycompany.HotelUD.classes.User;
 import org.junit.Before;
 import org.junit.Test;
 
-
 public class TicketTest {
- 
-    private Ticket t;
-    private User u;
-    private Room r;
 
-    @Before
-    public void setUp() {
-        u = new User(2,"Xabat","73672612P","Male",20,"admin","772367262");
-        r = new Room(2, "Normal", 8, 4);
-        t = new Ticket(r,u);
-    }
+	private Ticket t;
+	private User u;
+	private Room r;
 
-    @Test
-    public void testGetters() {
-        assertEquals(u,t.getUser());
-        assertEquals(r,t.getRoom());
-    }
-    @Test
-    public void testSetters() {
-    	User user = new User();
-    	Room room = new Room();
-    	Ticket ticket = new Ticket();
-    	ticket.setRoom(room);
-    	ticket.setUser(user);
-    	assertEquals(ticket.getRoom(),room);
-    	assertEquals(ticket.getUser(),user);
-    	
-    }
-    @Test
-    public void testToString()
-    {
-        Room r1 = new Room();
-        User u1 = new User();
-        Ticket ticket = new Ticket(r1, u1); 
-        String expected = "Ticket: All the room features->" + r1.toString() + ". User features->"+ u1.toString(); // put the expected value here
-        assertEquals(expected, ticket.toString());
-    }
-    
+	@Before
+	public void setUp() {
+		u = new User(2, "Xabat", "73672612P", "Male", 20, "admin", "772367262");
+		r = new Room(2, "Normal", 8, 4);
+		t = new Ticket(r, u);
+	}
+
+	@Test
+	public void testGetters() {
+		assertEquals(u, t.getUser());
+		assertEquals(r, t.getRoom());
+	}
+
+	@Test
+	public void testSetters() {
+		User user = new User();
+		Room room = new Room();
+		Ticket ticket = new Ticket();
+		ticket.setRoom(room);
+		ticket.setUser(user);
+		assertEquals(ticket.getRoom(), room);
+		assertEquals(ticket.getUser(), user);
+
+	}
+
+	@Test
+	public void testToString() {
+		Room r1 = new Room();
+		User u1 = new User();
+		Ticket ticket = new Ticket(r1, u1);
+		String expected = "Ticket: All the room features->" + r1.toString() + ". User features->" + u1.toString(); // put
+																													// the
+																													// expected
+																													// value
+																													// here
+		assertEquals(expected, ticket.toString());
+	}
+
 }
