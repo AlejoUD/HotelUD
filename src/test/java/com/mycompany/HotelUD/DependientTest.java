@@ -18,13 +18,13 @@ public class DependientTest {
 
     @Test
     public void testGetters() {
-        assertEquals("Paco", r.getType());
-        assertEquals("1234567Z", r.getType());
-        assertEquals("contra123", r.getType());
-        assertEquals("Male", r.getType());
-        assertEquals("Manager", r.getType());
-        assertEquals("Controlar todo.", r.getType());
-        assertEquals("123123456", r.getType());
+        assertEquals("Paco", d.getName());
+        assertEquals("1234567Z", d.getDni());
+        assertEquals("contra123", d.getPassword());
+        assertEquals("Male", d.getGender());
+        assertEquals("Manager", d.getPosition());
+        assertEquals("Controlar todo.", d.getDescription());
+        assertEquals("123123456", d.getBankAccount());
     
     }
     @Test
