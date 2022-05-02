@@ -28,46 +28,46 @@ public class BBDDTest {
 //		bd.conectionUsers("user");
 //	}
 	
-	@Test
-	public void addWorkersTest() {
-		bd.addWorker(w);
-		
-	}
-	@Test
-	public void addUserTEst() {
-		bd.addUsers(u);
-		
-	}
-	@Test
-	public void addRoomTest() {
-		bd.addRoom(r);
-		
-	}
-	@Test
-	public void addDependientTest() {
-		bd.addDependient(d);
-		
-	}
-	@Test
-	public void getWorkersTest() {
-		bd.getWorkers();
-		
-	}
-	@Test
-	public void getDependientsTest() {
-		bd.getDependients();
-		
-	}
-	@Test
-	public void getUsersTest() {
-		bd.getUsers();
-		
-	}
-	@Test
-	public void getRoomTest() {
-		bd.getRooms();
-		
-	}
+//	@Test
+//	public void addWorkersTest() {
+//		bd.addWorker(w);
+//		
+//	}
+//	@Test
+//	public void addUserTEst() {
+//		bd.addUsers(u);
+//		
+//	}
+//	@Test
+//	public void addRoomTest() {
+//		bd.addRoom(r);
+//		
+//	}
+//	@Test
+//	public void addDependientTest() {
+//		bd.addDependient(d);
+//		
+//	}
+//	@Test
+//	public void getWorkersTest() {
+//		bd.getWorkers();
+//		
+//	}
+//	@Test
+//	public void getDependientsTest() {
+//		bd.getDependients();
+//		
+//	}
+//	@Test
+//	public void getUsersTest() {
+//		bd.getUsers();
+//		
+//	}
+//	@Test
+//	public void getRoomTest() {
+//		bd.getRooms();
+//		
+//	}
 //	@Test
 //	public void getAsigRoomTest() {
 //		bd.getAsigRooms();
