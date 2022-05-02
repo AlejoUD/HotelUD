@@ -41,5 +41,12 @@ public class WorkerTest {
     	assertEquals(w.getName(),"test");
     	
     }
+    @Test
+    public void testToString()
+    {
+        Worker worker = new Worker(1, "name", "dni", "gender", 21); 
+        String expected = "Worker code" + 1 + ", name: " + "name" + ", dni: " + "dni" + ", gender: " + "gender" + ", age: " + 21; // put the expected value here
+        assertEquals(expected, worker.toString());
+    }
 }
 

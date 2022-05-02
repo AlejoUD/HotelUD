@@ -35,4 +35,11 @@ public class RoomTest {
     	assertEquals(r.getNumberDoor(),0);
     	
     }
+    @Test
+    public void testToString()
+    {
+        Room room = new Room(1, "Premium", 120, 2); 
+        String expected = "Room numberDoor: " + 1 + ", type: " + "Premium" + ", surface: " + 120 + ", floor: " + 2; // put the expected value here
+        assertEquals(expected, room.toString());
+    }
 }

@@ -37,12 +37,14 @@ public class TicketTest {
     	assertEquals(ticket.getUser(),user);
     	
     }
-//    public void testToString() {
-//    	User user = new User();
-//    	Room room = new Room();
-//    	Ticket ticket = new Ticket();
-//    	assertEquals("Ticket: All the room features->" + room.toString() + ". User features->"+ user.toString(),ticket.toString());
-//    	
-//    }
+    @Test
+    public void testToString()
+    {
+        Room r1 = new Room();
+        User u1 = new User();
+        Ticket ticket = new Ticket(r1, u1); 
+        String expected = "Ticket: All the room features->" + r1.toString() + ". User features->"+ u1.toString(); // put the expected value here
+        assertEquals(expected, ticket.toString());
+    }
     
 }

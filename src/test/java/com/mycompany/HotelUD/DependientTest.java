@@ -18,6 +18,7 @@ public class DependientTest {
 
     @Test
     public void testGetters() {
+        assertEquals(1, d.getCounter());
         assertEquals("Paco", d.getName());
         assertEquals("1234567Z", d.getDni());
         assertEquals("contra123", d.getPassword());
@@ -31,6 +32,7 @@ public class DependientTest {
     public void testSetters() {
     	Dependient d = new Dependient();
     	
+        d.setCounter(1);
     	d.setName("test");
     	d.setDni("test");
     	d.setPassword("test");
@@ -39,6 +41,7 @@ public class DependientTest {
     	d.setDescription("test");
     	d.setBankAccount("test");
     	
+        assertEquals(d.getCounter(),1);
     	assertEquals(d.getName(),"test");
     	assertEquals(d.getDni(),"test");
     	assertEquals(d.getPassword(),"test");
@@ -48,5 +51,14 @@ public class DependientTest {
     	assertEquals(d.getBankAccount(),"test");
     	
     	
+    }
+    @Test
+    public void testToString()
+    {
+        Dependient dependient = new Dependient(1, "name", "dni", "password", "gender", "position", "description", "bankAccount"); 
+        String expected = "Dependient [counter=" + 1 + ", name=" + "name" + ", dni=" + "dni" + ", password=" + "password"
+        + ", gender=" + "gender" + ", position=" + "position" + ", description=" + "description" 
+        + ", bankAccount=" + "bankAccount" + "]"; // put the expected value here
+        assertEquals(expected, dependient.toString());
     }
 }
