@@ -1,3 +1,4 @@
+![java ci workflow](https://github.com/AlejoUD/HotelUD/actions/workflows/java-ci.yml/badge.svg) [![codecov](https://codecov.io/gh/AlejoUD/HotelUD/branch/master/graph/badge.svg?token=L2FTBAES79)](https://codecov.io/gh/AlejoUD/HotelUD)
 # Pasos a seguir para que funcione el proyecto.
 ## Paso 1
 ``` 
