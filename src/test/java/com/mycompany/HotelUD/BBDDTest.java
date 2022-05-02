@@ -68,21 +68,21 @@ public class BBDDTest {
 		bd.getRooms();
 		
 	}
-	@Test
-	public void getAsigRoomTest() {
-		bd.getAsigRooms();
-		
-	}
+//	@Test
+//	public void getAsigRoomTest() {
+//		bd.getAsigRooms();
+//		
+//	}
 	@Test
 	public void getConectionTest() {
 		bd.getConection();
 		
 	}
-	@Test
-	public void asigRommTest() {
-		bd.asigRoom(r, u);
-		
-	}
+//	@Test
+//	public void asigRommTest() {
+//		bd.asigRoom(r, u);
+//		
+//	}
 //	@Test
 //	public void conectionWorkers() {
 //		bd.conectionUsers("hotel");
