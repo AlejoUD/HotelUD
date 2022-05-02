@@ -1,3 +1,5 @@
+package com.mycompany.HotelUD;
+
 import static org.junit.Assert.assertEquals;
 
 import com.mycompany.HotelUD.classes.Room;
@@ -7,11 +9,16 @@ import com.mycompany.HotelUD.classes.Worker;
 
 import org.junit.Before;
 import org.junit.Test;
-
-
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+@RunWith(MockitoJUnitRunner.class)
 public class WorkerTest {
  
-    private Worker w;
+    //private Worker w;
+
+    @Mock
+	Worker w = new Worker(0, "Ander", "45919608W", "Male", 21);
 
     @Before
     public void setUp() {
@@ -44,9 +51,9 @@ public class WorkerTest {
     @Test
     public void testToString()
     {
-        Worker worker = new Worker(1, "name", "dni", "gender", 21); 
-        String expected = "Worker code" + 1 + ", name: " + "name" + ", dni: " + "dni" + ", gender: " + "gender" + ", age: " + 21; // put the expected value here
-        assertEquals(expected, worker.toString());
+        //Worker worker = new Worker(1, "name", "dni", "gender", 21); 
+        String expected = "Worker code" + 0 + ", name: " + "Ander" + ", dni: " + "45919608W" + ", gender: " + "Male" + ", age: " + 21; // put the expected value here
+        assertEquals(expected, w.toString());
     }
 }
 

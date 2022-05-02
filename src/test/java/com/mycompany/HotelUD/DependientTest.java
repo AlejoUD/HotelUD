@@ -1,8 +1,8 @@
+package com.mycompany.HotelUD;
+
 import static org.junit.Assert.assertEquals;
 
 import com.mycompany.HotelUD.classes.Dependient;
-import com.mycompany.HotelUD.classes.Room;
-import com.mycompany.HotelUD.classes.Worker;
 
 import org.junit.Before;
 import org.junit.Test;
