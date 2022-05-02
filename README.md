@@ -20,6 +20,7 @@ CREATE TABLE`users`(
 CREATE TABLE`workers`(
 CREATE TABLE`room`(
 CREATE TABLE`dependients`(
+CREATE TABLE`roomAsig`(
 ```
 Una ejecutadas, mas abajo tenemos los SELECT por si queremos comprobar que los Usuarios, Trabajadores, Habitaciones y los Dependientes que creamos mediante java se han guardado correctamente en las tablas.
 ## Paso 4
