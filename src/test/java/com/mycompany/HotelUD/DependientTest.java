@@ -15,7 +15,6 @@ public class DependientTest {
 	public void setUp() {
 		d = new Dependient(1, "Paco", "1234567Z", "contra123", "Male", "Manager", "Controlar todo.", "123123456");
 	}
-
 	@Test
 	public void testGetters() {
 		assertEquals(1, d.getCounter());
