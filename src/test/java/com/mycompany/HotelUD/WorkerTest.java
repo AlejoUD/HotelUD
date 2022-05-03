@@ -2,24 +2,15 @@ package com.mycompany.HotelUD;
 
 import static org.junit.Assert.assertEquals;
 
-import com.mycompany.HotelUD.classes.Room;
-import com.mycompany.HotelUD.classes.Ticket;
-import com.mycompany.HotelUD.classes.User;
 import com.mycompany.HotelUD.classes.Worker;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 
-@RunWith(MockitoJUnitRunner.class)
 public class WorkerTest {
 
-	// private Worker w;
-
-	@Mock
-	Worker w = new Worker(0, "Ander", "45919608W", "Male", 21);
+	private Worker w;
 
 	@Before
 	public void setUp() {
@@ -38,16 +29,16 @@ public class WorkerTest {
 	@Test
 	public void testSetters() {
 		Worker w = new Worker();
-		w.setAge(0);
+		w.setAge(21);
 		w.setCounter(0);
-		w.setDni("test");
-		w.setGender("test");
-		w.setName("test");
-		assertEquals(w.getAge(), 0);
+		w.setDni("45919608W");
+		w.setGender("Male");
+		w.setName("Ander");
+		assertEquals(w.getAge(), 21);
 		assertEquals(w.getCounter(), 0);
-		assertEquals(w.getDni(), "test");
-		assertEquals(w.getGender(), "test");
-		assertEquals(w.getName(), "test");
+		assertEquals(w.getDni(), "45919608W");
+		assertEquals(w.getGender(), "Male");
+		assertEquals(w.getName(), "Ander");
 
 	}
 
