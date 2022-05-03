@@ -1,6 +1,7 @@
 package com.mycompany.HotelUD;
 
 import static org.junit.Assert.assertEquals;
+
 import com.mycompany.HotelUD.classes.Room;
 import org.junit.Before;
 import org.junit.Test;

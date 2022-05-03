@@ -125,10 +125,13 @@ public class AsigClientRoomWindow extends JFrame {
 				String type = room3.getType();
 				int surface = room3.getSurface();
 				int floor = room3.getFloor();
+		
 				String dni = user3.getDni();
+		
 				
+				Room r= new Room(number, type, surface, floor);
 
-				AsigRoom asigRoom = new AsigRoom(number, type, surface, floor, dni);
+				AsigRoom asigRoom = new AsigRoom(r, dni);
 			
 				//modelRoom.addElement(v);
 				//al.add(v);
