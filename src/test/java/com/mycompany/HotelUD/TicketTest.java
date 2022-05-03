@@ -8,17 +8,24 @@ import com.mycompany.HotelUD.classes.User;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class TicketTest {
 
 	private Ticket t;
-	private User u;
-	private Room r;
+	@Mock
+	User u = new User(2, "Xabat", "73672612P", "Male", 20, "admin", "772367262");
+	@Mock
+	Room r = new Room(2, "Normal", 8, 4);
+	
 
 	@Before
 	public void setUp() {
-		u = new User(2, "Xabat", "73672612P", "Male", 20, "admin", "772367262");
-		r = new Room(2, "Normal", 8, 4);
+		//u = new User(2, "Xabat", "73672612P", "Male", 20, "admin", "772367262");
+		//r = new Room(2, "Normal", 8, 4);
 		t = new Ticket(r, u);
 	}
 
