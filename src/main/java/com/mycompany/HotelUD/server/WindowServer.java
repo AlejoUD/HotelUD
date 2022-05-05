@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.border.EmptyBorder;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.WebTarget;
 
 import com.mycompany.HotelUD.BBDD.BBDD;
 import com.mycompany.HotelUD.classes.Room;
@@ -37,6 +39,9 @@ public class WindowServer extends JFrame {
 
 	private JPanel contentPane;
 	BBDD baseDatos = new BBDD();
+	
+	private Client client;
+	private WebTarget webTarget;
 	/**
 	 * Launch the application.
 	 */
