@@ -1,6 +1,7 @@
 package com.mycompany.HotelUD.BBDD;
 
 import java.awt.print.Printable;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -30,6 +31,26 @@ public class BBDD {
 //			return null;
 //		}
 //	}
+	
+//	public static Connection initBD(String nombreBD) throws BDException {
+//		Connection con = null;
+//		try {
+//			Class.forName("org.sqlite.JDBC");
+//			con = DriverManager.getConnection("jdbc:sqlite:"+nombreBD);
+//			
+//					
+//		} catch (ClassNotFoundException e) {
+//			
+//			e.printStackTrace();
+//			throw new BDException("No se pudo cargar el driver de la base de datos", e);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return con;
+//	}
+	
+	
 	public BBDD() {
 			try {
 				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","1234");

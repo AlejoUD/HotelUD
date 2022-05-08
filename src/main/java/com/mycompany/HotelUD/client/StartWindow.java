@@ -1,6 +1,7 @@
 package com.mycompany.HotelUD.client;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +10,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
 
 import com.mycompany.HotelUD.BBDD.BBDD;
 
@@ -22,6 +26,10 @@ public class StartWindow extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	private Client client;
+	private WebTarget webTarget;
+
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -37,7 +45,14 @@ public class StartWindow extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @return 
 	 */
+	
+	public void Donor(String hostname, String port) {
+		client = ClientBuilder.newClient();
+		webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+	}
+	
 	public StartWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 411, 337);

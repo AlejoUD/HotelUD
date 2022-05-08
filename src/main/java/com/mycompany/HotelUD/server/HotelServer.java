@@ -9,19 +9,23 @@ import javax.ws.rs.core.Response;
 
 import com.mycompany.HotelUD.classes.User;
 import com.mycompany.HotelUD.classes.Worker;
+
+import com.mycompany.HotelUD.server.HotelCollector;
+
 @Path("/server")
 @Produces(MediaType.APPLICATION_JSON)
-public class Server {
-	private Server servidor;
+public class HotelServer {
+	
+	private HotelCollector hotelCollector;
 
-	public Server() {
-		servidor = new Server();
+	public HotelServer() {
+		hotelCollector = new HotelCollector();
 	}
 
-	@POST //Añadir un recurso
+	@POST
 	@Path("/worker")
 	public Response addWorker(Worker worker) {
-		servidor.addWorker(worker);
+		hotelCollector.addWorker(worker);
 		return Response.ok().build();
 	}
 
@@ -29,13 +33,13 @@ public class Server {
 	@Path("/worker")
 	public Response getWorkers() {
 
-		return Response.ok(servidor.getWorkers()).build();
+		return Response.ok(hotelCollector.getWorkers()).build();
 	}
 
 	@POST
 	@Path("/user")
 	public Response addUser(User user) {
-		servidor.addUser(user);
+		hotelCollector.addUser(user);
 		return Response.ok().build();
 	}
 
@@ -43,7 +47,7 @@ public class Server {
 	@Path("/user")
 	public Response getUsers() {
 
-		return Response.ok(servidor.getUsers()).build();
+		return Response.ok(hotelCollector.getUsers()).build();
 	}
 
 }

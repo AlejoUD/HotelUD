@@ -1,6 +1,7 @@
 package com.mycompany.HotelUD.server;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -8,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.border.EmptyBorder;
 import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 
 import com.mycompany.HotelUD.BBDD.BBDD;
@@ -35,7 +37,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 
-public class WindowServer extends JFrame {
+public class HotelManager extends JFrame {
 
 	private JPanel contentPane;
 	BBDD baseDatos = new BBDD();
@@ -49,7 +51,7 @@ public class WindowServer extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					WindowServer frame = new WindowServer();
+					HotelManager frame = new HotelManager();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -60,8 +62,16 @@ public class WindowServer extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @return 
 	 */
-	public WindowServer() {
+	
+	
+	public void DonationManager(String hostname, String port) {
+		client = ClientBuilder.newClient();
+		webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+	}
+	
+	public HotelManager() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 764, 531);
 		 this.setTitle("Server Home");
