@@ -29,13 +29,13 @@ public class MenuAdminWindow extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lMenuPrinc = new JLabel("MEN� PRINCIPAL ADMINISTRADOR");
 		lMenuPrinc.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lMenuPrinc.setForeground(new Color(0, 0, 0));
 		lMenuPrinc.setBounds(149, 64, 315, 25);
 		contentPane.add(lMenuPrinc);
-		
+
 		JButton btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -45,24 +45,24 @@ public class MenuAdminWindow extends JFrame {
 		});
 		btnBack.setBounds(455, 288, 89, 23);
 		contentPane.add(btnBack);
-		
+
 		JButton btnCreateClient = new JButton("Create Client");
 		btnCreateClient.setBounds(32, 141, 119, 33);
 		contentPane.add(btnCreateClient);
 		btnCreateClient.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				new RegisterClientsWindow();
 			}
 		});
-		
+
 		JButton btnCreateDependient = new JButton("Create Dependient");
 		btnCreateDependient.setBounds(186, 141, 177, 33);
 		contentPane.add(btnCreateDependient);
 		btnCreateDependient.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -70,11 +70,11 @@ public class MenuAdminWindow extends JFrame {
 				dispose();
 			}
 		});
-		
+
 		JButton btnCreateWorker = new JButton("Create Worker");
 		btnCreateWorker.setBounds(406, 141, 119, 33);
 		contentPane.add(btnCreateWorker);
-		
+
 		JButton btnCreateRoom = new JButton("Create Room");
 		btnCreateRoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -84,12 +84,19 @@ public class MenuAdminWindow extends JFrame {
 		});
 		btnCreateRoom.setBounds(32, 203, 119, 33);
 		contentPane.add(btnCreateRoom);
+
+		JButton btnVerMen = new JButton("Ver Menú");
+		btnVerMen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnVerMen.setBounds(186, 208, 177, 33);
+		contentPane.add(btnVerMen);
 		btnCreateWorker.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new CreateWorkerWindow();
-				
+
 			}
 		});
 	}
