@@ -1,6 +1,4 @@
 target/
-images/
-lib/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -20,4 +18,6 @@ buildNumber.properties
 bin/
 .settings/
 
+images/*
+lib/*
 
