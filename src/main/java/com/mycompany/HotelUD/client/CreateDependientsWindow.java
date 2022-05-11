@@ -147,6 +147,12 @@ public class CreateDependientsWindow extends JFrame {
 		});
 		
 		JButton btnback = new JButton("Back");
+		btnback.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new MenuAdminWindow();
+				dispose();
+			}
+		});
 		btnback.setBounds(546, 366, 89, 23);
 		contentPane.add(btnback);
 		btnRegistrar.addActionListener(new ActionListener() {
