@@ -17,4 +17,4 @@ buildNumber.properties
 .classpath
 bin/
 .settings/
-images
+images/
