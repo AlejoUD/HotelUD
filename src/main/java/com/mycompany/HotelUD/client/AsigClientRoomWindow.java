@@ -88,6 +88,9 @@ public class AsigClientRoomWindow extends JFrame {
 		
 		JToggleButton botonAsignar = new JToggleButton("ASIGNAR HABITACIÓN");
 		PanelBotones.add(botonAsignar);
+
+		JToggleButton botonCalendario = new JToggleButton("DISPONIBILIDAD");
+		PanelBotones.add(botonCalendario);
 		
 		try {
 			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
@@ -112,6 +115,13 @@ public class AsigClientRoomWindow extends JFrame {
 			modelUsers.addElement(listaTempUsers.get(i));
 			
 		}
+
+		botonCalendario.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+                            new CalendarWindow();
+			}
+		});
 		
 		botonAsignar.addActionListener(new ActionListener() {
 			
