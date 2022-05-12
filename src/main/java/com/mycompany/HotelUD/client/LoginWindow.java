@@ -7,6 +7,7 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
 import com.mycompany.HotelUD.BBDD.BBDD;
@@ -25,7 +26,7 @@ public class LoginWindow extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tEmail;
-	private JTextField tContrasenya;
+	private JPasswordField tContrasenya;
 	private JButton btnBack;
 	private JButton btnLogin;
 	String emailAdmin = "admin@admin.com";
@@ -61,16 +62,19 @@ public class LoginWindow extends JFrame {
 		contentPane.add(tEmail);
 		tEmail.setColumns(10);
 		
-		tContrasenya = new JTextField();
+		tContrasenya = new JPasswordField();
 		tContrasenya.setColumns(10);
 		tContrasenya.setBounds(186, 176, 194, 20);
 		contentPane.add(tContrasenya);
 		
 		btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				new StartWindow();
+				System.out.println("hola");
 				dispose();
+				
 			}
 		});
 		btnBack.setBounds(291, 241, 89, 23);
