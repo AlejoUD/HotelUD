@@ -69,11 +69,11 @@
     		<artifactId>exec-maven-plugin</artifactId>
     		<version>1.2.1</version>
 		</dependency>
-	    <dependency>
-	        <groupId>unknown.binary</groupId>
-	        <artifactId>jcalendar-1.4</artifactId>
-	        <version>SNAPSHOT</version>
-	    </dependency>
+	   <dependency>
+    		<groupId>com.toedter</groupId>
+    		<artifactId>jcalendar</artifactId>
+    		<version>1.4</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
