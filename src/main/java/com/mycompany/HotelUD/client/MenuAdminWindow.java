@@ -30,7 +30,7 @@ public class MenuAdminWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lMenuPrinc = new JLabel("MEN� PRINCIPAL ADMINISTRADOR");
+		JLabel lMenuPrinc = new JLabel("MENU PRINCIPAL ADMINISTRADOR");
 		lMenuPrinc.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lMenuPrinc.setForeground(new Color(0, 0, 0));
 		lMenuPrinc.setBounds(149, 64, 315, 25);
@@ -88,6 +88,8 @@ public class MenuAdminWindow extends JFrame {
 		JButton btnVerMen = new JButton("Ver Menú");
 		btnVerMen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new MenuWindow();
+				dispose();
 			}
 		});
 		btnVerMen.setBounds(186, 208, 177, 33);
