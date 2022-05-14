@@ -35,6 +35,7 @@ public class LoginWindow extends JFrame {
 	String texto;
 	
 	public LoginWindow() {
+		setUndecorated(true);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 468, 337);
@@ -90,8 +91,8 @@ public class LoginWindow extends JFrame {
 		btnBack.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new StartWindow();
-				System.out.println("hola");
+				StartWindow startWindow = new StartWindow();
+				startWindow.setVisible(true);
 				dispose();
 				
 			}
