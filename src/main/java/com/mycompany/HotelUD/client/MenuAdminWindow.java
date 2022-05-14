@@ -26,13 +26,14 @@ public class MenuAdminWindow extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 600, 378);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JLabel lMenuPrinc = new JLabel("MENU PRINCIPAL ADMINISTRADOR");
 		lMenuPrinc.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lMenuPrinc.setForeground(new Color(0, 0, 0));
+		lMenuPrinc.setForeground(Color.WHITE);
 		lMenuPrinc.setBounds(149, 64, 315, 25);
 		contentPane.add(lMenuPrinc);
 
@@ -44,10 +45,12 @@ public class MenuAdminWindow extends JFrame {
 			}
 		});
 		btnBack.setBounds(455, 288, 89, 23);
+		btnBack.setBackground(Color.ORANGE);
 		contentPane.add(btnBack);
 
 		JButton btnCreateClient = new JButton("Create Client");
 		btnCreateClient.setBounds(32, 141, 119, 33);
+		btnCreateClient.setBackground(Color.ORANGE);
 		contentPane.add(btnCreateClient);
 		btnCreateClient.addActionListener(new ActionListener() {
 
@@ -60,6 +63,7 @@ public class MenuAdminWindow extends JFrame {
 
 		JButton btnCreateDependient = new JButton("Create Dependient");
 		btnCreateDependient.setBounds(186, 141, 177, 33);
+		btnCreateDependient.setBackground(Color.ORANGE);
 		contentPane.add(btnCreateDependient);
 		btnCreateDependient.addActionListener(new ActionListener() {
 
@@ -73,6 +77,7 @@ public class MenuAdminWindow extends JFrame {
 
 		JButton btnCreateWorker = new JButton("Create Worker");
 		btnCreateWorker.setBounds(406, 141, 119, 33);
+		btnCreateWorker.setBackground(Color.ORANGE);
 		contentPane.add(btnCreateWorker);
 
 		JButton btnCreateRoom = new JButton("Create Room");
@@ -82,6 +87,7 @@ public class MenuAdminWindow extends JFrame {
 			}
 		});
 		btnCreateRoom.setBounds(32, 203, 119, 33);
+		btnCreateRoom.setBackground(Color.ORANGE);
 		contentPane.add(btnCreateRoom);
 
 		JButton btnVerMen = new JButton("Ver Menú");
@@ -92,6 +98,7 @@ public class MenuAdminWindow extends JFrame {
 			}
 		});
 		btnVerMen.setBounds(186, 208, 177, 33);
+		btnVerMen.setBackground(Color.ORANGE);
 		contentPane.add(btnVerMen);
 		btnCreateWorker.addActionListener(new ActionListener() {
 
@@ -102,7 +109,8 @@ public class MenuAdminWindow extends JFrame {
 		});
 		
 		JButton btnCrearMenu = new JButton("Create Menu");
-		btnCrearMenu.setBounds(406, 205, 119, 33);;
+		btnCrearMenu.setBounds(406, 205, 119, 33);
+		btnCrearMenu.setBackground(Color.ORANGE);
 		contentPane.add(btnCrearMenu);
 	}
 	
