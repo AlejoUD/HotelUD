@@ -1,7 +1,7 @@
 package com.mycompany.HotelUD.client;
 
 import java.awt.BorderLayout;
-
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -59,6 +59,7 @@ public class StartWindow extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setLayout(null);
 		
 		JLabel LPerfil = new JLabel();
@@ -68,8 +69,23 @@ public class StartWindow extends JFrame {
 		contentPane.add(LPerfil);
 		
 		JButton btnLogin = new JButton("Login Admin");
+		btnLogin.setBackground(Color.ORANGE);
 		btnLogin.setBounds(129, 145, 139, 23);
 		contentPane.add(btnLogin);
+		
+
+		
+		JButton btnLoginUser = new JButton("Login User/Depend");
+		btnLoginUser.setBackground(Color.ORANGE);
+		btnLoginUser.setBounds(129, 179, 139, 23);
+		contentPane.add(btnLoginUser);
+		
+		
+		JButton btnRegistrarClient = new JButton("Register");
+		btnRegistrarClient.setBackground(Color.ORANGE);
+		btnRegistrarClient.setBounds(129, 213, 139, 23);
+		contentPane.add(btnRegistrarClient);
+		
 		
 		btnLogin.addActionListener(new ActionListener() {
 
@@ -82,10 +98,7 @@ public class StartWindow extends JFrame {
 			
 		});
 		
-		JButton btnLoginUser = new JButton("Login User/Depend");
-		btnLoginUser.setBounds(129, 179, 139, 23);
-		contentPane.add(btnLoginUser);
-		
+
 		btnLoginUser.addActionListener(new ActionListener() {
 
 			@Override
@@ -97,9 +110,6 @@ public class StartWindow extends JFrame {
 			
 		});
 		
-		JButton btnRegistrarClient = new JButton("Register");
-		btnRegistrarClient.setBounds(129, 213, 139, 23);
-		contentPane.add(btnRegistrarClient);
 		
 		btnRegistrarClient.addActionListener(new ActionListener() {
 

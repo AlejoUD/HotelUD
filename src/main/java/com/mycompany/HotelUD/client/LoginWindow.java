@@ -36,38 +36,57 @@ public class LoginWindow extends JFrame {
 	
 	public LoginWindow() {
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 485, 328);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 468, 337);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lTitle = new JLabel("LOGIN");
 		lTitle.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lTitle.setForeground(new Color(0, 0, 0));
-		lTitle.setBounds(155, 54, 291, 25);
+		lTitle.setForeground(Color.WHITE);
+		lTitle.setBounds(125, 44, 291, 25);
 		contentPane.add(lTitle);
 		
 		JLabel lEmail = new JLabel("User: ");
-		lEmail.setBounds(89, 134, 87, 19);
+		lEmail.setForeground(Color.WHITE);
+		lEmail.setBounds(89, 100, 87, 19);
 		contentPane.add(lEmail);
 		
 		JLabel lContrasenya = new JLabel("Password: ");
-		lContrasenya.setBounds(89, 177, 87, 19);
+		lContrasenya.setForeground(Color.WHITE);
+		lContrasenya.setBounds(89, 146, 87, 19);
 		contentPane.add(lContrasenya);
 		
 		tEmail = new JTextField();
-		tEmail.setBounds(186, 133, 194, 20);
+		tEmail.setBounds(186, 99, 194, 20);
 		contentPane.add(tEmail);
 		tEmail.setColumns(10);
 		
 		tContrasenya = new JPasswordField();
 		tContrasenya.setColumns(10);
-		tContrasenya.setBounds(186, 176, 194, 20);
+		tContrasenya.setBounds(186, 145, 194, 20);
 		contentPane.add(tContrasenya);
 		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
+		panel.setBounds(0, 221, 454, 79);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		
+		btnLogin = new JButton("Login");
+		btnLogin.setBackground(Color.ORANGE);
+		btnLogin.setBounds(203, 11, 82, 23);
+		panel.add(btnLogin);
+		
 		btnBack = new JButton("Back");
+		btnBack.setBackground(Color.ORANGE);
+		btnBack.setBounds(355, 45, 89, 23);
+		panel.add(btnBack);
+		
 		btnBack.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -77,11 +96,7 @@ public class LoginWindow extends JFrame {
 				
 			}
 		});
-		btnBack.setBounds(291, 241, 89, 23);
-		contentPane.add(btnBack);
 		
-		
-		btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -99,8 +114,6 @@ public class LoginWindow extends JFrame {
 				}
 			}
 		});
-		btnLogin.setBounds(186, 241, 89, 23);
-		contentPane.add(btnLogin);
 	}
 	public boolean usuarioCoincide() {
 		ArrayList<User> userBD = new ArrayList<>();
