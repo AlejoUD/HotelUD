@@ -1,12 +1,15 @@
 package com.mycompany.HotelUD.classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Menu {
 	private String plato1;
 	private String plato2;
 	private String postre;
 	private String bebida;
-	private String condimento;
-	public Menu(String plato1, String plato2, String postre, String bebida, String condimento) {
+	private List<String> condimento;
+	public Menu(String plato1, String plato2, String postre, String bebida, List<String> condimento) {
 		super();
 		this.plato1 = plato1;
 		this.plato2 = plato2;
@@ -21,7 +24,7 @@ public class Menu {
 		this.plato2 = "";
 		this.postre = "";
 		this.bebida = "";
-		this.condimento = "";
+		this.condimento = new ArrayList<String>();
 	}
 
 	public String getPlato1() {
@@ -56,12 +59,12 @@ public class Menu {
 		this.bebida = bebida;
 	}
 
-	public String getCondimento() {
+	public List<String> getCondimento() {
 		return condimento;
 	}
 
-	public void setCondimento(String condimento) {
-		this.condimento = condimento;
+	public void setCondimento(List<String> condimentos) {
+		this.condimento = condimentos;
 	}
 
 	@Override

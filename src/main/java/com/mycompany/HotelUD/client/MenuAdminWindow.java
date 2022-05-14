@@ -88,7 +88,7 @@ public class MenuAdminWindow extends JFrame {
 		JButton btnVerMen = new JButton("Ver Menú");
 		btnVerMen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new MenuWindow();
+				//new MenuWindow();
 				dispose();
 			}
 		});
@@ -101,5 +101,11 @@ public class MenuAdminWindow extends JFrame {
 
 			}
 		});
+		
+		JButton btnCrearMenu = new JButton("Create Menu");
+		btnCrearMenu.setBounds(406, 205, 119, 33);;
+		contentPane.add(btnCrearMenu);
 	}
+	
+
 }

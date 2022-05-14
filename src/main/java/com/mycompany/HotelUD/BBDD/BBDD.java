@@ -1,7 +1,7 @@
 package com.mycompany.HotelUD.BBDD;
 
 import java.awt.print.Printable;
-
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,10 +9,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Level;
 
 import com.mycompany.HotelUD.classes.AsigRoom;
 import com.mycompany.HotelUD.classes.Dependient;
+import com.mycompany.HotelUD.classes.Menu;
 import com.mycompany.HotelUD.classes.Room;
 import com.mycompany.HotelUD.classes.User;
 import com.mycompany.HotelUD.classes.Worker;
@@ -119,19 +121,9 @@ public class BBDD {
 			statement.setLong(5, worker.getAge());
 			
 			statement.executeUpdate();
-			statement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			if (connection!= null) {
-				try {
-					connection.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
 		}
 	}
 	
@@ -148,19 +140,9 @@ public class BBDD {
 			statement.setString(7, user.getBankCount());
 			
 			statement.executeUpdate();
-			statement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			if (connection!= null) {
-				try {
-					connection.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
 		}
 	}
 	
@@ -174,19 +156,9 @@ public class BBDD {
 			statement.setLong(4, room.getFloor());
 			
 			statement.executeUpdate();
-			statement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			if (connection!= null) {
-				try {
-					connection.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
 		}
 	}
 	
@@ -201,19 +173,9 @@ public class BBDD {
 			statement.setString(5, user.getDni());
 			
 			statement.executeUpdate();
-			statement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			if (connection!= null) {
-				try {
-					connection.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
 		}
 	}
 	
@@ -324,19 +286,9 @@ public class BBDD {
 			statement.setString(8, dependient.getBankAccount());
 			
 			statement.executeUpdate();
-			statement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			if (connection!= null) {
-				try {
-					connection.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
 		}
 	}
 	public static ArrayList<Dependient> getDependients() {
@@ -363,5 +315,28 @@ public class BBDD {
 		return result;
 
 	}
+	
+	public static void addMenu(Menu menu) {
+		try {
+			String news = "";
+			statement = connection.prepareStatement("INSERT INTO menu (counter,Plato1,Plato2,Postre,Bebida,Condimentos) VALUES ( ?, ?, ?, ?, ?, ?)");
+			Statement st= connection.createStatement();
+			statement.setLong(1, 0);
+			statement.setString(2, menu.getPlato1());
+			statement.setString(3, menu.getPlato2());
+			statement.setString(4, menu.getPostre());
+			statement.setString(5, menu.getBebida());
+			for (String s : menu.getCondimento()) {
+				news = s + ", ";
+			}
+			statement.setString(6, news);
+			
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 
 }

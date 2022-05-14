@@ -61,6 +61,7 @@ PRIMARY KEY (`counter`)
 drop table room;
 select * from users;
 select * from menu;
+truncate menu;
 select * from workers;
 select * from room;
 select * from dependients;
