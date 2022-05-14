@@ -59,7 +59,6 @@ public class RoomWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				new MenuAdminWindow();
 				dispose();
 			}
 		});

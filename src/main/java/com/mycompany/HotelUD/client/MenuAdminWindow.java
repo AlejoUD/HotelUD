@@ -79,7 +79,6 @@ public class MenuAdminWindow extends JFrame {
 		btnCreateRoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new RoomWindow();
-				dispose();
 			}
 		});
 		btnCreateRoom.setBounds(32, 203, 119, 33);
