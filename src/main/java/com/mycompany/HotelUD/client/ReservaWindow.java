@@ -43,7 +43,7 @@ public class ReservaWindow {
 	public ReservaWindow(String texto) {
 		frame = new JFrame();
 		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		frame.setBounds(100, 100, 869, 302);
 		frame.setTitle("Server Home");

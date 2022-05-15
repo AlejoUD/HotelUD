@@ -73,10 +73,8 @@ public class StartWindow extends JFrame {
 		btnLogin.setBackground(Color.ORANGE);
 		btnLogin.setBounds(129, 145, 139, 23);
 		contentPane.add(btnLogin);
-		
 
-		
-		JButton btnLoginUser = new JButton("Login User/Depend");
+		JButton btnLoginUser = new JButton("Login User");
 		btnLoginUser.setBackground(Color.ORANGE);
 		btnLoginUser.setBounds(129, 179, 139, 23);
 		contentPane.add(btnLoginUser);
@@ -86,6 +84,11 @@ public class StartWindow extends JFrame {
 		btnRegistrarClient.setBackground(Color.ORANGE);
 		btnRegistrarClient.setBounds(129, 213, 139, 23);
 		contentPane.add(btnRegistrarClient);
+		
+		JButton btnLoginDependiente = new JButton("Login Dependient");
+		btnLoginDependiente.setBackground(Color.ORANGE);
+		btnLoginDependiente.setBounds(129, 247, 139, 23);
+		contentPane.add(btnLoginDependiente);
 		
 		
 		btnLogin.addActionListener(new ActionListener() {
@@ -109,6 +112,15 @@ public class StartWindow extends JFrame {
 				dispose();
 			}
 			
+		});
+		
+		btnLoginDependiente.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new LoginWindow();
+			}
 		});
 		
 		
