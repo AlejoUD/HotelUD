@@ -53,39 +53,39 @@ public class LoginWindow extends JFrame {
 		
 		JLabel lEmail = new JLabel("User: ");
 		lEmail.setForeground(Color.WHITE);
-		lEmail.setBounds(89, 100, 87, 19);
+		lEmail.setBounds(55, 100, 87, 19);
 		contentPane.add(lEmail);
 		
 		JLabel lContrasenya = new JLabel("Password: ");
 		lContrasenya.setForeground(Color.WHITE);
-		lContrasenya.setBounds(89, 146, 87, 19);
+		lContrasenya.setBounds(55, 146, 87, 19);
 		contentPane.add(lContrasenya);
 		
 		tEmail = new JTextField();
-		tEmail.setBounds(186, 99, 194, 20);
+		tEmail.setBounds(170, 99, 194, 20);
 		contentPane.add(tEmail);
 		tEmail.setColumns(10);
 		
 		tContrasenya = new JPasswordField();
 		tContrasenya.setColumns(10);
-		tContrasenya.setBounds(186, 145, 194, 20);
+		tContrasenya.setBounds(170, 145, 194, 20);
 		contentPane.add(tContrasenya);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
-		panel.setBounds(0, 221, 454, 79);
+		panel.setBounds(10, 221, 432, 79);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		
 		btnLogin = new JButton("Login");
 		btnLogin.setBackground(Color.ORANGE);
-		btnLogin.setBounds(203, 11, 82, 23);
+		btnLogin.setBounds(72, 31, 82, 23);
 		panel.add(btnLogin);
 		
 		btnBack = new JButton("Back");
 		btnBack.setBackground(Color.ORANGE);
-		btnBack.setBounds(355, 45, 89, 23);
+		btnBack.setBounds(296, 31, 89, 23);
 		panel.add(btnBack);
 		
 		btnBack.addActionListener(new ActionListener() {

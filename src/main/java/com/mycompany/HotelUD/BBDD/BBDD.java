@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Level;
 
 import com.mycompany.HotelUD.classes.AsigRoom;
@@ -337,6 +338,30 @@ public class BBDD {
 			e.printStackTrace();
 		}
 	}
+	public static ArrayList<Menu> getMenu() {
+		ArrayList<Menu> result = new ArrayList<Menu>();
+		String consult = "SELECT * FROM menu";
+		try {
+			ResultSet rs = connection.createStatement().executeQuery(consult);
+			while(rs.next()) {
+				Menu menu2 = new Menu();
+				menu2.setPlato1(rs.getString(2));
+				menu2.setPlato2(rs.getString(3));
+				menu2.setPostre(rs.getString(4));
+				menu2.setPostre(rs.getString(5));
+				List<String> list = new ArrayList<>();
+				list.add(rs.getString(6));
+				menu2.setCondimento(list);
+				result.add(menu2);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+
+	}
+	
 	
 
 }
