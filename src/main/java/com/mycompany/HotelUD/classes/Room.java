@@ -8,6 +8,24 @@ public class Room {
 	private int floor;
 	private boolean ocupation;
 	
+	public Room(int numberDoor, String type, int surface, int floor, boolean ocupation) {
+		super();
+		this.numberDoor = numberDoor;
+		this.type = type;
+		this.surface = surface;
+		this.floor = floor;
+		this.ocupation = ocupation;
+	}
+	
+	public Room(int numberDoor, String type, int surface, int floor, boolean ocupation) {
+		super();
+		this.numberDoor = 0;
+		this.type = "";
+		this.surface = 0;
+		this.floor = 0;
+		this.ocupation = false;
+	}
+	
 	public int getNumberDoor() {
 		return numberDoor;
 	}
@@ -38,6 +56,10 @@ public class Room {
 	public void setOcupation(boolean ocupation) {
 		this.ocupation = ocupation;
 	}
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Room [numberDoor=" + numberDoor + ", type=" + type + ", surface=" + surface + ", floor=" + floor
