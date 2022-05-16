@@ -91,12 +91,6 @@ public class MenuAdminWindow extends JFrame {
 		contentPane.add(btnCreateRoom);
 
 		JButton btnVerMen = new JButton("Ver Menú");
-		btnVerMen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// new MenuWindow();
-				//dispose();
-			}
-		});
 		btnVerMen.setBounds(186, 208, 177, 33);
 		btnVerMen.setBackground(Color.ORANGE);
 		contentPane.add(btnVerMen);
@@ -104,7 +98,7 @@ public class MenuAdminWindow extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				new CreateWorkerWindow();
 			}
 		});
 
@@ -112,6 +106,12 @@ public class MenuAdminWindow extends JFrame {
 		btnCrearMenu.setBounds(406, 205, 119, 33);
 		btnCrearMenu.setBackground(Color.ORANGE);
 		contentPane.add(btnCrearMenu);
+		btnCrearMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new MenuRestauranteWindow();
+				//dispose();
+			}
+		});
 	}
 
 }
