@@ -110,7 +110,7 @@ public class LoginWindow extends JFrame {
 					new UserWindow(texto);
 					dispose();
 				}else if (dependienteCoincide()==true) {
-					//new DependientWindow();
+					new DependientWindow();
 					dispose();
 				}
 			}

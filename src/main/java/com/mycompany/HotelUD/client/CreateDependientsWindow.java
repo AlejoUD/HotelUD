@@ -129,22 +129,17 @@ public class CreateDependientsWindow extends JFrame {
 		banktxt.setBounds(177, 300, 158, 22);
 		contentPane.add(banktxt);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
-		panel.setBounds(10, 221, 432, 79);
-		contentPane.add(panel);
-		panel.setLayout(null);
-		
-		JButton btnRegistrar = new JButton("Register");
-		btnRegistrar.setBounds(54, 11, 114, 24);
-		panel.add(btnRegistrar);
-		btnRegistrar.setBackground(Color.ORANGE);
-		
 
 		JButton btnback = new JButton("Back");
-		btnback.setBounds(313, 12, 89, 23);
-		panel.add(btnback);
+		btnback.setBounds(338, 364, 89, 23);
+		contentPane.add(btnback);
 		btnback.setBackground(Color.ORANGE);
+		
+		JButton btnRegistrar = new JButton("Register");
+		btnRegistrar.setBounds(76, 363, 114, 24);
+		contentPane.add(btnRegistrar);
+		btnRegistrar.setBackground(Color.ORANGE);
+		
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Dependient dependient = new Dependient();
