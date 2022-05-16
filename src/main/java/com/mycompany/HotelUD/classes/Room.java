@@ -17,7 +17,7 @@ public class Room {
 		this.ocupation = ocupation;
 	}
 	
-	public Room(int numberDoor, String type, int surface, int floor, boolean ocupation) {
+	public Room() {
 		super();
 		this.numberDoor = 0;
 		this.type = "";
