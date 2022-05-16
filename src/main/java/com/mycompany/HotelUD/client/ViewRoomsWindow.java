@@ -35,7 +35,7 @@ import com.mycompany.HotelUD.classes.User;
 
 import java.awt.Color;
 
-public class AsigClientRoomWindow extends JFrame {
+public class ViewRoomsWindow extends JFrame {
 
 	private JPanel PanelPrincipal;
 	private JTable TablaClientes;
@@ -44,7 +44,7 @@ public class AsigClientRoomWindow extends JFrame {
 	BBDD baseDatos = new BBDD();
 
 
-	public AsigClientRoomWindow() {
+	public ViewRoomsWindow() {
 		setTitle("Asignar Habitaciones a Clientes");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 724, 411);
