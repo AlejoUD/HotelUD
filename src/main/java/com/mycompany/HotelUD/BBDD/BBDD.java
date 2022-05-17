@@ -98,7 +98,7 @@ public class BBDD {
 			statement = (PreparedStatement) connection.createStatement();
 			try {
 				statement.executeUpdate("create table " + nombreBD
-						+ " (numberDoor integer primary key autoincrement, type varchar, surface integer, floor integer)");
+						+ " (numberDoor integer primary key autoincrement, type varchar, surface integer, floor integer, ocupation varchar)");
 			} catch (SQLException e) {
 				System.out.println("Ya esta creada");
 			}
@@ -149,12 +149,13 @@ public class BBDD {
 	
 	public static void addRoom(Room room) {
 		try {
-			statement = connection.prepareStatement("INSERT INTO room (numberDoor,type,surface,floor) VALUES ( ?, ?, ?, ?)");
+			statement = connection.prepareStatement("INSERT INTO room (numberDoor,type,surface,floor,ocupation) VALUES ( ?, ?, ?, ?,?)");
 			Statement st= connection.createStatement();
 			statement.setLong(1, 0);
 			statement.setString(2, room.getType());
 			statement.setLong(3, room.getSurface());
 			statement.setLong(4, room.getFloor());
+			statement.setString(5, room.getOcupation());
 			
 			statement.executeUpdate();
 		} catch (SQLException e) {
@@ -236,6 +237,7 @@ public class BBDD {
 				room2.setType(rs.getString(2));
 				room2.setSurface(rs.getInt(3));
 				room2.setFloor(rs.getInt(4));
+				room2.setOcupation(rs.getString(5));
 				result.add(room2);
 			}
 		} catch (SQLException e) {
@@ -258,8 +260,10 @@ public class BBDD {
 				room2.setType(rs.getString(2));
 				room2.setSurface(rs.getInt(3));
 				room2.setFloor(rs.getInt(4));
+				room2.setOcupation(rs.getString(5));
 				asigRoom2.setRoom(room2);
-				asigRoom2.setDni(rs.getString(5));
+				asigRoom2.setDni(rs.getString(6));
+				
 				
 				result.add(asigRoom2);
 			}

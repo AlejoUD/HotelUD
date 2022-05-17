@@ -135,19 +135,19 @@ public class ViewRoomsWindow extends JFrame {
 				String type = room3.getType();
 				int surface = room3.getSurface();
 				int floor = room3.getFloor();
-				String occupation = room3.getOcupation();
+				String ocupation = room3.getOcupation();
 		
 				String dni = user3.getDni();
 		
 				
-				Room r= new Room(number, type, surface, floor, occupation);
+				Room r= new Room(number, type, surface, floor, ocupation);
 
 				AsigRoom asigRoom = new AsigRoom(r, dni);
 			
 				//modelRoom.addElement(v);
 				//al.add(v);
 				
-				String query = "INSERT INTO roomAsig (numberDoor, type, surface, floor, dni, ocupation) values( '"+number+"','"+type+"','"+surface+"','"+floor+"','"+dni+"','"+occupation+"')";
+				String query = "INSERT INTO roomAsig (numberDoor, type, surface, floor, dni, ocupation) values( '"+number+"','"+type+"','"+surface+"','"+floor+"','"+dni+"','"+ocupation+"')";
 				
 				Statement stmt;
 				try {

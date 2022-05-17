@@ -165,20 +165,20 @@ public class RoomWindow extends JFrame {
 						String type;
 						int surface;
 						int floor;
-						String occupation;
+						String ocupation;
 		
 						number = (int) Integer.parseInt(textField.getText());
 						type = (String) textField_1.getText();
 						surface = (int) Integer.parseInt(textField_2.getText());
 						floor = (int) Integer.parseInt(textField_3.getText());
-						occupation = "No";
+						ocupation = "No";
 		
-						Room v = new Room(number, type, surface, floor, occupation);
+						Room v = new Room(number, type, surface, floor, ocupation);
 					
 						modelRoom.addElement(v);
 						al.add(v);
 						
-						String query = "INSERT INTO room (numberDoor, type, surface, floor, ocupation) values( '"+number+"','"+type+"','"+surface+"','"+floor+"', '"+occupation+"')";
+						String query = "INSERT INTO room (numberDoor, type, surface, floor, ocupation) values( '"+number+"','"+type+"','"+surface+"','"+floor+"', '"+ocupation+"')";
 						
 						Statement stmt = conexion.createStatement();
 						stmt.execute(query);
