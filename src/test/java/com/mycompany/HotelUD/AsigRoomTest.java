@@ -17,7 +17,7 @@ public class AsigRoomTest {
 	private AsigRoom a;
 	
 	@Mock
-	Room r = new Room(1, "Premium", 10, 2, false);
+	Room r = new Room(1, "Premium", 10, 2, "Yes");
 
 	@Before
 	public void setUp() {

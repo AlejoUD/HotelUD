@@ -15,11 +15,11 @@ public class RoomTest {
 	// private Room r;
 
 	@Mock
-	Room r = new Room(1, "Premium", 10, 2, false);
+	Room r = new Room(1, "Premium", 10, 2, "No");
 
 	@Before
 	public void setUp() {
-		r = new Room(1, "Premium", 10, 2, false);
+		r = new Room(1, "Premium", 10, 2, "No");
 	}
 
 	@Test
@@ -28,7 +28,7 @@ public class RoomTest {
 		assertEquals("Premium", r.getType());
 		assertEquals(10, r.getSurface(), 0.2);
 		assertEquals(2, r.getFloor(), 0.2);
-		assertEquals(false, r.isOcupation());
+		assertEquals(false, r.getOcupation());
 	}
 
 	@Test
@@ -38,19 +38,19 @@ public class RoomTest {
 		r.setSurface(0);
 		r.setNumberDoor(0);
 		r.setType("test");
-		r.setOcupation(false);
+		r.setOcupation("Yes");
 		assertEquals(r.getFloor(), 0);
 		assertEquals(r.getSurface(), 0);
 		assertEquals(r.getType(), "test");
 		assertEquals(r.getNumberDoor(), 0);
-		assertEquals(r.isOcupation(), 0);
+		assertEquals(r.getOcupation(), 0);
 
 	}
 
 	@Test
 	public void testToString() {
 		// Room room = new Room(1, "Premium", 10, 2, false);
-		String expected = "Room numberDoor: " + 1 + ", type: " + "Premium" + ", surface: " + 10 + ", floor: " + 2 + ", ocupation: " + "false"; // put
+		String expected = "Room numberDoor: " + 1 + ", type: " + "Premium" + ", surface: " + 10 + ", floor: " + 2 + ", ocupation: " + "No"; // put
 																													// the
 																													// expected
 																													// value
