@@ -25,6 +25,7 @@ CREATE TABLE`room`(
 `type` varchar (150) DEFAULT NULL,  
 `surface` int(5) DEFAULT NULL,    
 `floor` int(5) DEFAULT NULL,
+`ocupation` int(5) DEFAULT NULL,
 PRIMARY KEY (`numberDoor`)
 );
 CREATE TABLE`dependients`(  

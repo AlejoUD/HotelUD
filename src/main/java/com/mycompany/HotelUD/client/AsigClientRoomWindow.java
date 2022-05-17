@@ -135,7 +135,7 @@ public class AsigClientRoomWindow extends JFrame {
 				String type = room3.getType();
 				int surface = room3.getSurface();
 				int floor = room3.getFloor();
-				boolean ocupation = true;
+				String ocupation = "Yes";
 		
 				String dni = user3.getDni();
 		

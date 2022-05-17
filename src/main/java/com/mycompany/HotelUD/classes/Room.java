@@ -6,9 +6,9 @@ public class Room {
 	private String type;
 	private int surface;
 	private int floor;
-	private boolean ocupation;
+	private String ocupation;
 	
-	public Room(int numberDoor, String type, int surface, int floor, boolean ocupation) {
+	public Room(int numberDoor, String type, int surface, int floor, String ocupation) {
 		super();
 		this.numberDoor = numberDoor;
 		this.type = type;
@@ -23,7 +23,7 @@ public class Room {
 		this.type = "";
 		this.surface = 0;
 		this.floor = 0;
-		this.ocupation = false;
+		this.ocupation = "No";
 	}
 	
 	public int getNumberDoor() {
@@ -50,20 +50,21 @@ public class Room {
 	public void setFloor(int floor) {
 		this.floor = floor;
 	}
-	public boolean isOcupation() {
+	
+	public String getOcupation() {
 		return ocupation;
 	}
-	public void setOcupation(boolean ocupation) {
+
+	public void setOcupation(String ocupation) {
 		this.ocupation = ocupation;
 	}
-	
-	
-	
-	
+
 	@Override
 	public String toString() {
 		return "Room [numberDoor=" + numberDoor + ", type=" + type + ", surface=" + surface + ", floor=" + floor
 				+ ", ocupation=" + ocupation + "]";
 	}
+
+	
 
 }
