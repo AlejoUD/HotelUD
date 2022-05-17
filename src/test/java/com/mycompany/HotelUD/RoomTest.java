@@ -28,7 +28,7 @@ public class RoomTest {
 		assertEquals("Premium", r.getType());
 		assertEquals(10, r.getSurface(), 0.2);
 		assertEquals(2, r.getFloor(), 0.2);
-		assertEquals(false, r.getOcupation());
+		assertEquals("No", r.getOcupation());
 	}
 
 	@Test
@@ -38,12 +38,12 @@ public class RoomTest {
 		r.setSurface(0);
 		r.setNumberDoor(0);
 		r.setType("test");
-		r.setOcupation("Yes");
+		r.setOcupation("No");
 		assertEquals(r.getFloor(), 0);
 		assertEquals(r.getSurface(), 0);
 		assertEquals(r.getType(), "test");
 		assertEquals(r.getNumberDoor(), 0);
-		assertEquals(r.getOcupation(), 0);
+		assertEquals(r.getOcupation(), "No");
 
 	}
 
