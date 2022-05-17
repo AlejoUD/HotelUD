@@ -152,6 +152,7 @@ public class RegisterClientsWindow extends JFrame {
 				genderField.setText("");
 				ageField.setText("");
 				bankAccountField.setText("");
+				dispose();
 
 			}
 			

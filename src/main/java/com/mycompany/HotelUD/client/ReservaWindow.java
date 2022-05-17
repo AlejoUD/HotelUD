@@ -148,6 +148,8 @@ public class ReservaWindow {
 				documento.add(new Paragraph("People: "+ peopleField.getText()));				
 				documento.add(new Paragraph("Room: "+ room_list.getSelectedValue()));
 				documento.close();
+				
+				BBDD.asigRoom((Room) room_list.getSelectedValue(), null);
 				} catch (FileNotFoundException | DocumentException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
