@@ -1,5 +1,7 @@
 package com.mycompany.HotelUD.client;
 
+import static org.mockito.ArgumentMatchers.booleanThat;
+
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -163,13 +165,15 @@ public class RoomWindow extends JFrame {
 						String type;
 						int surface;
 						int floor;
+						boolean ocupation;
 		
 						number = (int) Integer.parseInt(textField.getText());
 						type = (String) textField_1.getText();
 						surface = (int) Integer.parseInt(textField_2.getText());
 						floor = (int) Integer.parseInt(textField_3.getText());
+						ocupation = false;
 		
-						Room v = new Room(number, type, surface, floor);
+						Room v = new Room(number, type, surface, floor, ocupation);
 					
 						modelRoom.addElement(v);
 						al.add(v);
