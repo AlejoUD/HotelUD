@@ -90,10 +90,15 @@ public class MenuAdminWindow extends JFrame {
 		btnCreateRoom.setBackground(Color.ORANGE);
 		contentPane.add(btnCreateRoom);
 
-		JButton btnVerMen = new JButton("Ver Menú");
-		btnVerMen.setBounds(186, 208, 177, 33);
-		btnVerMen.setBackground(Color.ORANGE);
-		contentPane.add(btnVerMen);
+		JButton btnReservas = new JButton("Bookings");
+		btnReservas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new ReservaWindow(null);
+			}
+		});
+		btnReservas.setBounds(186, 208, 177, 33);
+		btnReservas.setBackground(Color.ORANGE);
+		contentPane.add(btnReservas);
 		btnCreateWorker.addActionListener(new ActionListener() {
 
 			@Override
