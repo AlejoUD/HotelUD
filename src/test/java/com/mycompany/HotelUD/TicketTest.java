@@ -19,7 +19,7 @@ public class TicketTest {
 	@Mock
 	User u = new User(2, "Xabat", "73672612P", "Male", 20, "admin", "772367262");
 	@Mock
-	Room r = new Room(2, "Normal", 8, 4);
+	Room r = new Room(2, "Normal", 8, 4, false);
 	
 
 	@Before
