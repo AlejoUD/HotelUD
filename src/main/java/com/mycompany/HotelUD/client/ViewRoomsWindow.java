@@ -45,7 +45,7 @@ public class ViewRoomsWindow extends JFrame {
 
 
 	public ViewRoomsWindow() {
-		setTitle("Lista de habitaciones libres y habitaciones ocupadas");
+		setTitle("Habitaciones libres y habitaciones ocupadas");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 724, 411);
 		PanelPrincipal = new JPanel();
@@ -56,7 +56,7 @@ public class ViewRoomsWindow extends JFrame {
 		JPanel PanelTitulo = new JPanel();
 		PanelPrincipal.add(PanelTitulo, BorderLayout.NORTH);
 		
-		JLabel lTitulo = new JLabel("Asignar Habitación a Cliente");
+		JLabel lTitulo = new JLabel("Lista de habitaciones libres y ocupadas");
 		lTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lTitulo.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		PanelTitulo.add(lTitulo);

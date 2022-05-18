@@ -61,7 +61,7 @@ public class Room {
 
 	@Override
 	public String toString() {
-		return "Room numberDoor: " + numberDoor + ", type: " + type + ", surface: " + surface + ", floor: " + floor + ", ocupation: " + ocupation; // put
+		return "Room number: " + numberDoor + " | Type: " + type + " | Surface: " + surface + " | Floor: " + floor + " | Occupation: " + ocupation; // put
 		
 	}
 
