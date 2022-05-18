@@ -81,7 +81,7 @@ public class RoomWindow extends JFrame {
 		panel_1.add(scrollPane);
 		
 		DefaultListModel<Room> modelRoom = new DefaultListModel<Room>();
-		JList lista = new JList<Room>(modelRoom);
+		JList<Room> lista = new JList<Room>(modelRoom);
 		
 		scrollPane.setViewportView(lista);
 		
@@ -140,13 +140,6 @@ public class RoomWindow extends JFrame {
 		btnNewButton_1.setBounds(74, 154, 89, 23);
 		panel_2.add(btnNewButton_1);
 		
-		try {
-			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
-			System.out.println( "Successfully connected to the database");
-		} catch (SQLException e) {
-			System.out.println("Error connecting to database ");
-			e.printStackTrace();
-		}
 		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			
@@ -159,29 +152,24 @@ public class RoomWindow extends JFrame {
 							"data creation", JOptionPane.ERROR_MESSAGE);
 				} else {
 
-					try {
+						Room room = new Room();
 						
-						Integer number;
-						String type;
-						int surface;
-						int floor;
-						String ocupation;
+						int number= (int) Integer.parseInt(textField.getText());
+						String type = (String) textField_1.getText();
+						int surface = (int) Integer.parseInt(textField_2.getText());
+						int floor = (int) Integer.parseInt(textField_3.getText());
+						String ocupation = "No";
 		
-						number = (int) Integer.parseInt(textField.getText());
-						type = (String) textField_1.getText();
-						surface = (int) Integer.parseInt(textField_2.getText());
-						floor = (int) Integer.parseInt(textField_3.getText());
-						ocupation = "No";
 		
-						Room v = new Room(number, type, surface, floor, ocupation);
-					
-						modelRoom.addElement(v);
-						al.add(v);
+						room.setNumberDoor(number);
+						room.setType(type);
+						room.setSurface(surface);
+						room.setFloor(floor);
+						room.setOcupation(ocupation);
+						baseDatos.addRoom(room);
 						
-						String query = "INSERT INTO room (numberDoor, type, surface, floor, ocupation) values( '"+number+"','"+type+"','"+surface+"','"+floor+"', '"+ocupation+"')";
-						
-						Statement stmt = conexion.createStatement();
-						stmt.execute(query);
+						modelRoom.addElement(room);
+						al.add(room);
 						
 						JOptionPane.showMessageDialog(null, "Room added successfully");
 						
@@ -191,10 +179,6 @@ public class RoomWindow extends JFrame {
 						textField_3.setText("");
 						textField_4.setText("");
 							
-				}catch (SQLException e) {
-					System.out.println("Error entering data into the database");
-					e.printStackTrace();
-				}
 				}
 						
 			}
@@ -209,7 +193,6 @@ public class RoomWindow extends JFrame {
 		
 		btnNewButton_2.setBounds(261, 155, 89, 23);
 		panel.add(btnNewButton_2);
-		
 		
 		
 		JButton btnNewButton_3 = new JButton("DELETE");

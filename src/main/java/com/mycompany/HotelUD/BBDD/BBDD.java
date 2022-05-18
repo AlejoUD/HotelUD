@@ -149,9 +149,9 @@ public class BBDD {
 	
 	public static void addRoom(Room room) {
 		try {
-			statement = connection.prepareStatement("INSERT INTO room (numberDoor,type,surface,floor,ocupation) VALUES ( ?, ?, ?, ?,?)");
+			statement = connection.prepareStatement("INSERT INTO room (numberDoor,type,surface,floor,ocupation) VALUES ( ?, ?, ?, ?, ?)");
 			Statement st= connection.createStatement();
-			statement.setLong(1, 0);
+			statement.setLong(1, room.getNumberDoor());
 			statement.setString(2, room.getType());
 			statement.setLong(3, room.getSurface());
 			statement.setLong(4, room.getFloor());
