@@ -1,0 +1,46 @@
+ \href{https://codecov.io/gh/AlejoUD/HotelUD}{\texttt{ }} \hypertarget{md__r_e_a_d_m_e_autotoc_md0}{}\doxysection{Pasos a seguir para que funcione el proyecto.}\label{md__r_e_a_d_m_e_autotoc_md0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysubsection{Paso 1}\label{md__r_e_a_d_m_e_autotoc_md1}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mvn compile}
+
+\end{DoxyCode}
+ \hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{Paso 2}\label{md__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mvn test}
+
+\end{DoxyCode}
+ \hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsection{Paso 3}\label{md__r_e_a_d_m_e_autotoc_md3}
+Hay que crear las tablas en la base de datos. Para ello, se encuentra un archivo con el nombre Hotel\+UD.\+sql en la carpeta lib, por lo que tenemos que abrirlo con una aplicación que lo permita (My\+SQL Workbench, XAMPP...). Dentro, tenemos que ejecutar las líneas que pone lo siguiente\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CREATE DATABASE IF NOT exists hotel;}
+
+\end{DoxyCode}
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{use hotel;}
+
+\end{DoxyCode}
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CREATE TABLE`users`(}
+\DoxyCodeLine{CREATE TABLE`workers`(}
+\DoxyCodeLine{CREATE TABLE`room`(}
+\DoxyCodeLine{CREATE TABLE`dependients`(}
+\DoxyCodeLine{CREATE TABLE`roomAsig`(}
+\DoxyCodeLine{CREATE TABLE`menu`(}
+
+\end{DoxyCode}
+ Una ejecutadas, mas abajo tenemos los SELECT por si queremos comprobar que los Usuarios, Trabajadores, Habitaciones y los Dependientes que creamos mediante java se han guardado correctamente en las tablas. \hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{Paso 4}\label{md__r_e_a_d_m_e_autotoc_md4}
+Para lanzar la parte cliente, abrimos el cmd con la ruta donde se encuentra nuestro proyecto y ponemos lo siguiente\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mvn exec:java -\/Pclient}
+
+\end{DoxyCode}
+ Para lanzar la parte servidor, abrimos otro cmd con la ruta donde se encuentra nuestro proyecto y ponemos lo siguiente\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mvn exec:java -\/Pmanager}
+
+\end{DoxyCode}
+ 

@@ -1,5 +1,4 @@
 package com.mycompany.HotelUD.client;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import java.awt.Color;
@@ -21,7 +20,6 @@ import javax.swing.UIManager;
 
 import com.mycompany.HotelUD.BBDD.BBDD;
 import com.mycompany.HotelUD.classes.Menu;
-import com.mycompany.HotelUD.classes.Room;
 
 public class DependientWindow {
 
@@ -36,23 +34,23 @@ public class DependientWindow {
 		frame.setBounds(100, 100, 635, 454);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JLabel lblTitulo = new JLabel("Bienvenido");
 		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblTitulo.setForeground(Color.WHITE);
 		lblTitulo.setBounds(234, 11, 286, 56);
 		frame.getContentPane().add(lblTitulo);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBounds(10, 91, 601, 102);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		JButton btnVerMenus = new JButton("Ver menus");
 		btnVerMenus.setBounds(73, 11, 171, 29);
 		panel.add(btnVerMenus);
 		btnVerMenus.setBackground(Color.ORANGE);
-		
+
 		JButton btnVerHabitaciones = new JButton("Ver habitaciones");
 		btnVerHabitaciones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -61,40 +59,39 @@ public class DependientWindow {
 		btnVerHabitaciones.setBounds(340, 11, 171, 29);
 		panel.add(btnVerHabitaciones);
 		btnVerHabitaciones.setBackground(Color.ORANGE);
-		
+
 		JButton btnBack = new JButton("Back");
 		btnBack.setBackground(Color.ORANGE);
 		btnBack.setBounds(340, 62, 171, 29);
 		panel.add(btnBack);
-		
+
 		JButton btnReserva = new JButton("Booking");
 		btnReserva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ReservaWindow(null);
+				new DependientReservaWindow();
 			}
 		});
 		btnReserva.setBounds(73, 65, 171, 26);
 		panel.add(btnReserva);
-		
-		
+
 		DefaultListModel<Menu> modelMenu = new DefaultListModel<>();
 		Menu menu = new Menu();
-		
+
 		ArrayList<Menu> arrayM = new ArrayList<>();
-		
+
 		btnVerMenus.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				System.out.println( baseDatos.getMenu());
+				System.out.println(baseDatos.getMenu());
 				for (Menu m : baseDatos.getMenu()) {
 					modelMenu.addElement(m);
 				}
 
 			}
 		});
-		
+
 		JPanel menu_panel = new JPanel();
 		menu_panel.setLayout(null);
 		menu_panel.setBorder(UIManager.getBorder("TitledBorder.border"));
@@ -113,7 +110,7 @@ public class DependientWindow {
 		menu_panel.add(scrollMenu);
 
 	}
-	
+
 	public static void main(String[] args) {
 		DependientWindow v1 = new DependientWindow();
 	}
