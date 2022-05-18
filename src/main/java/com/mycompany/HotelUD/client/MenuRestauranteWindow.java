@@ -47,6 +47,16 @@ public class MenuRestauranteWindow {
 		btnExit.setBounds(616, 76, 106, 37);
 		panel.add(btnExit);
 		
+		btnExit.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				
+			}
+			
+		});
+		
 		JLabel labelPlato1 = new JLabel("Primer plato:");
 		labelPlato1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		
