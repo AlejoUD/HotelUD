@@ -54,6 +54,7 @@ public class DependientWindow {
 		JButton btnVerHabitaciones = new JButton("Ver habitaciones");
 		btnVerHabitaciones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new ViewRoomsWindow();
 			}
 		});
 		btnVerHabitaciones.setBounds(340, 11, 171, 29);

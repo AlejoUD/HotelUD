@@ -147,28 +147,29 @@ public class AsigClientRoomWindow extends JFrame {
 				//modelRoom.addElement(v);
 				//al.add(v);
 				
-				String query = "INSERT INTO roomAsig (numberDoor, type, surface, floor, dni, ocupation) values( '"+number+"','"+type+"','"+surface+"','"+floor+"','"+dni+"','"+ocupation+"')";
+				String query = "INSERT INTO roomAsig (numberDoor, type, surface, floor, ocupation, dni) values( '"+number+"','"+type+"','"+surface+"','"+floor+"','"+ocupation+"','"+dni+"')";
 				
 				Statement stmt;
 				try {
 					stmt = conexion.createStatement();
 					stmt.execute(query);
 					
-					String query2 = "DELETE FROM room WHERE numberDoor "+number+")";
 					
-					Statement stmt2;
-					try {
-						stmt2 = conexion.createStatement();
-						stmt2.execute(query2);
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				
+				String query2 = "DELETE FROM room WHERE numberDoor = '"+number+"'";
+				
+				Statement stmt2;
+				try {
+					stmt2 = conexion.createStatement();
+					stmt2.execute(query2);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				JOptionPane.showMessageDialog(null, "Habitación asignada correctamente.");
 				
 				

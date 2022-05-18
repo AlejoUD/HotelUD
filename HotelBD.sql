@@ -61,6 +61,7 @@ PRIMARY KEY (`counter`)
 );
 
 drop table room;
+drop table roomasig;
 select * from users;
 select * from menu;
 truncate menu;
