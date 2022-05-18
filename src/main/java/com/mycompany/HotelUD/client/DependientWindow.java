@@ -100,4 +100,8 @@ public class DependientWindow {
 		menu_panel.add(scrollMenu);
 
 	}
+	
+	public static void main(String[] args) {
+		DependientWindow v1 = new DependientWindow();
+	}
 }

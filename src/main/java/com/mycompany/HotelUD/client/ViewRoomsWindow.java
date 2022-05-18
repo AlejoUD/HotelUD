@@ -45,7 +45,7 @@ public class ViewRoomsWindow extends JFrame {
 
 
 	public ViewRoomsWindow() {
-		setTitle("Asignar Habitaciones a Clientes");
+		setTitle("Lista de habitaciones libres y habitaciones ocupadas");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 724, 411);
 		PanelPrincipal = new JPanel();
@@ -75,8 +75,8 @@ public class ViewRoomsWindow extends JFrame {
 		PanelInfo.add(scrollPaneRooms);
 		
 		JScrollPane scrollPaneUsers = new JScrollPane();
-		DefaultListModel<User> modelUsers = new DefaultListModel<User>();
-		JList listaUsers = new JList<User>(modelUsers);
+		DefaultListModel<AsigRoom> modelAsigRooms = new DefaultListModel<AsigRoom>();
+		JList listaUsers = new JList<AsigRoom>(modelAsigRooms);
 		
 		scrollPaneUsers.setViewportView(listaUsers);
 		
@@ -85,12 +85,6 @@ public class ViewRoomsWindow extends JFrame {
 		
 		JPanel PanelBotones = new JPanel();
 		PanelPrincipal.add(PanelBotones, BorderLayout.SOUTH);
-		
-		JToggleButton botonAsignar = new JToggleButton("ASIGNAR HABITACIÓN");
-		PanelBotones.add(botonAsignar);
-
-		JToggleButton botonCalendario = new JToggleButton("DISPONIBILIDAD");
-		PanelBotones.add(botonCalendario);
 		
 		try {
 			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
@@ -108,66 +102,22 @@ public class ViewRoomsWindow extends JFrame {
 			
 		}
 		
-		ArrayList<User> listaTempUsers = baseDatos.getUsers();
+		ArrayList<AsigRoom> listaTempAsigRooms = baseDatos.getAsigRooms();
 		
-		for (int i = 0; i < listaTempUsers.size(); i++) {
+		for (int i = 0; i < listaTempAsigRooms.size(); i++) {
 			
-			modelUsers.addElement(listaTempUsers.get(i));
+			modelAsigRooms.addElement(listaTempAsigRooms.get(i));
 			
 		}
 
-		botonCalendario.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-                            new CalendarWindow();
-			}
-		});
-		
-		botonAsignar.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				Room room3 = (Room) listaRooms.getSelectedValue();
-				User user3 = (User) listaUsers.getSelectedValue();
-				
-				Integer number = room3.getNumberDoor();
-				String type = room3.getType();
-				int surface = room3.getSurface();
-				int floor = room3.getFloor();
-				String ocupation = room3.getOcupation();
-		
-				String dni = user3.getDni();
-		
-				
-				Room r= new Room(number, type, surface, floor, ocupation);
-
-				AsigRoom asigRoom = new AsigRoom(r, dni);
-			
-				//modelRoom.addElement(v);
-				//al.add(v);
-				
-				String query = "INSERT INTO roomAsig (numberDoor, type, surface, floor, dni, ocupation) values( '"+number+"','"+type+"','"+surface+"','"+floor+"','"+dni+"','"+ocupation+"')";
-				
-				Statement stmt;
-				try {
-					stmt = conexion.createStatement();
-					stmt.execute(query);
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-				JOptionPane.showMessageDialog(null, "Habitación asignada correctamente.");
-				
-			}
-		});
-		
 		
 		
 		setVisible(true);
 	}
 	
+	public static void main(String[] args) {
+		ViewRoomsWindow v1 = new ViewRoomsWindow();
+	}
 	
 
 }
