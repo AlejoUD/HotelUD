@@ -45,7 +45,7 @@ public class ReservaWindow {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-		frame.setBounds(100, 100, 869, 302);
+		frame.setBounds(100, 100, 869, 323);
 		frame.setTitle("Server Home");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -91,7 +91,7 @@ public class ReservaWindow {
 		
 	
 		JPanel ButtonPanel = new JPanel();
-		ButtonPanel.setBounds(10, 222, 414, 280);
+		ButtonPanel.setBounds(10, 222, 414, 51);
 		contentPane.add(ButtonPanel);
 		
 		//Rooms
@@ -148,6 +148,8 @@ public class ReservaWindow {
 				documento.add(new Paragraph("People: "+ peopleField.getText()));				
 				documento.add(new Paragraph("Room: "+ room_list.getSelectedValue()));
 				documento.close();
+				
+				BBDD.asigRoom((Room) room_list.getSelectedValue(), null);
 				} catch (FileNotFoundException | DocumentException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

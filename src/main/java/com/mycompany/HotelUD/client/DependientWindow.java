@@ -49,19 +49,32 @@ public class DependientWindow {
 		panel.setLayout(null);
 		
 		JButton btnVerMenus = new JButton("Ver menus");
-		btnVerMenus.setBounds(10, 11, 171, 29);
+		btnVerMenus.setBounds(73, 11, 171, 29);
 		panel.add(btnVerMenus);
 		btnVerMenus.setBackground(Color.ORANGE);
 		
 		JButton btnVerHabitaciones = new JButton("Ver habitaciones");
-		btnVerHabitaciones.setBounds(420, 11, 171, 29);
+		btnVerHabitaciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnVerHabitaciones.setBounds(340, 11, 171, 29);
 		panel.add(btnVerHabitaciones);
 		btnVerHabitaciones.setBackground(Color.ORANGE);
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setBackground(Color.ORANGE);
-		btnBack.setBounds(220, 62, 140, 29);
+		btnBack.setBounds(340, 62, 171, 29);
 		panel.add(btnBack);
+		
+		JButton btnReserva = new JButton("Booking");
+		btnReserva.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new ReservaWindow(null);
+			}
+		});
+		btnReserva.setBounds(73, 65, 171, 26);
+		panel.add(btnReserva);
 		
 		
 		DefaultListModel<Menu> modelMenu = new DefaultListModel<>();

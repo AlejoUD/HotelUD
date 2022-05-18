@@ -16,7 +16,7 @@
 		<server.hostname>127.0.0.1</server.hostname>
 		<server.port>8080</server.port>
 	</properties>
-
+						
 	<dependencies>
 		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
