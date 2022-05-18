@@ -91,9 +91,6 @@ public class RoomWindow extends JFrame {
 		panel.add(panel_2);
 		panel_2.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Room number");
-		lblNewLabel_1.setBounds(10, 11, 119, 14);
-		panel_2.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Type");
 		lblNewLabel_2.setBounds(10, 36, 46, 14);
@@ -110,11 +107,6 @@ public class RoomWindow extends JFrame {
 		JLabel lblNewLabel_5 = new JLabel("Price");
 		lblNewLabel_5.setBounds(10, 111, 46, 14);
 		panel_2.add(lblNewLabel_5);
-		
-		textField = new JTextField();
-		textField.setBounds(139, 8, 80, 20);
-		panel_2.add(textField);
-		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
@@ -146,40 +138,39 @@ public class RoomWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				
-				if (textField.getText().equals("")) {
-					JOptionPane.showMessageDialog(btnNewButton_1, "Error. It is necessary to add a room number",
-							"data creation", JOptionPane.ERROR_MESSAGE);
-				} else {
 
 						Room room = new Room();
 						
-						int number= (int) Integer.parseInt(textField.getText());
 						String type = (String) textField_1.getText();
 						int surface = (int) Integer.parseInt(textField_2.getText());
 						int floor = (int) Integer.parseInt(textField_3.getText());
 						String ocupation = "No";
 		
 		
-						room.setNumberDoor(number);
 						room.setType(type);
 						room.setSurface(surface);
 						room.setFloor(floor);
 						room.setOcupation(ocupation);
 						baseDatos.addRoom(room);
 						
-						modelRoom.addElement(room);
-						al.add(room);
+						ArrayList<Room> listaRooms = baseDatos.getRooms();
+						
+						modelRoom.clear();
+						for (int i = 0; i < listaRooms.size(); i++) {
+							
+							modelRoom.addElement(listaRooms.get(i));
+							al.add(listaRooms.get(i));
+							
+						}
+						
 						
 						JOptionPane.showMessageDialog(null, "Room added successfully");
 						
-						textField.setText("");
 						textField_1.setText("");
 						textField_2.setText("");
 						textField_3.setText("");
 						textField_4.setText("");
 							
-				}
 						
 			}
 		});

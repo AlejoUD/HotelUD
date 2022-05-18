@@ -1,6 +1,7 @@
 package com.mycompany.HotelUD.BBDD;
 
 import java.awt.print.Printable;
+
 import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -151,7 +152,7 @@ public class BBDD {
 		try {
 			statement = connection.prepareStatement("INSERT INTO room (numberDoor,type,surface,floor,ocupation) VALUES ( ?, ?, ?, ?, ?)");
 			Statement st= connection.createStatement();
-			statement.setLong(1, room.getNumberDoor());
+			statement.setLong(1, 0);
 			statement.setString(2, room.getType());
 			statement.setLong(3, room.getSurface());
 			statement.setLong(4, room.getFloor());

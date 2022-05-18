@@ -10,7 +10,7 @@ public class Room {
 	
 	public Room(int numberDoor, String type, int surface, int floor, String ocupation) {
 		super();
-		this.numberDoor = numberDoor;
+		this.numberDoor = numberDoor++;
 		this.type = type;
 		this.surface = surface;
 		this.floor = floor;
@@ -19,7 +19,7 @@ public class Room {
 	
 	public Room() {
 		super();
-		this.numberDoor = 0;
+		this.numberDoor = numberDoor++;
 		this.type = "";
 		this.surface = 0;
 		this.floor = 0;

@@ -2,14 +2,6 @@ package com.mycompany.HotelUD.classes;
 
 public class Worker {
 	private int counter;
-	public int getCounter() {
-		return counter;
-	}
-
-	public void setCounter(int counter) {
-		this.counter = counter;
-	}
-
 	private String name;
 	private String dni;
 	private String gender;
@@ -31,6 +23,14 @@ public class Worker {
 		this.dni = "";
 		this.gender = "";
 		this.age = 0;
+	}
+	
+	public int getCounter() {
+		return counter;
+	}
+
+	public void setCounter(int counter) {
+		this.counter = counter;
 	}
 
 	public String getName() {
