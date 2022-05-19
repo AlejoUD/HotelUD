@@ -13,6 +13,10 @@ import javax.swing.ListModel;
 import javax.swing.JTextArea;
 import javax.swing.JScrollBar;
 import javax.swing.UIManager;
+
+import com.mycompany.HotelUD.BBDD.BBDD;
+import com.mycompany.HotelUD.classes.Room;
+
 import javax.swing.JScrollPane;
 import java.awt.Component;
 import javax.swing.ScrollPaneConstants;
@@ -23,9 +27,9 @@ import java.awt.event.ActionEvent;
 public class DependientReservaWindow {
 	
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField nameTxt;
+	private JTextField DNITxt;
+	private JTextField peopleTxt;
 	
 	public DependientReservaWindow() {
 		frame = new JFrame();
@@ -40,26 +44,26 @@ public class DependientReservaWindow {
 		frame.getContentPane().add(panel);
 		panel.setLayout(new GridLayout(6, 2, 0, 0));
 		
-		JLabel label = new JLabel("Name");
-		panel.add(label);
+		JLabel labelName = new JLabel("Name");
+		panel.add(labelName);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		panel.add(textField);
+		nameTxt = new JTextField();
+		nameTxt.setColumns(10);
+		panel.add(nameTxt);
 		
-		JLabel label_1 = new JLabel("DNI:");
-		panel.add(label_1);
+		JLabel labelDNI = new JLabel("DNI:");
+		panel.add(labelDNI);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		panel.add(textField_1);
+		DNITxt = new JTextField();
+		DNITxt.setColumns(10);
+		panel.add(DNITxt);
 		
-		JLabel label_2 = new JLabel("How many people?");
-		panel.add(label_2);
+		JLabel labelPeople = new JLabel("How many people?");
+		panel.add(labelPeople);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		panel.add(textField_2);
+		peopleTxt = new JTextField();
+		peopleTxt.setColumns(10);
+		panel.add(peopleTxt);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setForeground(Color.ORANGE);
@@ -71,11 +75,11 @@ public class DependientReservaWindow {
 		label_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panel_1.add(label_3);
 		
-		JLabel label_4 = new JLabel("Rooms");
-		label_4.setForeground(Color.ORANGE);
-		label_4.setFont(new Font("Dialog", Font.BOLD, 11));
-		label_4.setBounds(425, 96, 56, 21);
-		frame.getContentPane().add(label_4);
+		JLabel labelRooms = new JLabel("Rooms");
+		labelRooms.setForeground(Color.ORANGE);
+		labelRooms.setFont(new Font("Dialog", Font.BOLD, 11));
+		labelRooms.setBounds(425, 96, 56, 21);
+		frame.getContentPane().add(labelRooms);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
@@ -93,20 +97,29 @@ public class DependientReservaWindow {
 		JList list = new JList((ListModel) null);
 		scrollPane.setViewportView(list);
 		
-		JButton btnNewButton = new JButton("Rooms");
-		btnNewButton.setForeground(Color.ORANGE);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnRoom = new JButton("Rooms");
+		btnRoom.setForeground(Color.ORANGE);
+		btnRoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				BBDD.asigRoom((Room) list.getSelectedValue(), null);
+			}
+		});
+		btnRoom.setBounds(425, 343, 89, 23);
+		frame.getContentPane().add(btnRoom);
+		
+		JButton btnReserve = new JButton("Reserve");
+		btnReserve.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = nameTxt.getText();
+				String DNI = DNITxt.getText();
+				String people = peopleTxt.getText();
+				
 				
 			}
 		});
-		btnNewButton.setBounds(425, 343, 89, 23);
-		frame.getContentPane().add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Reserve");
-		btnNewButton_1.setForeground(Color.ORANGE);
-		btnNewButton_1.setBounds(103, 343, 89, 23);
-		frame.getContentPane().add(btnNewButton_1);
+		btnReserve.setForeground(Color.ORANGE);
+		btnReserve.setBounds(103, 343, 89, 23);
+		frame.getContentPane().add(btnReserve);
 		frame.setTitle("Booking");
 		
 	}
