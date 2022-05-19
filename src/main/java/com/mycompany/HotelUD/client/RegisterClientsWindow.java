@@ -48,10 +48,11 @@ public class RegisterClientsWindow extends JFrame {
 		setTitle("Register new client");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-		setBounds(150, 150, 500, 340);
+		setBounds(150, 150, 465, 340);
 		setVisible(true);
 
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -59,6 +60,7 @@ public class RegisterClientsWindow extends JFrame {
 		setLocationRelativeTo(null);
 		
 		JPanel TitlePanel = new JPanel();
+		TitlePanel.setBackground(Color.WHITE);
 		TitlePanel.setBounds(10, 11, 414, 34);
 		contentPane.add(TitlePanel);
 		
@@ -116,11 +118,22 @@ public class RegisterClientsWindow extends JFrame {
 		
 	
 		JPanel ButtonPanel = new JPanel();
-		ButtonPanel.setBounds(10, 222, 414, 280);
+		ButtonPanel.setBackground(Color.WHITE);
+		ButtonPanel.setBounds(10, 222, 414, 43);
 		contentPane.add(ButtonPanel);
 		
 		JButton registerClientButton = new JButton("Register Client");
+		registerClientButton.setBackground(Color.ORANGE);
 		ButtonPanel.add(registerClientButton);
+		
+		JButton btnCancelar = new JButton("BACK");
+		btnCancelar.setBackground(Color.ORANGE);
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		ButtonPanel.add(btnCancelar);
 		
 		
 		registerClientButton.addActionListener(new ActionListener() {
@@ -160,5 +173,4 @@ public class RegisterClientsWindow extends JFrame {
 		
 		
 	}
-
 }
