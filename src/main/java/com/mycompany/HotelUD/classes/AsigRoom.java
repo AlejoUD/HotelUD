@@ -1,25 +1,40 @@
+/** \file 
+ * Clase AsigRoom
+ */
 package com.mycompany.HotelUD.classes;
 
 public class AsigRoom {
-	
+	/**
+	 * Variables de la clase.
+	 */
 	protected Room room;
 	private String dni;
-	
+
+	/**
+	 * Constructor por defecto.
+	 */
 	public AsigRoom(Room room, String dni) {
 		super();
 		this.room = room;
 		this.dni = dni;
 	}
-	
+
+	/**
+	 * Constructor vacio.
+	 */
 	public AsigRoom() {
 		super();
 		this.room = null;
 		this.dni = "";
 	}
-	
+
+	/**
+	 * Geters y Seters.
+	 */
 	public Room getRoom() {
 		return room;
 	}
+
 	public void setRoom(Room room) {
 		this.room = room;
 	}
@@ -32,12 +47,14 @@ public class AsigRoom {
 		this.dni = dni;
 	}
 
+	/**
+	 * Metodo que convierte a String.
+	 */
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "Rooms information: " + room.toString() + ", DNI: " + dni;
 	}
-	
 
 //	@Override
 //	public int getNumberDoor() {
@@ -86,8 +103,5 @@ public class AsigRoom {
 //		// TODO Auto-generated method stub
 //		super.setFloor(floor);
 //	}
-
-	
-	
 
 }

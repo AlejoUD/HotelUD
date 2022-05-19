@@ -1,14 +1,24 @@
+/** \file 
+ * Clase Menu
+ */
 package com.mycompany.HotelUD.classes;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Menu {
+	/**
+	 * Variables de la clase.
+	 */
 	private String plato1;
 	private String plato2;
 	private String postre;
 	private String bebida;
 	private List<String> condimento;
+
+	/**
+	 * Constructor por defecto.
+	 */
 	public Menu(String plato1, String plato2, String postre, String bebida, List<String> condimento) {
 		super();
 		this.plato1 = plato1;
@@ -17,7 +27,10 @@ public class Menu {
 		this.bebida = bebida;
 		this.condimento = condimento;
 	}
-	
+
+	/**
+	 * Constructor vacio.
+	 */
 	public Menu() {
 		super();
 		this.plato1 = "";
@@ -27,6 +40,9 @@ public class Menu {
 		this.condimento = new ArrayList<String>();
 	}
 
+	/**
+	 * Geters y Seters.
+	 */
 	public String getPlato1() {
 		return plato1;
 	}
@@ -67,13 +83,13 @@ public class Menu {
 		this.condimento = condimentos;
 	}
 
+	/**
+	 * Metodo que convierte a String.
+	 */
 	@Override
 	public String toString() {
-		return "Menu: Primer plato: " + plato1 + ", segundo plato: " + plato2 + ", postre: " + postre + ", bebida: " + bebida
-				+ ", condimentos" + condimento + "]";
+		return "Menu: Primer plato: " + plato1 + ", segundo plato: " + plato2 + ", postre: " + postre + ", bebida: "
+				+ bebida + ", condimentos" + condimento + "]";
 	}
-	
-	
-	
 
 }

@@ -1,12 +1,21 @@
+/** \file 
+ * Clase Worker
+ */
 package com.mycompany.HotelUD.classes;
 
 public class Worker {
+	/**
+	 * Variables de la clase.
+	 */
 	private int counter;
 	private String name;
 	private String dni;
 	private String gender;
 	private int age;
 
+	/**
+	 * Constructor por defecto.
+	 */
 	public Worker(int counter, String name, String dni, String gender, int age) {
 		super();
 		this.counter = counter++;
@@ -16,6 +25,9 @@ public class Worker {
 		this.age = age;
 	}
 
+	/**
+	 * Constructor vacio.
+	 */
 	public Worker() {
 		super();
 		this.counter = counter++;
@@ -24,7 +36,10 @@ public class Worker {
 		this.gender = "";
 		this.age = 0;
 	}
-	
+
+	/**
+	 * Geters y Seters.
+	 */
 	public int getCounter() {
 		return counter;
 	}
@@ -65,6 +80,9 @@ public class Worker {
 		this.age = age;
 	}
 
+	/**
+	 * Metodo que convierte a String.
+	 */
 	@Override
 	public String toString() {
 		return "Worker code" + counter + ", name: " + name + ", dni: " + dni + ", gender: " + gender + ", age: " + age;

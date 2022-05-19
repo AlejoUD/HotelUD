@@ -1,5 +1,5 @@
 /** \file 
- * Clase room, a continuación sus características.
+ * Clase room, a continuacion sus caracteristicas.
  */
 package com.mycompany.HotelUD.classes;
 
