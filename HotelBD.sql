@@ -47,6 +47,7 @@ CREATE TABLE`roomAsig`(
 `floor` int(5) DEFAULT NULL,
 `ocupation` varchar (150) DEFAULT NULL,
 `dni` varchar (150) DEFAULT NULL,
+`fecha` varchar (150)  DEFAULT NULL,
 UNIQUE (`numberDoor`)
 );
 

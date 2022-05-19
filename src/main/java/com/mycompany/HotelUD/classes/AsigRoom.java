@@ -3,20 +3,24 @@
  */
 package com.mycompany.HotelUD.classes;
 
+import java.sql.Date;
+
 public class AsigRoom {
 	/**
 	 * Variables de la clase.
 	 */
 	protected Room room;
 	private String dni;
+	private String fecha;
 
 	/**
 	 * Constructor por defecto.
 	 */
-	public AsigRoom(Room room, String dni) {
+	public AsigRoom(Room room, String dni, String fecha) {
 		super();
 		this.room = room;
 		this.dni = dni;
+		this.fecha = fecha;
 	}
 
 	/**
@@ -26,6 +30,7 @@ public class AsigRoom {
 		super();
 		this.room = null;
 		this.dni = "";
+		this.fecha = null;
 	}
 
 	/**
@@ -47,13 +52,21 @@ public class AsigRoom {
 		this.dni = dni;
 	}
 
+	public String getFecha() {
+		return fecha;
+	}
+
+	public String setFecha() {
+		return this.fecha = fecha;
+	}
+
 	/**
 	 * Metodo que convierte a String.
 	 */
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "Rooms information: " + room.toString() + ", DNI: " + dni;
+		return "Rooms information: " + room.toString() + ", DNI: " + dni + ", fecha: " + fecha;
 	}
 
 //	@Override

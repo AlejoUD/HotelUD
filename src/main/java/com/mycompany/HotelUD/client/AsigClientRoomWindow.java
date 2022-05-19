@@ -17,9 +17,11 @@ import javax.swing.JTable;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.JToggleButton;
@@ -128,6 +130,8 @@ public class AsigClientRoomWindow extends JFrame {
 				
 				Room room3 = (Room) listaRooms.getSelectedValue();
 				User user3 = (User) listaUsers.getSelectedValue();
+				SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+				String fecha = (String) sdf.format(jCalendar1.getDate());
 				
 				Integer number = room3.getNumberDoor();
 				String type = room3.getType();
@@ -140,12 +144,12 @@ public class AsigClientRoomWindow extends JFrame {
 				
 				Room r= new Room(number, type, surface, floor, ocupation);
 
-				AsigRoom asigRoom = new AsigRoom(r, dni);
+				AsigRoom asigRoom = new AsigRoom(r, dni, fecha);
 			
 				//modelRoom.addElement(v);
 				//al.add(v);
 				
-				String query = "INSERT INTO roomAsig (numberDoor, type, surface, floor, ocupation, dni) values( '"+number+"','"+type+"','"+surface+"','"+floor+"','"+ocupation+"','"+dni+"')";
+				String query = "INSERT INTO roomAsig (numberDoor, type, surface, floor, ocupation, dni, fecha) values( '"+number+"','"+type+"','"+surface+"','"+floor+"','"+ocupation+"','"+dni+"','"+fecha+"')";
 				
 				Statement stmt;
 				try {
