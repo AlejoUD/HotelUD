@@ -175,8 +175,9 @@ public class CreateDependientsWindow extends JFrame {
 		
 		btnback.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new MenuAdminWindow();
 				dispose();
+				MenuAdminWindow MenuAdminWindow = new MenuAdminWindow();
+				MenuAdminWindow.setVisible(true);
 			}
 		});
 		btnRegistrar.addActionListener(new ActionListener() {
