@@ -1,3 +1,6 @@
+/** \file 
+ * Clase room, a continuación sus características.
+ */
 package com.mycompany.HotelUD.classes;
 
 
@@ -8,6 +11,10 @@ public class Room {
 	private int floor;
 	private String ocupation;
 	
+
+	/**
+	 * Construye una habitación con sus atributos correspondientes.
+	 */
 	public Room(int numberDoor, String type, int surface, int floor, String ocupation) {
 		super();
 		this.numberDoor = numberDoor++;
