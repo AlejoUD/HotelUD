@@ -19,4 +19,5 @@ bin/
 .settings/
 images/
 lib/
-
+html/
+latex/
