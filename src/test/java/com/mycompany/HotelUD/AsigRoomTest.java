@@ -22,7 +22,7 @@ public class AsigRoomTest {
 	@Before
 	public void setUp() {
 		
-		a = new AsigRoom(r , "1234567A");
+		a = new AsigRoom(r , "1234567A", "00-00-0000");
 		
 	}
 
@@ -31,6 +31,7 @@ public class AsigRoomTest {
 		
 		assertEquals(r, a.getRoom());
 		assertEquals("1234567A", a.getDni());
+		assertEquals("00-00-0000", a.getFecha());
 	
 	}
 
@@ -40,9 +41,11 @@ public class AsigRoomTest {
 		AsigRoom asigRoom = new AsigRoom();
 		asigRoom.setRoom(room);
 		asigRoom.setDni("1234567B");
+		asigRoom.setFecha("00-00-0000");
 		
 		assertEquals(asigRoom.getRoom(), room);
 		assertEquals(asigRoom.getDni(), "1234567B");
+		assertEquals(asigRoom.getFecha(), "00-00-0000");
 
 	}
 
@@ -52,7 +55,7 @@ public class AsigRoomTest {
 		AsigRoom a= new AsigRoom();
 		a.setRoom(r1);
 		a.setDni("1234567B");
-		String exp = "Rooms information: " + r1.toString() + ", DNI: " + a.getDni();
+		String exp = "Rooms information: " + r1.toString() + ", DNI: " + a.getDni() + ", fecha: " + a.getFecha();
 
 		assertEquals(exp, a.toString());
 	}

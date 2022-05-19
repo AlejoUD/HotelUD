@@ -3,7 +3,6 @@
  */
 package com.mycompany.HotelUD.classes;
 
-import java.sql.Date;
 
 public class AsigRoom {
 	/**
@@ -30,7 +29,7 @@ public class AsigRoom {
 		super();
 		this.room = null;
 		this.dni = "";
-		this.fecha = null;
+		this.fecha ="";
 	}
 
 	/**
@@ -56,7 +55,7 @@ public class AsigRoom {
 		return fecha;
 	}
 
-	public String setFecha() {
+	public String setFecha(String fecha) {
 		return this.fecha = fecha;
 	}
 
