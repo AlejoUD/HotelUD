@@ -28,6 +28,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.DefaultListModel;
 
+import com.itextpdf.awt.geom.Dimension;
 import com.mycompany.HotelUD.BBDD.BBDD;
 import com.mycompany.HotelUD.classes.AsigRoom;
 import com.mycompany.HotelUD.classes.Room;
@@ -40,11 +41,15 @@ public class AsigClientRoomWindow extends JFrame {
 	private JPanel PanelPrincipal;
 	private JTable TablaClientes;
 	private JTable TablaHabitaciones;
+	private com.toedter.calendar.JDateChooser jCalendar1;
 	private java.sql.Connection conexion;
 	BBDD baseDatos = new BBDD();
 
 
 	public AsigClientRoomWindow() {
+		jCalendar1 = new com.toedter.calendar.JDateChooser();
+		jCalendar1.setDateFormatString("dd-MM-yyyy");
+		jCalendar1.getJCalendar().setSize(400, 300);
 		setTitle("Asignar Habitaciones a Clientes");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 724, 411);
@@ -90,7 +95,7 @@ public class AsigClientRoomWindow extends JFrame {
 		PanelBotones.add(botonAsignar);
 
 		JToggleButton botonCalendario = new JToggleButton("DISPONIBILIDAD");
-		PanelBotones.add(botonCalendario);
+		PanelBotones.add(jCalendar1);
 		
 		try {
 			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
@@ -115,13 +120,6 @@ public class AsigClientRoomWindow extends JFrame {
 			modelUsers.addElement(listaTempUsers.get(i));
 			
 		}
-
-		botonCalendario.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-                            new CalendarWindow();
-			}
-		});
 		
 		botonAsignar.addActionListener(new ActionListener() {
 			
