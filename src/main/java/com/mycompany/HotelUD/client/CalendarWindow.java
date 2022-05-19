@@ -63,6 +63,7 @@ public class CalendarWindow extends javax.swing.JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				try {
+                    
                     String cont = String.valueOf(jCalendar1.getDayChooser().getDay());
                     fecha.setText(cont);
                 } catch (Exception e1) {

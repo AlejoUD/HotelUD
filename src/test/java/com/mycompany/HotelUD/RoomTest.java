@@ -50,7 +50,7 @@ public class RoomTest {
 	@Test
 	public void testToString() {
 		// Room room = new Room(1, "Premium", 10, 2, false);
-		String expected = "Room numberDoor: " + 1 + ", type: " + "Premium" + ", surface: " + 10 + ", floor: " + 2 + ", ocupation: " + "No"; // put
+		String expected = "Room number: " + 1 + " | Type: " + "Premium" + " | Surface: " + 10 + " | Floor: " + 2 + " | Occupation: " + "No"; // put
 																													// the
 																													// expected
 																													// value
