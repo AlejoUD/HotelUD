@@ -1,7 +1,6 @@
 package com.mycompany.HotelUD.BBDD;
 
 import java.awt.print.Printable;
-
 import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,38 +20,27 @@ import com.mycompany.HotelUD.classes.Room;
 import com.mycompany.HotelUD.classes.User;
 import com.mycompany.HotelUD.classes.Worker;
 
+
 public class BBDD {
 	public static Connection connection;
 	public static PreparedStatement statement;
 	
-//	public static Connection initBD(String nombreBD) {
-//		try {
-//			Class.forName("com.mysql.cj.jdbc.Driver");
-//			connection = DriverManager.getConnection(url,usuario,password);
-//			System.out.println("Conexion realizada");
-//			return connection;
-//		} catch (ClassNotFoundException | SQLException e) {
-//			return null;
-//		}
-//	}
-	
-//	public static Connection initBD(String nombreBD) throws BDException {
-//		Connection con = null;
-//		try {
-//			Class.forName("org.sqlite.JDBC");
-//			con = DriverManager.getConnection("jdbc:sqlite:"+nombreBD);
-//			
-//					
-//		} catch (ClassNotFoundException e) {
-//			
-//			e.printStackTrace();
-//			throw new BDException("No se pudo cargar el driver de la base de datos", e);
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return con;
-//	}
+	public static Connection initBD() throws BDException {
+		Connection connection = null;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","1234");
+						
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+			throw new BDException("No se pudo cargar el driver de la base de datos", e);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return connection;
+	}
 	
 	
 	public BBDD() {
@@ -64,6 +52,18 @@ public class BBDD {
 				e.printStackTrace();
 			}
 
+	}
+	
+	public static void closeBD(Connection con) throws BDException {
+		if(con!=null) {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new BDException("No se pudo desconectar correctamente de la base de datos", e);
+				
+			}
+		}
 	}
 	
 	public static void conectionWorkers(String nombreBD) {

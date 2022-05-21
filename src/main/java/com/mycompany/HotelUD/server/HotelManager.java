@@ -2,6 +2,7 @@ package com.mycompany.HotelUD.server;
 
 import java.awt.BorderLayout;
 
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -37,28 +38,14 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 
-public class HotelManager extends JFrame {
+public class HotelManager extends JFrame implements Runnable{
 
 	private JPanel contentPane;
 	BBDD baseDatos = new BBDD();
 	
 	private Client client;
 	private WebTarget webTarget;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					HotelManager frame = new HotelManager();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
@@ -66,12 +53,10 @@ public class HotelManager extends JFrame {
 	 */
 	
 	
-	public void DonationManager(String hostname, String port) {
+	public HotelManager(String hostname, String port) {
 		client = ClientBuilder.newClient();
 		webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
-	}
-	
-	public HotelManager() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 764, 531);
 		 this.setTitle("Server Home");
@@ -243,4 +228,32 @@ public class HotelManager extends JFrame {
 		labelWorkers.setBounds(10, 251, 70, 30);
 		contentPane.add(labelWorkers);
 	}
+	
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					
+					String hostname = args[0];
+					String port = args[1];
+					 new HotelManager(hostname, port);
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

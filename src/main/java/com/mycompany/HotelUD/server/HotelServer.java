@@ -29,10 +29,9 @@ public class HotelServer {
 		return Response.ok().build();
 	}
 
-	@GET //Leer información
+	@GET //Leer informacion
 	@Path("/worker")
 	public Response getWorkers() {
-
 		return Response.ok(hotelCollector.getWorkers()).build();
 	}
 

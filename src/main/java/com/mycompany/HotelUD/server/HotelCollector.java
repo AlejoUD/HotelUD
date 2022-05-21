@@ -17,30 +17,29 @@ import com.mycompany.HotelUD.BBDD.BDException;
 
 public class HotelCollector {
 	
-	private ArrayList<Worker> workers=inicializarWorkers();
+	private ArrayList<Worker> workers= inicializarWorkers();
 	private ArrayList<User> users=inicializarUsers();
 
 	private ArrayList<Worker> inicializarWorkers(){
-////		Connection con = null;
-////		try {
-////			con = BBDD.initBD("HotelBD.sql");
-////			workers=BBDD.getWorkers(con);
-////		} catch (BDException e1) {
-////			e1.printStackTrace();
-////		}
-////		
+		Connection con = null;
+		try {
+			con = BBDD.initBD();
+			workers=BBDD.getWorkers();
+		} catch (BDException e1) {
+			e1.printStackTrace();
+		}
 		return workers;
 	}
 	
 	private ArrayList<User> inicializarUsers(){
-////	Connection con = null;
-////	try {
-////		con = BBDD.initBD("HotelBD.sql");
-////		workers=BBDD.getWorkers(con);
-////	} catch (BDException e1) {
-////		e1.printStackTrace();
-////	}
-////	
+	Connection con = null;
+	try {
+		con = BBDD.initBD();
+		users=BBDD.getUsers();
+	} catch (BDException e1) {
+		e1.printStackTrace();
+	}
+	
 	return users;
 }
 
@@ -59,29 +58,27 @@ public class HotelCollector {
 	
 	public void addWorker(Worker worker) {
         synchronized(this) {
-//            //Cosas para comprar coche
-//        	Connection con = null;
-//    		try {
-//    			con = BD.initBD(".");
-//    			BD.(,);
-//            	.add();
-//    		} catch (DBException e1) {
-//    			e1.printStackTrace();
-//    		}
+        	Connection con = null;
+    		try {
+    			con = BBDD.initBD();
+    			BBDD.addWorker(worker);
+            	workers.add(worker);
+    		} catch (BDException e1) {
+    			e1.printStackTrace();
+    		}
         }
     }
 	public void addUser(User user) {
         synchronized(this) {
-        	
-//            //Cosas para comprar coche
-//        	Connection con = null;
-//    		try {
-//    			con = BD.initBD("");
-//    			BD.(,);
-//            	.add();
-//    		} catch (DBException e1) {
-//    			e1.printStackTrace();
-//    		}
+
+        	Connection con = null;
+    		try {
+    			con = BBDD.initBD();
+    			BBDD.addUsers(user);
+            	users.add(user);
+    		} catch (BDException e1) {
+    			e1.printStackTrace();
+    		}
         }
     }
 
