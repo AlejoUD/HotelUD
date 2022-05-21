@@ -25,17 +25,20 @@ public class UserWindow extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 695, 436);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblTitulo = new JLabel("Bienvenido!!");
-		lblTitulo.setBounds(288, 28, 292, 32);
+		lblTitulo.setBackground(Color.WHITE);
+		lblTitulo.setBounds(269, 26, 292, 32);
 		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblTitulo.setForeground(new Color(0, 0, 0));
+		lblTitulo.setForeground(Color.WHITE);
 		contentPane.add(lblTitulo);
 		
 		JButton btnVerRooms = new JButton("HABITACIONES");
+		btnVerRooms.setBackground(Color.ORANGE);
 		btnVerRooms.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -44,6 +47,7 @@ public class UserWindow extends JFrame {
 		contentPane.add(btnVerRooms);
 		
 		JButton btnImprimirTicket = new JButton("RESERVAR");
+		btnImprimirTicket.setBackground(Color.ORANGE);
 		btnImprimirTicket.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new ReservaWindow(texto);
@@ -53,10 +57,12 @@ public class UserWindow extends JFrame {
 		contentPane.add(btnImprimirTicket);
 		
 		JButton btnContacto = new JButton("CONTACTANOS");
+		btnContacto.setBackground(Color.ORANGE);
 		btnContacto.setBounds(269, 250, 130, 37);
 		contentPane.add(btnContacto);
 		
 		JButton btnExit = new JButton("Back");
+		btnExit.setBackground(Color.ORANGE);
 		btnExit.setBounds(542, 356, 110, 32);
 		contentPane.add(btnExit);
 	}

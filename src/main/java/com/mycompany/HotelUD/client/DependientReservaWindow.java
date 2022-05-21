@@ -98,7 +98,7 @@ public class DependientReservaWindow {
 		scrollPane.setViewportView(list);
 		
 		JButton btnRoom = new JButton("Rooms");
-		btnRoom.setForeground(Color.ORANGE);
+		btnRoom.setBackground(Color.ORANGE);
 		btnRoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				BBDD.asigRoom((Room) list.getSelectedValue(), null);

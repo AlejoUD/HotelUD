@@ -48,26 +48,32 @@ public class ReservaWindow {
 		frame.setBounds(100, 100, 869, 323);
 		frame.setTitle("Server Home");
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		
+		
 		JPanel TitlePanel = new JPanel();
+		TitlePanel.setForeground(Color.WHITE);
+		TitlePanel.setBackground(Color.DARK_GRAY);
 		TitlePanel.setBounds(10, 11, 414, 34);
 		contentPane.add(TitlePanel);
 		
 		JLabel lblNewLabel = new JLabel("Reserve a room");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setForeground(Color.WHITE);
 		TitlePanel.add(lblNewLabel);
 		
 		JPanel InformationPanel = new JPanel();
+		InformationPanel.setBackground(Color.DARK_GRAY);
 		InformationPanel.setBounds(10, 56, 414, 155);
 		contentPane.add(InformationPanel);
 		InformationPanel.setLayout(new GridLayout(6, 2, 0, 0));
 		
 		JLabel nameLabel = new JLabel("Name");
+		nameLabel.setForeground(Color.WHITE);
 		InformationPanel.add(nameLabel);
 		
 		nameField = new JTextField();
@@ -75,6 +81,7 @@ public class ReservaWindow {
 		nameField.setColumns(10);
 		
 		JLabel dniLabel = new JLabel("DNI:");
+		dniLabel.setForeground(Color.WHITE);
 		InformationPanel.add(dniLabel);
 		
 		dniField = new JTextField();
@@ -83,6 +90,7 @@ public class ReservaWindow {
 		dniField.setText(texto);
 		
 		JLabel personas = new JLabel("How many people?");
+		personas.setForeground(Color.WHITE);
 		InformationPanel.add(personas);
 		
 		peopleField = new JTextField();
@@ -91,6 +99,7 @@ public class ReservaWindow {
 		
 	
 		JPanel ButtonPanel = new JPanel();
+		ButtonPanel.setBackground(Color.WHITE);
 		ButtonPanel.setBounds(10, 222, 414, 51);
 		contentPane.add(ButtonPanel);
 		
@@ -102,7 +111,6 @@ public class ReservaWindow {
 		room_panel.setBackground(Color.DARK_GRAY);
 		room_panel.setBounds(498, 43, 315, 181);
 		contentPane.add(room_panel);
-		
 		
 		DefaultListModel<Room> modelRoom = new DefaultListModel<>();
 		Room room = new Room();
@@ -123,11 +131,13 @@ public class ReservaWindow {
 		room_panel.add(scrollRoom);
 		
 		JLabel labelRooms = new JLabel("Rooms");
+		labelRooms.setForeground(Color.WHITE);
 		labelRooms.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 11));
 		labelRooms.setBounds(498, 18, 46, 14);
 		contentPane.add(labelRooms);
 		
 		JButton imprimirTicketButton = new JButton("Imprimir ticket");
+		imprimirTicketButton.setBackground(Color.ORANGE);
 		ButtonPanel.add(imprimirTicketButton);
 		
 		imprimirTicketButton.addActionListener(new ActionListener() {

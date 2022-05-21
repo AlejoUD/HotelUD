@@ -49,19 +49,23 @@ public class ViewRoomsWindow extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 724, 411);
 		PanelPrincipal = new JPanel();
+		PanelPrincipal.setBackground(Color.DARK_GRAY);
 		PanelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(PanelPrincipal);
 		PanelPrincipal.setLayout(new BorderLayout(0, 0));
 		
 		JPanel PanelTitulo = new JPanel();
+		PanelTitulo.setBackground(Color.DARK_GRAY);
 		PanelPrincipal.add(PanelTitulo, BorderLayout.NORTH);
 		
 		JLabel lTitulo = new JLabel("Lista de habitaciones libres y ocupadas");
+		lTitulo.setForeground(Color.WHITE);
 		lTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lTitulo.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		PanelTitulo.add(lTitulo);
 		
 		JPanel PanelInfo = new JPanel();
+		PanelInfo.setBackground(Color.DARK_GRAY);
 		PanelPrincipal.add(PanelInfo, BorderLayout.CENTER);
 		PanelInfo.setLayout(new GridLayout(1, 2, 0, 0));
 		
@@ -79,11 +83,12 @@ public class ViewRoomsWindow extends JFrame {
 		JList listaUsers = new JList<AsigRoom>(modelAsigRooms);
 		
 		scrollPaneUsers.setViewportView(listaUsers);
-		
+	
 		scrollPaneUsers.setBorder(new LineBorder(new Color(0, 0, 0)));
 		PanelInfo.add(scrollPaneUsers);
 		
 		JPanel PanelBotones = new JPanel();
+		PanelBotones.setBackground(Color.DARK_GRAY);
 		PanelPrincipal.add(PanelBotones, BorderLayout.SOUTH);
 		
 		try {
@@ -121,3 +126,4 @@ public class ViewRoomsWindow extends JFrame {
 	
 
 }
+
