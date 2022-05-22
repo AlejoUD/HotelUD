@@ -44,7 +44,6 @@ public class RoomWindow extends JFrame {
 	
 
 	public RoomWindow() {
-		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 539, 300);
 		contentPane = new JPanel();

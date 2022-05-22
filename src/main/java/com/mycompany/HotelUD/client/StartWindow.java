@@ -18,6 +18,7 @@ import com.mycompany.HotelUD.BBDD.BBDD;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.Font;
 
 public class StartWindow extends JFrame {
 
@@ -62,12 +63,7 @@ public class StartWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setLayout(null);
-		
-		JLabel LPerfil = new JLabel();
 		ImageIcon imagen = new ImageIcon("images\\Perfil.png");
-		LPerfil.setIcon(imagen);
-		LPerfil.setBounds(164, 47, 92, 87);
-		contentPane.add(LPerfil);
 		
 		JButton btnLogin = new JButton("Login Admin");
 		btnLogin.setBackground(Color.ORANGE);
@@ -89,6 +85,12 @@ public class StartWindow extends JFrame {
 		btnLoginDependiente.setBackground(Color.ORANGE);
 		btnLoginDependiente.setBounds(129, 247, 139, 23);
 		contentPane.add(btnLoginDependiente);
+		
+		JLabel lblNombre = new JLabel("HOTEL UD");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblNombre.setForeground(Color.ORANGE);
+		lblNombre.setBounds(143, 38, 112, 50);
+		contentPane.add(lblNombre);
 		
 		
 		btnLogin.addActionListener(new ActionListener() {

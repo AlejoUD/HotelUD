@@ -36,6 +36,7 @@ public class CreateDependientsWindow extends JFrame {
 	 */
 
 	public CreateDependientsWindow() {
+		setUndecorated(true);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 674, 433);
