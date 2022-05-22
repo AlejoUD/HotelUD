@@ -30,6 +30,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.chainsaw.Main;
 
 import javax.swing.DefaultListModel;
 
@@ -38,7 +39,6 @@ import com.mycompany.HotelUD.BBDD.BBDD;
 import com.mycompany.HotelUD.classes.AsigRoom;
 import com.mycompany.HotelUD.classes.Room;
 import com.mycompany.HotelUD.classes.User;
-import com.sun.tools.javac.launcher.Main;
 
 import java.awt.Color;
 

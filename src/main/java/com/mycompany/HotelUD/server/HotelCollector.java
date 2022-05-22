@@ -5,6 +5,8 @@ import java.sql.Connection;
 
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+
 import com.mycompany.HotelUD.classes.User;
 import com.mycompany.HotelUD.classes.Worker;
 import com.mycompany.HotelUD.classes.Room;
@@ -19,6 +21,7 @@ public class HotelCollector {
 	
 	private ArrayList<Worker> workers= inicializarWorkers();
 	private ArrayList<User> users=inicializarUsers();
+	private static Logger logJava = Logger.getLogger(HotelCollector.class);
 
 	private ArrayList<Worker> inicializarWorkers(){
 		Connection con = null;
@@ -28,7 +31,9 @@ public class HotelCollector {
 		} catch (BDException e1) {
 			e1.printStackTrace();
 		}
+		logJava.info( "Successful in inicialize workers");
 		return workers;
+		
 	}
 	
 	private ArrayList<User> inicializarUsers(){
@@ -39,18 +44,21 @@ public class HotelCollector {
 	} catch (BDException e1) {
 		e1.printStackTrace();
 	}
-	
+	logJava.info( "Successful in inicialize users");
 	return users;
 }
 
 	public ArrayList<Worker> getWorkers() {
 		synchronized(this) {
+			logJava.info( "Successful getting workers");
 			return workers;
+			
 		}
 	}
 	
 	public ArrayList<User> getUsers() {
 		synchronized(this) {
+			logJava.info( "Successful getting users");
 			return users;
 		}
 	}
@@ -63,8 +71,10 @@ public class HotelCollector {
     			con = BBDD.initBD();
     			BBDD.addWorker(worker);
             	workers.add(worker);
+            	logJava.info( "Successful in add workers");
     		} catch (BDException e1) {
     			e1.printStackTrace();
+    			logJava.error("Error adding workers ");
     		}
         }
     }
@@ -76,8 +86,10 @@ public class HotelCollector {
     			con = BBDD.initBD();
     			BBDD.addUsers(user);
             	users.add(user);
+            	logJava.info( "Successful in add users");
     		} catch (BDException e1) {
     			e1.printStackTrace();
+    			logJava.error("Error adding users ");
     		}
         }
     }

@@ -2,6 +2,7 @@ package com.mycompany.HotelUD;
 
 import static org.junit.Assert.assertEquals;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +13,11 @@ import org.mockito.Mock;
 
 import com.mycompany.HotelUD.classes.Menu;
 import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
-import com.sun.tools.javac.launcher.Main;
+
 
 
 public class MenuTest {
-	private static Logger logJava = Logger.getLogger(Main.class);
+	private static Logger logJava = Logger.getLogger(MenuTest.class);
 	@Mock
 	List<String> arrayS = new ArrayList<String>();
 	

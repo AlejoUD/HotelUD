@@ -13,6 +13,9 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.chainsaw.Main;
+
 import com.mycompany.HotelUD.BBDD.BBDD;
 import com.mycompany.HotelUD.classes.Room;
 import com.mycompany.HotelUD.classes.User;
@@ -45,12 +48,7 @@ public class HotelManager extends JFrame implements Runnable{
 	
 	private Client client;
 	private WebTarget webTarget;
-	
-
-	/**
-	 * Create the frame.
-	 * @return 
-	 */
+	private static Logger logJava = Logger.getLogger(HotelManager.class);
 	
 	
 	public HotelManager(String hostname, String port) {
@@ -59,7 +57,7 @@ public class HotelManager extends JFrame implements Runnable{
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 764, 531);
-		 this.setTitle("Server Home");
+		this.setTitle("Server Home");
 
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -153,6 +151,7 @@ public class HotelManager extends JFrame implements Runnable{
 		for (Room r : baseDatos.getRooms()) {
 			modelRoom.addElement(r);
 		}
+		logJava.info( "Successful in adding rooms to the model.");
 
 		JList room_list = new JList(modelRoom);
 		room_list.setBounds(10, 11, 295, 159);
@@ -197,6 +196,7 @@ public class HotelManager extends JFrame implements Runnable{
 		labelClient.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 11));
 		labelClient.setBounds(10, 17, 46, 14);
 		contentPane.add(labelClient);
+		logJava.info( "Successful in adding users to the model.");
 
 
 		// Workers
@@ -215,6 +215,7 @@ public class HotelManager extends JFrame implements Runnable{
 		for (Worker w : baseDatos.getWorkers()) {
 			modelWorker.addElement(w);
 		}
+		logJava.info( "Successful in adding workers to the model.");
 
 		JList worker_list = new JList(modelWorker);
 		JScrollPane scrollWorkers = new JScrollPane(worker_list);
@@ -241,9 +242,10 @@ public class HotelManager extends JFrame implements Runnable{
 					String hostname = args[0];
 					String port = args[1];
 					 new HotelManager(hostname, port);
+					 logJava.info( "Successfully opening server");
 					
 				} catch (Exception e) {
-					e.printStackTrace();
+					logJava.error("Error opening server");
 				}
 			}
 		});
