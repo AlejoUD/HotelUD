@@ -93,12 +93,12 @@ public class LoginWindow extends JFrame {
 		panel.add(btnBack);
 		
 		JButton btnNewButton = new JButton();
-		btnNewButton.setIcon(new ImageIcon("..\\HotelUD\\lib\\eye.png"));
+		btnNewButton.setIcon(new ImageIcon("..\\HotelUD\\src\\main\\java\\com\\mycompany\\HotelUD\\images\\eye.png"));
 		btnNewButton.setBounds(368, 146, 35, 19);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton();
-		btnNewButton_1.setIcon(new ImageIcon("..\\HotelUD\\lib\\noLook.jpg"));
+		btnNewButton_1.setIcon(new ImageIcon("..\\HotelUD\\src\\main\\java\\com\\mycompany\\HotelUD\\images\\noLook.jpg"));
 		btnNewButton_1.setBounds(407, 146, 35, 19);
 		btnNewButton_1.setEnabled(false);
 		contentPane.add(btnNewButton_1);
