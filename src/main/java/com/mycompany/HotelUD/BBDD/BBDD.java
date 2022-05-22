@@ -27,7 +27,7 @@ import com.sun.tools.javac.launcher.Main;
 public class BBDD {
 	public static Connection connection;
 	public static PreparedStatement statement;
-	private static Logger logJava = Logger.getLogger(Main.class);
+	private static Logger logJava = Logger.getLogger(BBDD.class);
 	public static Connection initBD() throws BDException {
 		Connection connection = null;
 		try {
