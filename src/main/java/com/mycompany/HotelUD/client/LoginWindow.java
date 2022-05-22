@@ -1,6 +1,7 @@
 package com.mycompany.HotelUD.client;
 
 import java.awt.BorderLayout;
+import java.awt.Image;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -15,8 +16,11 @@ import com.mycompany.HotelUD.classes.Dependient;
 import com.mycompany.HotelUD.classes.User;
 import com.mycompany.HotelUD.classes.Worker;
 
+
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -45,10 +49,10 @@ public class LoginWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lTitle = new JLabel("LOGIN");
+		JLabel lTitle = new JLabel("LOG IN");
 		lTitle.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lTitle.setForeground(Color.WHITE);
-		lTitle.setBounds(125, 44, 291, 25);
+		lTitle.setBounds(205, 44, 66, 25);
 		contentPane.add(lTitle);
 		
 		JLabel lEmail = new JLabel("User: ");
@@ -87,6 +91,45 @@ public class LoginWindow extends JFrame {
 		btnBack.setBackground(Color.ORANGE);
 		btnBack.setBounds(296, 31, 89, 23);
 		panel.add(btnBack);
+		
+		JButton btnNewButton = new JButton();
+		btnNewButton.setIcon(new ImageIcon("..\\HotelUD\\lib\\eye.png"));
+		btnNewButton.setBounds(368, 146, 35, 19);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton();
+		btnNewButton_1.setIcon(new ImageIcon("..\\HotelUD\\lib\\noLook.jpg"));
+		btnNewButton_1.setBounds(407, 146, 35, 19);
+		btnNewButton_1.setEnabled(false);
+		contentPane.add(btnNewButton_1);
+		
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+					 tContrasenya.setEchoChar((char) 0);
+					 btnNewButton.setEnabled(false);
+					 btnNewButton_1.setEnabled(true);
+			
+					 
+					
+			}
+			
+		});
+		
+		btnNewButton_1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+					 tContrasenya.setEchoChar('*');
+					 btnNewButton_1.setEnabled(false);
+					 btnNewButton.setEnabled(true);
+			}
+			
+		});
 		
 		btnBack.addActionListener(new ActionListener() {
 			@Override
