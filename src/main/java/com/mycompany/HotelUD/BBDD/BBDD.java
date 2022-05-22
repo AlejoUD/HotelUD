@@ -13,18 +13,21 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 
+import org.apache.log4j.Logger;
+
 import com.mycompany.HotelUD.classes.AsigRoom;
 import com.mycompany.HotelUD.classes.Dependient;
 import com.mycompany.HotelUD.classes.Menu;
 import com.mycompany.HotelUD.classes.Room;
 import com.mycompany.HotelUD.classes.User;
 import com.mycompany.HotelUD.classes.Worker;
+import com.sun.tools.javac.launcher.Main;
 
 
 public class BBDD {
 	public static Connection connection;
 	public static PreparedStatement statement;
-	
+	private static Logger logJava = Logger.getLogger(Main.class);
 	public static Connection initBD() throws BDException {
 		Connection connection = null;
 		try {
@@ -46,7 +49,7 @@ public class BBDD {
 	public BBDD() {
 			try {
 				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","1234");
-				System.out.println("Conexion realizada");
+				logJava.info("Conexion realizada");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -73,10 +76,10 @@ public class BBDD {
 				statement.executeUpdate("create table " + nombreBD
 						+ " (counter integer primary key autoincrement, name varchar, dni varchar, gender varchar, age integer )");
 			} catch (SQLException e) {
-				System.out.println("Ya esta creada");
+				logJava.warn("Ya esta creada");
 			}
 		} catch (SQLException e) {
-			System.out.println("Error");
+			logJava.fatal("Error");
 		}
 	}
 	
@@ -87,10 +90,10 @@ public class BBDD {
 				statement.executeUpdate("create table " + nombreBD
 						+ " (counter integer primary key autoincrement, name varchar, surname varchar, dni varchar, gender varchar, age integer, bankCount varchar)");
 			} catch (SQLException e) {
-				System.out.println("Ya esta creada");
+				logJava.warn("Ya esta creada");
 			}
 		} catch (SQLException e) {
-			System.out.println("Error");
+			logJava.fatal("Error");
 		}
 	}
 	
@@ -101,10 +104,10 @@ public class BBDD {
 				statement.executeUpdate("create table " + nombreBD
 						+ " (numberDoor integer primary key autoincrement, type varchar, surface integer, floor integer, ocupation varchar)");
 			} catch (SQLException e) {
-				System.out.println("Ya esta creada");
+				logJava.warn("Ya esta creada");
 			}
 		} catch (SQLException e) {
-			System.out.println("Error");
+			logJava.fatal("Error");
 		}
 	}
 	

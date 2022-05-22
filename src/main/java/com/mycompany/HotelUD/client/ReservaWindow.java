@@ -23,12 +23,15 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import org.apache.log4j.Logger;
+
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.mycompany.HotelUD.BBDD.BBDD;
 import com.mycompany.HotelUD.classes.Room;
+import com.sun.tools.javac.launcher.Main;
 
 public class ReservaWindow {
 
@@ -39,6 +42,7 @@ public class ReservaWindow {
 	private JTextField dniField;
 	private JTextField peopleField;
 	BBDD baseDatos = new BBDD();
+	private static Logger logJava = Logger.getLogger(Main.class);
 
 	public ReservaWindow(String texto) {
 		
@@ -115,7 +119,7 @@ public class ReservaWindow {
 		
 		DefaultListModel<Room> modelRoom = new DefaultListModel<>();
 		Room room = new Room();
-		System.out.println( baseDatos.getRooms());
+		logJava.info( baseDatos.getRooms());
 		ArrayList<Room> arrayR = new ArrayList<>();
 		for (Room r : baseDatos.getRooms()) {
 			modelRoom.addElement(r);

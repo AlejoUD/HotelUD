@@ -5,15 +5,18 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
 import com.mycompany.HotelUD.classes.Menu;
 import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
+import com.sun.tools.javac.launcher.Main;
 
 
 public class MenuTest {
+	private static Logger logJava = Logger.getLogger(Main.class);
 	@Mock
 	List<String> arrayS = new ArrayList<String>();
 	
@@ -26,6 +29,7 @@ public class MenuTest {
 
 	@Test
 	public void testGetters() {
+		logJava.info("Esta parte hace test de getters");
 		assertEquals("Paella", m.getPlato1());
 		assertEquals("Entrecot", m.getPlato2());
 		assertEquals("Helado", m.getPostre());
@@ -36,6 +40,7 @@ public class MenuTest {
 
 	@Test
 	public void testSetters() {
+		logJava.info("Esta parte hace test de setters");
 		Menu r = new Menu();
 		m.setPlato1("Paella");
 		m.setPlato2("Entrecot");

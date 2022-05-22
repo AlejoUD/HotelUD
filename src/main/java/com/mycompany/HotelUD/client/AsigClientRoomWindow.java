@@ -28,6 +28,9 @@ import javax.swing.JToggleButton;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+
+import org.apache.log4j.Logger;
+
 import javax.swing.DefaultListModel;
 
 import com.itextpdf.awt.geom.Dimension;
@@ -35,6 +38,7 @@ import com.mycompany.HotelUD.BBDD.BBDD;
 import com.mycompany.HotelUD.classes.AsigRoom;
 import com.mycompany.HotelUD.classes.Room;
 import com.mycompany.HotelUD.classes.User;
+import com.sun.tools.javac.launcher.Main;
 
 import java.awt.Color;
 
@@ -46,7 +50,7 @@ public class AsigClientRoomWindow extends JFrame {
 	private com.toedter.calendar.JDateChooser jCalendar1;
 	private java.sql.Connection conexion;
 	BBDD baseDatos = new BBDD();
-
+	private static Logger logJava = Logger.getLogger(Main.class);
 
 	public AsigClientRoomWindow() {
 		jCalendar1 = new com.toedter.calendar.JDateChooser();
@@ -101,9 +105,9 @@ public class AsigClientRoomWindow extends JFrame {
 		
 		try {
 			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
-			System.out.println( "Successfully connected to the database");
+			logJava.info( "Successfully connected to the database");
 		} catch (SQLException e) {
-			System.out.println("Error connecting to database ");
+			logJava.error("Error connecting to database ");
 			e.printStackTrace();
 		}
 		

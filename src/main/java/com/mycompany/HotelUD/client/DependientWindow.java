@@ -18,14 +18,18 @@ import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.UIManager;
 
+import org.apache.log4j.Logger;
+
 import com.mycompany.HotelUD.BBDD.BBDD;
 import com.mycompany.HotelUD.classes.Menu;
+import com.sun.tools.javac.launcher.Main;
 
 public class DependientWindow {
 
 	private JFrame frame;
 	BBDD baseDatos = new BBDD();
 	private JTextField txtResult;
+	private static Logger logJava = Logger.getLogger(Main.class);
 
 	public DependientWindow() {
 		frame = new JFrame();
@@ -85,7 +89,7 @@ public class DependientWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				System.out.println(baseDatos.getMenu());
+				logJava.debug(baseDatos.getMenu());
 				for (Menu m : baseDatos.getMenu()) {
 					modelMenu.addElement(m);
 				}

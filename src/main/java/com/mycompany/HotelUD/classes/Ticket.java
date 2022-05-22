@@ -1,5 +1,6 @@
 /** \file 
  * Clase Ticket
+ * @author Xabat Plaza
  */
 package com.mycompany.HotelUD.classes;
 
