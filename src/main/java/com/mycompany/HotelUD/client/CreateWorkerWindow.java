@@ -33,6 +33,7 @@ public class CreateWorkerWindow extends JFrame {
 	BBDD baseDatos = new BBDD();
 	
 	public CreateWorkerWindow() {
+		setResizable(false);
 		setTitle("Create new worker");
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

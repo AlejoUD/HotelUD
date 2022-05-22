@@ -41,10 +41,11 @@ public class ReservaWindow {
 	BBDD baseDatos = new BBDD();
 
 	public ReservaWindow(String texto) {
+		
 		frame = new JFrame();
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
+		frame.setResizable(false);
 		frame.setBounds(100, 100, 869, 323);
 		frame.setTitle("Server Home");
 		contentPane = new JPanel();
