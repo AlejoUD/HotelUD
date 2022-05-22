@@ -16,7 +16,7 @@ import com.sun.tools.javac.launcher.Main;
 
 
 public class MenuTest {
-	private static Logger logJava = Logger.getLogger(Main.class);
+	private static Logger logJava = Logger.getLogger(MenuTest.class);
 	@Mock
 	List<String> arrayS = new ArrayList<String>();
 	
