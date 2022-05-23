@@ -20,6 +20,7 @@ import java.awt.event.ActionListener;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.JToggleButton;
@@ -80,9 +81,9 @@ public class ViewRoomsWindow extends JFrame {
 		
 		JScrollPane scrollPaneUsers = new JScrollPane();
 		DefaultListModel<AsigRoom> modelAsigRooms = new DefaultListModel<AsigRoom>();
-		JList listaUsers = new JList<AsigRoom>(modelAsigRooms);
+		JList listaAsigRooms = new JList<AsigRoom>(modelAsigRooms);
 		
-		scrollPaneUsers.setViewportView(listaUsers);
+		scrollPaneUsers.setViewportView(listaAsigRooms);
 	
 		scrollPaneUsers.setBorder(new LineBorder(new Color(0, 0, 0)));
 		PanelInfo.add(scrollPaneUsers);
@@ -90,6 +91,9 @@ public class ViewRoomsWindow extends JFrame {
 		JPanel PanelBotones = new JPanel();
 		PanelBotones.setBackground(Color.DARK_GRAY);
 		PanelPrincipal.add(PanelBotones, BorderLayout.SOUTH);
+		
+		JToggleButton botonAsignar = new JToggleButton("DESASIGNAR HABITACION");
+		PanelBotones.add(botonAsignar);
 		
 		try {
 			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
@@ -114,6 +118,53 @@ public class ViewRoomsWindow extends JFrame {
 			modelAsigRooms.addElement(listaTempAsigRooms.get(i));
 			
 		}
+		
+		botonAsignar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				Room room3 = (Room) listaAsigRooms.getSelectedValue();
+				
+				Integer number = room3.getNumberDoor();
+				String type = room3.getType();
+				int surface = room3.getSurface();
+				int floor = room3.getFloor();
+				String ocupation = "No";
+		
+				//modelRoom.addElement(v);
+				//al.add(v);
+				
+				String query = "INSERT INTO room (numberDoor, type, surface, floor, ocupation) values( '"+number+"','"+type+"','"+surface+"','"+floor+"','"+ocupation+"')";
+				
+				Statement stmt;
+				try {
+					stmt = conexion.createStatement();
+					stmt.execute(query);
+					
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				String query2 = "DELETE FROM roomAsig WHERE numberDoor = '"+number+"'";
+				
+				Statement stmt2;
+				try {
+					stmt2 = conexion.createStatement();
+					stmt2.execute(query2);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				JOptionPane.showMessageDialog(null, "Habitacion desasignada correctamente.");
+				
+				
+				
+				
+			}
+		});
 
 		
 		
