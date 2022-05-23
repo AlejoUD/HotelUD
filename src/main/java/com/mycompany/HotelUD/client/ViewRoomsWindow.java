@@ -124,7 +124,9 @@ public class ViewRoomsWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				Room room3 = (Room) listaAsigRooms.getSelectedValue();
+				AsigRoom Asigroom3 = (AsigRoom) listaAsigRooms.getSelectedValue();
+				
+				Room room3 = Asigroom3.getRoom();
 				
 				Integer number = room3.getNumberDoor();
 				String type = room3.getType();
