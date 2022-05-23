@@ -1,4 +1,4 @@
-package com.mycompany.HotelUD;
+package com.mycompany.HotelUD.classes;
 
 import static org.junit.Assert.assertEquals;
 
