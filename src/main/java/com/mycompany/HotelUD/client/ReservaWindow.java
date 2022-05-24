@@ -42,7 +42,7 @@ public class ReservaWindow {
 	private JTextField dniField;
 	private JTextField peopleField;
 	BBDD baseDatos = new BBDD();
-	private static Logger logJava = Logger.getLogger(Main.class);
+	private static Logger logJava = Logger.getLogger(ReservaWindow.class);
 
 	public ReservaWindow(String texto) {
 		

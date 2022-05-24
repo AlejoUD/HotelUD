@@ -1,6 +1,7 @@
 package com.mycompany.HotelUD.BBDD;
 
 import java.awt.print.Printable;
+
 import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
