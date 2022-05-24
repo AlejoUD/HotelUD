@@ -15,13 +15,16 @@ import javax.swing.JScrollBar;
 import javax.swing.UIManager;
 
 import com.mycompany.HotelUD.BBDD.BBDD;
+import com.mycompany.HotelUD.classes.AsigRoom;
 import com.mycompany.HotelUD.classes.Room;
 
 import javax.swing.JScrollPane;
 import java.awt.Component;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class DependientReservaWindow {
@@ -36,6 +39,7 @@ public class DependientReservaWindow {
 	 */
 
 	public DependientReservaWindow() {
+		BBDD bbdd = new BBDD();
 		frame = new JFrame();
 		frame.setVisible(true);
 		frame.getContentPane().setBackground(Color.DARK_GRAY);
@@ -92,24 +96,24 @@ public class DependientReservaWindow {
 		panel_2.setBounds(294, 128, 315, 181);
 		frame.getContentPane().add(panel_2);
 		
-		JScrollPane scrollPane = new JScrollPane((Component) null);
+		DefaultListModel<Room> modelRoom = new DefaultListModel<>();
+		Room room = new Room();
+		ArrayList<Room> arrayR = new ArrayList<>();
+		for (Room r : bbdd.getRooms()) {
+			modelRoom.addElement(r);
+			arrayR.add(r);
+		}
+		
+		JList list = new JList(modelRoom);
+
+		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPane.setBounds(10, 11, 295, 159);
 		panel_2.add(scrollPane);
-		
-		JList list = new JList();
 		scrollPane.setViewportView(list);
 		
-		JButton btnRoom = new JButton("Rooms");
-		btnRoom.setBackground(Color.ORANGE);
-		btnRoom.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				BBDD.asigRoom((Room) list.getSelectedValue(), null);
-			}
-		});
-		btnRoom.setBounds(425, 343, 89, 23);
-		frame.getContentPane().add(btnRoom);
+
 		
 		JButton btnReserve = new JButton("Reserve");
 		btnReserve.addActionListener(new ActionListener() {

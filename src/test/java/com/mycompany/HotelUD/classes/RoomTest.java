@@ -12,7 +12,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class RoomTest {
 
-	// private Room r;
 
 	@Mock
 	Room r = new Room(1, "Premium", 10, 2, "No");
