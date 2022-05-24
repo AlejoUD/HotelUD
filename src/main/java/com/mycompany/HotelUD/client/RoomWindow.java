@@ -14,6 +14,10 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.SoftBevelBorder;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.chainsaw.Main;
+
 import javax.swing.border.BevelBorder;
 import javax.swing.UIManager;
 import java.awt.event.ActionEvent;
@@ -21,12 +25,16 @@ import java.awt.event.ActionListener;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import com.mycompany.HotelUD.BBDD.BBDD;
+import com.mycompany.HotelUD.classes.AsigRoom;
 import com.mycompany.HotelUD.classes.Room;
+import com.mycompany.HotelUD.classes.User;
+
 import javax.swing.JTextField;
 
 public class RoomWindow extends JFrame {
@@ -41,6 +49,7 @@ public class RoomWindow extends JFrame {
 	ArrayList<Room> al = new ArrayList<>();
 	private java.sql.Connection conexion;
 	BBDD baseDatos = new BBDD();
+	private static Logger logJava = Logger.getLogger(Main.class);
 /**
 	 * Crea la ventana y en ella es posible crear habitaciones además de visualizarlas.
 	 */
@@ -146,6 +155,14 @@ public class RoomWindow extends JFrame {
 		btnNewButton_1.setBackground(Color.ORANGE);
 		btnNewButton_1.setBounds(74, 154, 89, 23);
 		panel_2.add(btnNewButton_1);
+		
+		try {
+			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel","root","1234");
+			logJava.info( "Successfully connected to the database");
+		} catch (SQLException e) {
+			logJava.error("Error connecting to database ");
+			e.printStackTrace();
+		}
 
 		btnNewButton_1.addActionListener(new ActionListener() {
 
@@ -201,6 +218,32 @@ public class RoomWindow extends JFrame {
 		btnNewButton_3.setBackground(Color.ORANGE);
 		btnNewButton_3.setBounds(414, 155, 89, 23);
 		panel.add(btnNewButton_3);
+		
+		btnNewButton_3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				Room room3 = (Room) lista.getSelectedValue();
+				
+				Integer number = room3.getNumberDoor();
+				
+				String query = "DELETE FROM room WHERE numberDoor = '"+number+"'";
+				
+				Statement stmt;
+				try {
+					stmt = conexion.createStatement();
+					stmt.execute(query);
+					
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				JOptionPane.showMessageDialog(null, "Habitacion eliminada correctamente.");
+			}
+		});
 
 		ArrayList<Room> listaRooms = baseDatos.getRooms();
 
