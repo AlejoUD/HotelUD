@@ -3,6 +3,7 @@ package com.mycompany.HotelUD.server;
 import java.awt.BorderLayout;
 
 
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -11,7 +12,11 @@ import javax.swing.JScrollBar;
 import javax.swing.border.EmptyBorder;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.chainsaw.Main;
@@ -52,6 +57,7 @@ public class HotelManager extends JFrame implements Runnable{
 	
 	
 	public HotelManager(String hostname, String port) {
+		
 		client = ClientBuilder.newClient();
 		webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
 		
@@ -146,7 +152,6 @@ public class HotelManager extends JFrame implements Runnable{
 
 		DefaultListModel<Room> modelRoom = new DefaultListModel<>();
 		Room room = new Room();
-		System.out.println( baseDatos.getRooms());
 		ArrayList<Room> arrayR = new ArrayList<>();
 		for (Room r : baseDatos.getRooms()) {
 			modelRoom.addElement(r);
@@ -179,7 +184,6 @@ public class HotelManager extends JFrame implements Runnable{
 
 		DefaultListModel modelUsers = new DefaultListModel<>();
 		User user = new User();
-		System.out.println( baseDatos.getUsers());
 		ArrayList<User> arrayU = new ArrayList<>();
 		for (User u : baseDatos.getUsers()) {
 			modelUsers.addElement(u);
@@ -209,8 +213,6 @@ public class HotelManager extends JFrame implements Runnable{
 
 
 		DefaultListModel modelWorker = new DefaultListModel<>();
-		Worker worker = new Worker();
-		System.out.println( baseDatos.getWorkers());
 		ArrayList<Worker> arrayW = new ArrayList<>();
 		for (Worker w : baseDatos.getWorkers()) {
 			modelWorker.addElement(w);
@@ -228,33 +230,44 @@ public class HotelManager extends JFrame implements Runnable{
 		labelWorkers.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 11));
 		labelWorkers.setBounds(10, 251, 70, 30);
 		contentPane.add(labelWorkers);
+		
+		setVisible(true);
 	}
 	
+	
+	public ArrayList<Worker> getWorkers() {
+		WebTarget donationsWebTarget = webTarget.path("collector/worker");
+		Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.get();
+		if (response.getStatus() == Status.OK.getStatusCode()) {
+			ArrayList<Worker> workers = response.readEntity(ArrayList.class);
+			return workers;
+		} else {
+			return null;
+		}
+		
+	}
 	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
 				try {
 					
 					String hostname = args[0];
 					String port = args[1];
-					 new HotelManager(hostname, port);
+					 new HotelManager(hostname, port);   
 					 logJava.info( "Successfully opening server");
 					
 				} catch (Exception e) {
 					logJava.error("Error opening server");
 				}
-			}
-		});
 	}
 
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	
