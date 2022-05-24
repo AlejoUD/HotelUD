@@ -39,6 +39,7 @@ public class DependientWindow {
 
 	public DependientWindow(String texto) {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setVisible(true);
 		frame.getContentPane().setBackground(Color.DARK_GRAY);
 		frame.setBounds(100, 100, 635, 454);
@@ -72,6 +73,12 @@ public class DependientWindow {
 		btnVerHabitaciones.setBackground(Color.ORANGE);
 
 		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				new LoginWindow();
+				}
+		});
 		btnBack.setBackground(Color.ORANGE);
 		btnBack.setBounds(340, 62, 171, 29);
 		panel.add(btnBack);
