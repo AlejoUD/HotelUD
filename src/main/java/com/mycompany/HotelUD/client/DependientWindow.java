@@ -37,7 +37,7 @@ public class DependientWindow {
 	 * Crea la ventana y permite crear trabajadores nuevos.
 	 */
 
-	public DependientWindow() {
+	public DependientWindow(String texto) {
 		frame = new JFrame();
 		frame.setVisible(true);
 		frame.getContentPane().setBackground(Color.DARK_GRAY);
@@ -82,6 +82,7 @@ public class DependientWindow {
 				new DependientReservaWindow();
 			}
 		});
+		btnReserva.setBackground(Color.ORANGE);
 		btnReserva.setBounds(73, 65, 171, 26);
 		panel.add(btnReserva);
 
@@ -122,7 +123,4 @@ public class DependientWindow {
 
 	}
 
-	public static void main(String[] args) {
-		DependientWindow v1 = new DependientWindow();
-	}
 }

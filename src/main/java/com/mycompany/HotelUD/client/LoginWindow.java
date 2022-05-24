@@ -152,7 +152,8 @@ public class LoginWindow extends JFrame {
 					new UserWindow(texto);
 					dispose();
 				} else if (dependienteCoincide() == true) {
-					new DependientWindow();
+					texto = tEmail.getText();
+					new DependientWindow(texto);
 					dispose();
 				}
 				else {

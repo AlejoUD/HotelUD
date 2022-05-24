@@ -32,6 +32,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.mycompany.HotelUD.BBDD.BBDD;
 import com.mycompany.HotelUD.classes.Room;
+import com.mycompany.HotelUD.classes.User;
 
 
 public class ReservaWindow {
@@ -164,8 +165,16 @@ public class ReservaWindow {
 				documento.add(new Paragraph("People: "+ peopleField.getText()));				
 				documento.add(new Paragraph("Room: "+ room_list.getSelectedValue()));
 				documento.close();
+				ArrayList<User> arrayU = new ArrayList<>();
+				arrayU.addAll(baseDatos.getUsers());
+				System.out.println(arrayU);
+				for (User u : arrayU) {
+					if(dniField.getText() == u.getDni()) {
+						BBDD.asigRoom((Room) room_list.getSelectedValue(), u);
+						
+					}
+				}
 				
-				BBDD.asigRoom((Room) room_list.getSelectedValue(), null);
 				} catch (FileNotFoundException | DocumentException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

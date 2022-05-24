@@ -174,11 +174,7 @@ public class ViewRoomsWindow extends JFrame {
 		
 		setVisible(true);
 	}
-	
-	public static void main(String[] args) {
-		ViewRoomsWindow v1 = new ViewRoomsWindow();
-	}
-	
+
 
 }
 

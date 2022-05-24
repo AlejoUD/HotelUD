@@ -98,7 +98,7 @@ public class DependientReservaWindow {
 		scrollPane.setBounds(10, 11, 295, 159);
 		panel_2.add(scrollPane);
 		
-		JList list = new JList((ListModel) null);
+		JList list = new JList();
 		scrollPane.setViewportView(list);
 		
 		JButton btnRoom = new JButton("Rooms");
@@ -121,7 +121,7 @@ public class DependientReservaWindow {
 				
 			}
 		});
-		btnReserve.setForeground(Color.ORANGE);
+		btnReserve.setBackground(Color.ORANGE);
 		btnReserve.setBounds(103, 343, 89, 23);
 		frame.getContentPane().add(btnReserve);
 		frame.setTitle("Booking");

@@ -41,6 +41,7 @@ public class UserWindow extends JFrame {
 		btnVerRooms.setBackground(Color.ORANGE);
 		btnVerRooms.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new ViewRoomsWindow();
 			}
 		});
 		btnVerRooms.setBounds(52, 118, 141, 37);
@@ -60,6 +61,16 @@ public class UserWindow extends JFrame {
 		btnContacto.setBackground(Color.ORANGE);
 		btnContacto.setBounds(269, 250, 130, 37);
 		contentPane.add(btnContacto);
+		
+		btnContacto.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new LoginWindow();
+				dispose();
+			}
+		});
 		
 		JButton btnExit = new JButton("Back");
 		btnExit.setBackground(Color.ORANGE);
