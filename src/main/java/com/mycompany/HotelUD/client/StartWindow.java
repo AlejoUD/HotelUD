@@ -45,7 +45,7 @@ public class StartWindow extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Crea la ventana y muestra el login.
 	 * @return 
 	 */
 	

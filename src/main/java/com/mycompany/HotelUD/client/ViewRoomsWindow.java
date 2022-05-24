@@ -44,7 +44,9 @@ public class ViewRoomsWindow extends JFrame {
 	private java.sql.Connection conexion;
 	BBDD baseDatos = new BBDD();
 
-
+	/**
+	 * Método para crear la ventana que visualiza las habitaciones.
+	 */
 	public ViewRoomsWindow() {
 		setTitle("Habitaciones libres y habitaciones ocupadas");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

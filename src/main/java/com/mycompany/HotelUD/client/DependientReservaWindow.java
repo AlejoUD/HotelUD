@@ -31,6 +31,10 @@ public class DependientReservaWindow {
 	private JTextField DNITxt;
 	private JTextField peopleTxt;
 	
+	/**
+	 * Crea la ventana y genera un ticket.
+	 */
+
 	public DependientReservaWindow() {
 		frame = new JFrame();
 		frame.setVisible(true);

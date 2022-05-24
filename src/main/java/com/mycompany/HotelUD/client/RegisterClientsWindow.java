@@ -41,7 +41,9 @@ public class RegisterClientsWindow extends JFrame {
 	private JTextField bankAccountField;
 	BBDD baseDatos = new BBDD();
 	
-	
+	/**
+	 * Crea la ventana y permite crear nuevos clientes.
+	 */
 	
 	public RegisterClientsWindow() {
 		setResizable(false);

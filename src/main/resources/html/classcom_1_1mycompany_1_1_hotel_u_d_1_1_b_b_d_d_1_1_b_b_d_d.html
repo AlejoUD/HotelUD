@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>com</b></li><li class="navelem"><b>mycompany</b></li><li class="navelem"><b>HotelUD</b></li><li class="navelem"><a class="el" href="namespacecom_1_1mycompany_1_1_hotel_u_d_1_1_b_b_d_d.html">BBDD</a></li><li class="navelem"><a class="el" href="classcom_1_1mycompany_1_1_hotel_u_d_1_1_b_b_d_d_1_1_b_b_d_d.html">BBDD</a></li>  </ul>
+<li class="navelem"><b>com</b></li><li class="navelem"><b>mycompany</b></li><li class="navelem"><b>HotelUD</b></li><li class="navelem"><b>BBDD</b></li><li class="navelem"><a class="el" href="classcom_1_1mycompany_1_1_hotel_u_d_1_1_b_b_d_d_1_1_b_b_d_d.html">BBDD</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -84,6 +84,11 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a6181c8ff5c1fab5180561422b2213cf5"><td class="memItemLeft" align="right" valign="top"><a id="a6181c8ff5c1fab5180561422b2213cf5" name="a6181c8ff5c1fab5180561422b2213cf5"></a>
+static Connection&#160;</td><td class="memItemRight" valign="bottom"><b>initBD</b> ()  throws BDException </td></tr>
+<tr class="separator:a6181c8ff5c1fab5180561422b2213cf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a458226072f840e0825af7c7674a04530"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1mycompany_1_1_hotel_u_d_1_1_b_b_d_d_1_1_b_b_d_d.html#a458226072f840e0825af7c7674a04530">closeBD</a> (Connection con)  throws BDException </td></tr>
+<tr class="separator:a458226072f840e0825af7c7674a04530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a033e3fd1dc5140230c6ad6cc44338677"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1mycompany_1_1_hotel_u_d_1_1_b_b_d_d_1_1_b_b_d_d.html#a033e3fd1dc5140230c6ad6cc44338677">conectionWorkers</a> (String nombreBD)</td></tr>
 <tr class="separator:a033e3fd1dc5140230c6ad6cc44338677"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8270a185e08cde8ff50e8ae51c2e22b5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1mycompany_1_1_hotel_u_d_1_1_b_b_d_d_1_1_b_b_d_d.html#a8270a185e08cde8ff50e8ae51c2e22b5">conectionUsers</a> (String nombreBD)</td></tr>
@@ -117,9 +122,11 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a4f85fc750878455d463f3894e31f3226"><td class="memItemLeft" align="right" valign="top">static Connection&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1mycompany_1_1_hotel_u_d_1_1_b_b_d_d_1_1_b_b_d_d.html#a4f85fc750878455d463f3894e31f3226">connection</a></td></tr>
+<tr class="memitem:a4f85fc750878455d463f3894e31f3226"><td class="memItemLeft" align="right" valign="top"><a id="a4f85fc750878455d463f3894e31f3226" name="a4f85fc750878455d463f3894e31f3226"></a>
+static Connection&#160;</td><td class="memItemRight" valign="bottom"><b>connection</b></td></tr>
 <tr class="separator:a4f85fc750878455d463f3894e31f3226"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75178c80b44050a46de4ef6901496c45"><td class="memItemLeft" align="right" valign="top">static PreparedStatement&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1mycompany_1_1_hotel_u_d_1_1_b_b_d_d_1_1_b_b_d_d.html#a75178c80b44050a46de4ef6901496c45">statement</a></td></tr>
+<tr class="memitem:a75178c80b44050a46de4ef6901496c45"><td class="memItemLeft" align="right" valign="top"><a id="a75178c80b44050a46de4ef6901496c45" name="a75178c80b44050a46de4ef6901496c45"></a>
+static PreparedStatement&#160;</td><td class="memItemRight" valign="bottom"><b>statement</b></td></tr>
 <tr class="separator:a75178c80b44050a46de4ef6901496c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -137,6 +144,7 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Método para realizar conexion con la Base de Datos. </p>
 
 </div>
 </div>
@@ -164,6 +172,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Método para añadir dependientes a la base de datos. </p>
 
 </div>
 </div>
@@ -190,6 +199,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Método para añadir menus a la base de datos. </p>
 
 </div>
 </div>
@@ -216,6 +226,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Método para añadir habitaciones a la base de datos. </p>
 
 </div>
 </div>
@@ -242,6 +253,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Método para añadir usuarios a la base de datos. </p>
 
 </div>
 </div>
@@ -268,6 +280,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Método para añadir trabajadores a la base de datos. </p>
 
 </div>
 </div>
@@ -304,6 +317,34 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Método que asigna habitaciones a usuarios en la base de datos. </p>
+
+</div>
+</div>
+<a id="a458226072f840e0825af7c7674a04530" name="a458226072f840e0825af7c7674a04530"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a458226072f840e0825af7c7674a04530">&#9670;&nbsp;</a></span>closeBD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void com.mycompany.HotelUD.BBDD.BBDD.closeBD </td>
+          <td>(</td>
+          <td class="paramtype">Connection&#160;</td>
+          <td class="paramname"><em>con</em></td><td>)</td>
+          <td> throws <a class="el" href="classcom_1_1mycompany_1_1_hotel_u_d_1_1_b_b_d_d_1_1_b_d_exception.html">BDException</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Método para cerrar la conexión con la Base de Datos. </p>
 
 </div>
 </div>
@@ -330,6 +371,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Método para crear la tabla de las habitaciones en la base de datos. </p>
 
 </div>
 </div>
@@ -356,6 +398,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Método para crear la tabla de los usuarios en la base de datos. </p>
 
 </div>
 </div>
@@ -382,6 +425,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Método para crear la tabla de los trabajadores en la base de datos. </p>
 
 </div>
 </div>
@@ -407,6 +451,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Método devuelve una lista de las habitaciones a la que pertenecen los usuarios. </p>
 
 </div>
 </div>
@@ -424,6 +469,7 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Método que devuelve la conexión con la base de datos. </p>
 
 </div>
 </div>
@@ -449,6 +495,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Método devuelve una lista de todos los dependientes que hay en la base de datos. </p>
 
 </div>
 </div>
@@ -474,6 +521,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Método devuelve una lista de todos los menus que hay en la base de datos. </p>
 
 </div>
 </div>
@@ -499,6 +547,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Método devuelve una lista de todas las habitaciones que hay en la base de datos. </p>
 
 </div>
 </div>
@@ -524,6 +573,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Método devuelve una lista de todos los usuarios que hay en la base de datos. </p>
 
 </div>
 </div>
@@ -549,56 +599,12 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a4f85fc750878455d463f3894e31f3226" name="a4f85fc750878455d463f3894e31f3226"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f85fc750878455d463f3894e31f3226">&#9670;&nbsp;</a></span>connection</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Connection com.mycompany.HotelUD.BBDD.BBDD.connection</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a75178c80b44050a46de4ef6901496c45" name="a75178c80b44050a46de4ef6901496c45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75178c80b44050a46de4ef6901496c45">&#9670;&nbsp;</a></span>statement</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">PreparedStatement com.mycompany.HotelUD.BBDD.BBDD.statement</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p >Método devuelve una lista de todos los trabajadores que hay en la base de datos. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>BBDD/<a class="el" href="_b_b_d_d_8java.html">BBDD.java</a></li>
+<li>BBDD/BBDD.java</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

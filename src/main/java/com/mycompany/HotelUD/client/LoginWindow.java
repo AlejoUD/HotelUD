@@ -37,6 +37,10 @@ public class LoginWindow extends JFrame {
 	BBDD baseDatos = new BBDD();
 	String texto;
 
+	/**
+	 * Crea la ventana y genera 2 campos para meter el usuario y la contraseÃ±a para poder loguearte.
+	 */
+
 	public LoginWindow() {
 		setUndecorated(true);
 		setVisible(true);
@@ -153,7 +157,7 @@ public class LoginWindow extends JFrame {
 				}
 				else {
 					dispose();
-					JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos");
+					JOptionPane.showMessageDialog(null, "Usuario y/o contraseï¿½a incorrectos");
 					new LoginWindow();
 				}
 			}

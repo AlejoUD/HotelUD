@@ -41,7 +41,9 @@ public class RoomWindow extends JFrame {
 	ArrayList<Room> al = new ArrayList<>();
 	private java.sql.Connection conexion;
 	BBDD baseDatos = new BBDD();
-
+/**
+	 * Crea la ventana y en ella es posible crear habitaciones además de visualizarlas.
+	 */
 	public RoomWindow() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

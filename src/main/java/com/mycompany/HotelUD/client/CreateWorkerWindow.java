@@ -32,6 +32,10 @@ public class CreateWorkerWindow extends JFrame {
 	private JTextField genderField;
 	BBDD baseDatos = new BBDD();
 	
+	/**
+	 * Crea la ventana y permite crear nuevos trabajadores del hotel.
+	 */
+
 	public CreateWorkerWindow() {
 		setResizable(false);
 		setTitle("Create new worker");

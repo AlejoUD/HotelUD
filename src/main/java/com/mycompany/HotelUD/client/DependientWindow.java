@@ -33,6 +33,10 @@ public class DependientWindow {
 	private JTextField txtResult;
 	private static Logger logJava = Logger.getLogger(Main.class);
 
+	/**
+	 * Crea la ventana y permite crear trabajadores nuevos.
+	 */
+
 	public DependientWindow() {
 		frame = new JFrame();
 		frame.setVisible(true);

@@ -18,7 +18,7 @@ public class UserWindow extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Create the frame.
+	 * Ventana de usuarios que permite imprimir un ticket de la reserva realizada.
 	 */
 	public UserWindow(String texto) {
 		setVisible(true);

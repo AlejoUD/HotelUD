@@ -15,6 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<server.hostname>127.0.0.1</server.hostname>
 		<server.port>8080</server.port>
+		<doxygen.config.file>${basedir}/src/main/resources/Doxyfile</doxygen.config.file>
 	</properties>
 						
 	<dependencies>
@@ -89,6 +90,14 @@
 	
 	<build>
 		<plugins>
+			<plugin>
+ 				<groupId>com.soebes.maven.plugins.dmg</groupId>
+					<artifactId>doxygen-maven-plugin</artifactId>
+					<version>1.0.1</version>
+					<configuration>
+ 						<configurationFile>${doxygen.config.file}</configurationFile>
+					</configuration>
+ 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.7.0</version>

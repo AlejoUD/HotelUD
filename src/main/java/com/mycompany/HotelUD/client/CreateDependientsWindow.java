@@ -32,7 +32,7 @@ public class CreateDependientsWindow extends JFrame {
 	private JTextField banktxt;
 	BBDD baseDatos = new BBDD();
 	/**
-	 * Launch the application.
+	 * Lanza la ventana para crear nuevos dependientes en la base de datos.
 	 */
 
 	public CreateDependientsWindow() {

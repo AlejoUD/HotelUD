@@ -20,6 +20,10 @@ public class MenuRestauranteWindow {
 	private JFrame frame;
 	BBDD baseDatos = new BBDD();
 
+	/**
+	 * Crea la ventana y permite crear un menú específico para el restaurante del hotel.
+	 */
+
 	public MenuRestauranteWindow() {
 
 		frame = new JFrame();

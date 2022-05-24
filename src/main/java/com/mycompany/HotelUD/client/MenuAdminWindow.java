@@ -19,7 +19,7 @@ public class MenuAdminWindow extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Create the frame.
+	 * Crea la ventana y muestra el menú principal que visualizarán los administradores y los dependientes del hotel.
 	 */
 	public MenuAdminWindow() {
 		setResizable(false);

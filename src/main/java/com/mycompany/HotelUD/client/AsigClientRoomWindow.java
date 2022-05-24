@@ -52,6 +52,10 @@ public class AsigClientRoomWindow extends JFrame {
 	BBDD baseDatos = new BBDD();
 	private static Logger logJava = Logger.getLogger(Main.class);
 
+	/**
+	 * Crea la ventana y permite asignar una habitación que no haya sido reservada a un cliente específico en una fecha determinada.
+	 */
+
 	public AsigClientRoomWindow() {
 		jCalendar1 = new com.toedter.calendar.JDateChooser();
 		jCalendar1.setDateFormatString("dd-MM-yyyy");
