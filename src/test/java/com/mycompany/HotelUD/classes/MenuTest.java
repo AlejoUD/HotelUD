@@ -59,6 +59,7 @@ public class MenuTest {
 	@Test
 	public void testToString() {
 		// Room room = new Room(1, "Premium", 10, 2);
+		logJava.info("Esta parte hace el tostring");
 		String expected = "Menu: Primer plato: " + "Paella" + ", segundo plato: " + "Entrecot" + ", postre: " + "Helado" + ", bebida: " + "Agua"	+ ", condimentos" + arrayS + "]"; // put																		// value
 																													// here
 		assertEquals(expected, m.toString());
