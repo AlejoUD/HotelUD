@@ -33,28 +33,38 @@ public class AsigRoom {
 	}
 
 	/**
-	 * Geters y Seters.
+	 * Método que devuelve una habitación
 	 */
 	public Room getRoom() {
 		return room;
 	}
-
+	/**
+	 * Método que asigna una habitación
+	 */
 	public void setRoom(Room room) {
 		this.room = room;
 	}
-
+	/**
+	 * Método que devuelve el dni
+	 */
 	public String getDni() {
 		return dni;
 	}
-
+	/**
+	 * Método que asigna un dni
+	 */
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-
+	/**
+	 * Método que devuelve la fecha
+	 */
 	public String getFecha() {
 		return fecha;
 	}
-
+	/**
+	 * Método que asigna una fecha
+	 */
 	public String setFecha(String fecha) {
 		return this.fecha = fecha;
 	}

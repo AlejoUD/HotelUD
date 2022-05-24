@@ -30,20 +30,26 @@ public class Ticket {
 	}
 
 	/**
-	 * Geters y Seters.
+	 * Método que devuelve la habitación
 	 */
 	public Room getRoom() {
 		return room;
 	}
-
+	/**
+	 * Método que asigna la habitación
+	 */
 	public void setRoom(Room room) {
 		this.room = room;
 	}
-
+	/**
+	 * Método que devuelve el usuario
+	 */
 	public User getUser() {
 		return user;
 	}
-
+	/**
+	 * Método que asigna a un usuario
+	 */
 	public void setUser(User user) {
 		this.user = user;
 	}

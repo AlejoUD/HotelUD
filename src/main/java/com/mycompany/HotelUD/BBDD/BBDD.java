@@ -12,7 +12,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
 
 import org.apache.log4j.Logger;
 
@@ -45,7 +44,9 @@ public class BBDD {
 		return connection;
 	}
 	
-	
+	/**
+	 * Método para realizar conexion con la Base de Datos.
+	 */
 	public BBDD() {
 			try {
 				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","1234");
@@ -56,7 +57,9 @@ public class BBDD {
 			}
 
 	}
-	
+	/**
+	 * Método para cerrar la conexión con la Base de Datos.
+	 */
 	public static void closeBD(Connection con) throws BDException {
 		if(con!=null) {
 			try {
@@ -68,7 +71,9 @@ public class BBDD {
 			}
 		}
 	}
-	
+	/**
+	 * Método para crear la tabla de los trabajadores en la base de datos.
+	 */
 	public static void conectionWorkers(String nombreBD) {
 		try {
 			statement = (PreparedStatement) connection.createStatement();
@@ -82,7 +87,9 @@ public class BBDD {
 			logJava.fatal("Error");
 		}
 	}
-	
+	/**
+	 * Método para crear la tabla de los usuarios en la base de datos.
+	 */
 	public static void conectionUsers(String nombreBD) {
 		try {
 			statement = (PreparedStatement) connection.createStatement();
@@ -96,7 +103,9 @@ public class BBDD {
 			logJava.fatal("Error");
 		}
 	}
-	
+	/**
+	 * Método para crear la tabla de las habitaciones en la base de datos.
+	 */
 	public static void conectionRoom(String nombreBD) {
 		try {
 			statement = (PreparedStatement) connection.createStatement();
@@ -110,11 +119,16 @@ public class BBDD {
 			logJava.fatal("Error");
 		}
 	}
-	
+	/**
+	 * Método que devuelve la conexión con la base de datos.
+	 */
 	public Connection getConection() {
 		return connection;
 	}
 	
+	/**
+	 * Método para añadir trabajadores a la base de datos.
+	 */
 	public static void addWorker(Worker worker) {
 		try {
 			statement = connection.prepareStatement("INSERT INTO workers (counter,name,dni,gender,age) VALUES ( ?, ?, ?, ?, ?)");
@@ -131,7 +145,9 @@ public class BBDD {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * Método para añadir usuarios a la base de datos.
+	 */
 	public static void addUsers(User user) {
 		try {
 			statement = connection.prepareStatement("INSERT INTO users (counter,name,password,dni,gender,age,bankCount) VALUES ( ?, ?, ?, ?, ?, ?, ?)");
@@ -150,7 +166,9 @@ public class BBDD {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * Método para añadir habitaciones a la base de datos.
+	 */
 	public static void addRoom(Room room) {
 		try {
 			statement = connection.prepareStatement("INSERT INTO room (numberDoor,type,surface,floor,ocupation) VALUES ( ?, ?, ?, ?, ?)");
@@ -167,7 +185,9 @@ public class BBDD {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * Método que asigna habitaciones a usuarios en la base de datos.
+	 */
 	public static void asigRoom(Room room, User user) {
 		try {
 			statement = connection.prepareStatement("INSERT INTO roomAsig (numberDoor,type,surface,floor, dni) VALUES ( ?, ?, ?, ?, ?)");
@@ -184,7 +204,9 @@ public class BBDD {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * Método devuelve una lista de todos los trabajadores que hay en la base de datos.
+	 */
 	public static ArrayList<Worker> getWorkers() {
 		ArrayList<Worker> result = new ArrayList<Worker>();
 		String consult = "SELECT * FROM workers";
@@ -206,6 +228,10 @@ public class BBDD {
 		return result;
 
 	}
+	
+	/**
+	 * Método devuelve una lista de todos los usuarios que hay en la base de datos.
+	 */
 	public static ArrayList<User> getUsers() {
 		ArrayList<User> result = new ArrayList<User>();
 		String consult = "SELECT * FROM users";
@@ -229,7 +255,9 @@ public class BBDD {
 		return result;
 
 	}
-	
+	/**
+	 * Método devuelve una lista de todas las habitaciones que hay en la base de datos.
+	 */
 	public static ArrayList<Room> getRooms() {
 		ArrayList<Room> result = new ArrayList<Room>();
 		String consult = "SELECT * FROM room";
@@ -251,7 +279,9 @@ public class BBDD {
 		return result;
 
 	}
-	
+	/**
+	 * Método devuelve una lista de las habitaciones a la que pertenecen los usuarios.
+	 */
 	public static ArrayList<AsigRoom> getAsigRooms() {
 		ArrayList<AsigRoom> result = new ArrayList<AsigRoom>();
 		String consult = "SELECT * FROM roomAsig";
@@ -279,8 +309,9 @@ public class BBDD {
 
 	}
 	
-	
-	
+	/**
+	 * Método para añadir dependientes a la base de datos.
+	 */
 	public static void addDependient(Dependient dependient) {
 		try {
 			statement = connection.prepareStatement("INSERT INTO dependients (counter,name,dni,password,gender,position,description,bankAccount) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -300,6 +331,9 @@ public class BBDD {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * Método devuelve una lista de todos los dependientes que hay en la base de datos.
+	 */
 	public static ArrayList<Dependient> getDependients() {
 		ArrayList<Dependient> result = new ArrayList<Dependient>();
 		String consult = "SELECT * FROM dependients";
@@ -324,7 +358,9 @@ public class BBDD {
 		return result;
 
 	}
-	
+	/**
+	 * Método para añadir menus a la base de datos.
+	 */
 	public static void addMenu(Menu menu) {
 		try {
 			String news = "";
@@ -346,6 +382,9 @@ public class BBDD {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * Método devuelve una lista de todos los menus que hay en la base de datos.
+	 */
 	public static ArrayList<Menu> getMenu() {
 		ArrayList<Menu> result = new ArrayList<Menu>();
 		String consult = "SELECT * FROM menu";
