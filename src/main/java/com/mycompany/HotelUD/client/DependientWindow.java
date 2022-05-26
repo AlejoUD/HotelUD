@@ -46,10 +46,10 @@ public class DependientWindow {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblTitulo = new JLabel("Bienvenido");
+		JLabel lblTitulo = new JLabel("WELCOME");
 		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblTitulo.setForeground(Color.WHITE);
-		lblTitulo.setBounds(234, 11, 286, 56);
+		lblTitulo.setBounds(259, 11, 286, 56);
 		frame.getContentPane().add(lblTitulo);
 
 		JPanel panel = new JPanel();
@@ -57,12 +57,12 @@ public class DependientWindow {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JButton btnVerMenus = new JButton("Ver menus");
+		JButton btnVerMenus = new JButton("Show Menus");
 		btnVerMenus.setBounds(73, 11, 171, 29);
 		panel.add(btnVerMenus);
 		btnVerMenus.setBackground(Color.ORANGE);
 
-		JButton btnVerHabitaciones = new JButton("Ver habitaciones");
+		JButton btnVerHabitaciones = new JButton("Show Rooms");
 		btnVerHabitaciones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new ViewRoomsWindow();
@@ -103,8 +103,8 @@ public class DependientWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				logJava.debug(baseDatos.getMenu());
-				for (Menu m : baseDatos.getMenu()) {
+				logJava.debug(BBDD.getMenu());
+				for (Menu m : BBDD.getMenu()) {
 					modelMenu.addElement(m);
 				}
 

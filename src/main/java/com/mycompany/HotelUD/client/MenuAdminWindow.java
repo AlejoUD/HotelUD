@@ -32,10 +32,10 @@ public class MenuAdminWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lMenuPrinc = new JLabel("MENU PRINCIPAL ADMINISTRADOR");
+		JLabel lMenuPrinc = new JLabel("MAIN WINDOW");
 		lMenuPrinc.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lMenuPrinc.setForeground(Color.WHITE);
-		lMenuPrinc.setBounds(149, 64, 315, 25);
+		lMenuPrinc.setBounds(206, 61, 315, 25);
 		contentPane.add(lMenuPrinc);
 
 		JButton btnBack = new JButton("Back");

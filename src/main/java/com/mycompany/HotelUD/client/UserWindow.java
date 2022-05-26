@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -30,14 +31,14 @@ public class UserWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblTitulo = new JLabel("Bienvenido!!");
+		JLabel lblTitulo = new JLabel("WELCOME!!");
 		lblTitulo.setBackground(Color.WHITE);
 		lblTitulo.setBounds(269, 26, 292, 32);
 		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblTitulo.setForeground(Color.WHITE);
 		contentPane.add(lblTitulo);
 		
-		JButton btnVerRooms = new JButton("HABITACIONES");
+		JButton btnVerRooms = new JButton("ROOMS");
 		btnVerRooms.setBackground(Color.ORANGE);
 		btnVerRooms.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -47,7 +48,7 @@ public class UserWindow extends JFrame {
 		btnVerRooms.setBounds(52, 118, 141, 37);
 		contentPane.add(btnVerRooms);
 		
-		JButton btnImprimirTicket = new JButton("RESERVAR");
+		JButton btnImprimirTicket = new JButton("BOOK");
 		btnImprimirTicket.setBackground(Color.ORANGE);
 		btnImprimirTicket.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -57,22 +58,26 @@ public class UserWindow extends JFrame {
 		btnImprimirTicket.setBounds(459, 118, 141, 37);
 		contentPane.add(btnImprimirTicket);
 		
-		JButton btnContacto = new JButton("CONTACTANOS");
+		JButton btnContacto = new JButton("CONTACT US");
 		btnContacto.setBackground(Color.ORANGE);
 		btnContacto.setBounds(269, 250, 130, 37);
 		contentPane.add(btnContacto);
 		
 		btnContacto.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				new LoginWindow();
-				dispose();
+				JOptionPane.showMessageDialog(null, "EMAIL: HOTELUD@gmail.com \n TLP:112345543");
 			}
 		});
 		
-		JButton btnExit = new JButton("Back");
+		JButton btnExit = new JButton("BACK");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new LoginWindow();
+			}
+		});
 		btnExit.setBackground(Color.ORANGE);
 		btnExit.setBounds(542, 356, 110, 32);
 		contentPane.add(btnExit);
