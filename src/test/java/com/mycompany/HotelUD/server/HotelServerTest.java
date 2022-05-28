@@ -42,7 +42,8 @@ public class HotelServerTest {
 	}
 
 	@Test
-	public void TestaddUser(User user) {
+	public void TestaddUser() {
+		
 		hotelCollector.addUser(user);
 	}
 
