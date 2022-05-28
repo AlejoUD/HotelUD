@@ -35,26 +35,26 @@ public class HotelServerTest {
         user = new User(1, "Diego", "987654321", "Male", 21, "123", "1234567890");
     }
 
-	@Test
-	public void TestaddWorker() {
-		logJava.info("Test add worker");
-		//Response expected = 
-        //assertEquals(expected, hotelCollector.addWorker(worker));
-	}
-
-	@Test
-	public void TestgetWorkers() {
-		logJava.info("Test get worker");
-	}
-
-	@Test
-	public void TestaddUser() {
-		logJava.info("Test add User");
-		hotelCollector.addUser(user);
-	}
-
-	@Test
-	public void TestgetUsers() {
-
-	}
+//	@Test
+//	public void TestaddWorker() {
+//		logJava.info("Test add worker");
+//		//Response expected = 
+//        //assertEquals(expected, hotelCollector.addWorker(worker));
+//	}
+//
+//	@Test
+//	public void TestgetWorkers() {
+//		logJava.info("Test get worker");
+//	}
+//
+//	@Test
+//	public void TestaddUser() {
+//		logJava.info("Test add User");
+//		hotelCollector.addUser(user);
+//	}
+//
+//	@Test
+//	public void TestgetUsers() {
+//
+//	}
 }
