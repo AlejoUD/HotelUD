@@ -4,12 +4,15 @@ import java.awt.BorderLayout;
 
 
 
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
@@ -22,12 +25,15 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.chainsaw.Main;
 
 import com.mycompany.HotelUD.BBDD.BBDD;
+import com.mycompany.HotelUD.BBDD.BDException;
 import com.mycompany.HotelUD.classes.Room;
 import com.mycompany.HotelUD.classes.User;
 import com.mycompany.HotelUD.classes.Worker;
 
+
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.JList;
 import javax.swing.UIManager;
 import java.awt.Color;
@@ -40,13 +46,16 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 
-public class HotelManager extends JFrame implements Runnable{
+public class HotelManager extends JFrame implements ActionListener, Runnable{
 
 	private JPanel contentPane;
 	BBDD baseDatos = new BBDD();
@@ -54,6 +63,11 @@ public class HotelManager extends JFrame implements Runnable{
 	private Client client;
 	private WebTarget webTarget;
 	private static Logger logJava = Logger.getLogger(HotelManager.class);
+	
+	private ArrayList<Worker> workers = new ArrayList<>();
+	
+	private final AtomicBoolean running = new AtomicBoolean(false);
+	JPanel worker_panel;
 	
 	
 	public HotelManager(String hostname, String port) {
@@ -90,7 +104,10 @@ public class HotelManager extends JFrame implements Runnable{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				ArrayList<Worker> arrayW = new ArrayList<>();
+				for (Worker w : baseDatos.getWorkers()) {
+					System.out.println(w);
+				}
 			}
 
 		});
@@ -102,7 +119,10 @@ public class HotelManager extends JFrame implements Runnable{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				ArrayList<Room> arrayR = new ArrayList<>();
+				for (Room r : baseDatos.getRooms()) {
+					System.out.println(r);
+				}
 			}
 
 		});
@@ -114,7 +134,10 @@ public class HotelManager extends JFrame implements Runnable{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				ArrayList<User> arrayU = new ArrayList<>();
+				for (User u : baseDatos.getUsers()) {
+					System.out.println(u);
+				}
 			}
 
 		});
@@ -137,9 +160,7 @@ public class HotelManager extends JFrame implements Runnable{
 			}
 
 		});
-
-
-
+		
 		//Rooms
 
 		JPanel room_panel = new JPanel();
@@ -181,6 +202,7 @@ public class HotelManager extends JFrame implements Runnable{
 		client_panel.setBackground(Color.DARK_GRAY);
 		client_panel.setBounds(10, 42, 315, 181);
 		contentPane.add(client_panel);
+		
 
 		DefaultListModel modelUsers = new DefaultListModel<>();
 		User user = new User();
@@ -204,12 +226,14 @@ public class HotelManager extends JFrame implements Runnable{
 
 
 		// Workers
-		JPanel worker_panel = new JPanel();
+		worker_panel = new JPanel();
 		worker_panel.setLayout(null);
 		worker_panel.setBorder(UIManager.getBorder("TitledBorder.border"));
 		worker_panel.setBackground(Color.DARK_GRAY);
 		worker_panel.setBounds(10, 276, 315, 181);
 		contentPane.add(worker_panel);
+		
+		
 
 
 		DefaultListModel modelWorker = new DefaultListModel<>();
@@ -248,26 +272,48 @@ public class HotelManager extends JFrame implements Runnable{
 		
 	}
 	
+	public void run() {
+		running.set(true);
+		while(running.get()) {
+			try {
+
+				Connection con = BBDD.initBD();
+				workers = BBDD.getWorkers();
+
+				Thread.sleep(5000);
+				logJava.info( "Obtaining data from server.");
+				try {					
+					
+					BBDD.closeBD(con);
+
+				} catch (BDException | NullPointerException e1) {
+				}	
+			} catch (NullPointerException e) {
+			} catch (InterruptedException | BDException e) {
+				Thread.currentThread().interrupt();
+				logJava.error("Failed to complete operation");
+		}
+	}
+}
+	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-				try {
+	public static void main(String[] args) {		
+			String hostname = args[0];
+			String port = args[1];
+			
+			
+			new HotelManager(hostname, port);   
+			logJava.info( "Successfully opening server");
 					
-					String hostname = args[0];
-					String port = args[1];
-					 new HotelManager(hostname, port);   
-					 logJava.info( "Successfully opening server");
-					
-				} catch (Exception e) {
-					logJava.error("Error opening server");
-				}
+				
 	}
 
 
 	@Override
-	public void run() {
-		
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 	
