@@ -61,14 +61,13 @@ CREATE TABLE`menu`(
 PRIMARY KEY (`counter`)
 );
 
-drop table room;
-drop table roomasig;
 select * from users;
-select * from menu;
-truncate menu;
 select * from workers;
-select * from roomAsig;
 select * from dependients;
+select * from menu;
+select * from room;
+select * from roomAsig;
+truncate menu;
 delete from users where surname= surname;
 truncate room;
 drop database Hotel;

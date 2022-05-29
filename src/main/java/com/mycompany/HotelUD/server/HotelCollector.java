@@ -26,7 +26,7 @@ public class HotelCollector {
 	private ArrayList<Worker> inicializarWorkers(){
 		Connection con = null;
 		try {
-			con = BBDD.initBD();
+			con = BBDD.initBD("HotelBD");
 			workers=BBDD.getWorkers();
 		} catch (BDException e1) {
 			e1.printStackTrace();
@@ -39,7 +39,7 @@ public class HotelCollector {
 	private ArrayList<User> inicializarUsers(){
 	Connection con = null;
 	try {
-		con = BBDD.initBD();
+		con = BBDD.initBD("HotelBD");
 		users=BBDD.getUsers();
 	} catch (BDException e1) {
 		e1.printStackTrace();
@@ -68,7 +68,7 @@ public class HotelCollector {
         synchronized(this) {
         	Connection con = null;
     		try {
-    			con = BBDD.initBD();
+    			con = BBDD.initBD("HotelBD");
     			BBDD.addWorker(worker);
             	workers.add(worker);
             	logJava.info( "Successful in add workers");
@@ -83,7 +83,7 @@ public class HotelCollector {
 
         	Connection con = null;
     		try {
-    			con = BBDD.initBD();
+    			con = BBDD.initBD("HotelBD");
     			BBDD.addUsers(user);
             	users.add(user);
             	logJava.info( "Successful in add users");

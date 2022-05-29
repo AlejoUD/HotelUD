@@ -28,11 +28,11 @@ public class BBDD {
 	public static PreparedStatement statement;
 	private static Logger logJava = Logger.getLogger(BBDD.class);
 	
-	public static Connection initBD() throws BDException {
+	public static Connection initBD(String name) throws BDException {
 		Connection connection = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","1234");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+name+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","1234");
 						
 		} catch (ClassNotFoundException e) {
 			

@@ -86,7 +86,7 @@ public class DependientWindow {
 		JButton btnReserva = new JButton("Booking");
 		btnReserva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new DependientReservaWindow();
+				new AsigClientRoomWindow();
 			}
 		});
 		btnReserva.setBackground(Color.ORANGE);

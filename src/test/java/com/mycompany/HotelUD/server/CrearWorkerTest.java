@@ -44,7 +44,7 @@ public class CrearWorkerTest {
 			webTarget = client.target(String.format("http://%s:%s/rest", "127.0.0.1", 8080));
 			worker=new Worker(0, "Ander", "45919608W", "Male", 21);
 			try {
-				con = bd.initBD();
+				con = bd.initBD("HotelBD");
 			} catch (BDException e) {
 				e.printStackTrace();
 			}

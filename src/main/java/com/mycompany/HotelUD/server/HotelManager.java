@@ -277,7 +277,7 @@ public class HotelManager extends JFrame implements ActionListener, Runnable{
 		while(running.get()) {
 			try {
 
-				Connection con = BBDD.initBD();
+				Connection con = BBDD.initBD("HotelBD");
 				workers = BBDD.getWorkers();
 
 				Thread.sleep(5000);
